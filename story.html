@@ -263,21 +263,21 @@ nav.main-nav ul a.active { color: var(--ember); }
   pointer-events: none;
   overflow: hidden;
 }
-.page-hero-bg img {
+.page-hero-bg img,
+.page-hero-bg video {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(0.2) contrast(0.9) brightness(1.05);
-  opacity: 0.35;
+  opacity: 0.55;
 }
 .page-hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(244, 236, 224, 0.8) 0%,
-    rgba(244, 236, 224, 0.6) 50%,
-    rgba(244, 236, 224, 0.95) 100%);
+    rgba(244, 236, 224, 0.5) 0%,
+    rgba(244, 236, 224, 0.3) 50%,
+    rgba(244, 236, 224, 0.85) 100%);
 }
 .page-hero > *:not(.page-hero-bg) {
   position: relative;
@@ -860,14 +860,36 @@ footer.site-footer {
     overflow: hidden;
     color: var(--cream);
   }
+  .fire-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  .fire-visual-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(26, 20, 16, 0.55) 0%,
+      rgba(26, 20, 16, 0.15) 35%,
+      rgba(26, 20, 16, 0.15) 65%,
+      rgba(26, 20, 16, 0.75) 100%);
+    z-index: 1;
+  }
   .fire-visual::before {
     content: '';
     position: absolute; inset: 0;
     background:
-      radial-gradient(circle at 50% 70%, rgba(181, 74, 31, 0.45), transparent 60%),
-      radial-gradient(circle at 30% 20%, rgba(122, 46, 18, 0.3), transparent 50%);
+      radial-gradient(circle at 50% 70%, rgba(181, 74, 31, 0.25), transparent 60%);
+    z-index: 1;
+    pointer-events: none;
   }
-  .fire-visual > * { position: relative; z-index: 1; }
+  .fire-visual > *:not(.fire-video):not(.fire-visual-gradient) {
+    position: relative;
+    z-index: 2;
+  }
   .fire-visual .jp-huge {
     font-family: var(--f-jp);
     font-size: clamp(6rem, 14vw, 10rem);
@@ -875,6 +897,7 @@ footer.site-footer {
     line-height: 0.85;
     color: var(--ember);
     text-align: center;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
   }
   .fire-visual .caption-top {
     font-size: 0.65rem;
@@ -1077,6 +1100,10 @@ footer.site-footer {
   <div class="story-grid">
     <div class="visual-col reveal">
       <div class="fire-visual">
+        <video class="fire-video" autoplay muted loop playsinline poster="assets/kokin-showacse-poster.jpg">
+          <source src="assets/kokin-showacse.mp4" type="video/mp4">
+        </video>
+        <div class="fire-visual-gradient"></div>
         <div class="caption-top">
           <span>Kokin · 古今</span>
         </div>

@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Menu — Kokin — À La Carte &amp; Lunch Set, Modern Kaiseki London</title>
+<meta name="description" content="Kokin's menu — à la carte and lunch set. Wood-fire grilled tuna, A5 Miyazaki Wagyu, bluefin sashimi, and kaiseki-inspired small plates. Tuesday to Sunday in Stratford, London." />
+<meta name="keywords" content="Japanese restaurant menu London, kaiseki menu, bluefin tuna menu, woodfire Japanese menu, Kokin menu, Stratford Japanese" />
+<link rel="canonical" href="https://kokin.co.uk/menu.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;500&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   KOKIN · Shared design system
+   古今 — past and present
+   ============================================ */
+
+:root {
+  /* Warm paper palette */
+  --bone: #f4ece0;           /* base background — warm washi */
+  --bone-deep: #ebe1d2;      /* slightly deeper tone for alt sections */
+  --cream: #faf5ec;          /* lightest */
+  --ink: #1c1713;            /* deep warm black for text */
+  --ink-soft: #3a332c;       /* secondary text */
+  --ash: #7a6f62;            /* tertiary / captions */
+  --ash-dim: #a89a87;        /* hairline greys */
+  --ember: #b54a1f;          /* ember — primary accent */
+  --ember-deep: #7a2e12;     /* hover state */
+  --line: rgba(28, 23, 19, 0.12);
+  --line-strong: rgba(28, 23, 19, 0.22);
+  
+  --f-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --f-jp: 'Noto Serif JP', serif;
+  --f-body: 'Inter Tight', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-weight: 300;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* subtle paper grain */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 1000;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+}
+
+img, video { max-width: 100%; display: block; }
+
+/* Comprehensive link reset — kill all default browser colours */
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+button { font-family: inherit; color: inherit; }
+
+/* ============================================
+   NAV
+   ============================================ */
+nav.main-nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.75rem 2.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+nav.main-nav.scrolled {
+  background: rgba(244, 236, 224, 0.88);
+  backdrop-filter: blur(14px);
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+nav.main-nav .mark {
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.35em;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+nav.main-nav .mark .kanji {
+  font-family: var(--f-jp);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  margin-left: 0.5rem;
+  font-weight: 400;
+}
+nav.main-nav ul {
+  display: flex; list-style: none; gap: 2.5rem;
+}
+nav.main-nav ul a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 400;
+  position: relative;
+  transition: opacity 0.3s;
+}
+nav.main-nav ul a::after {
+  content: '';
+  position: absolute; left: 0; bottom: -6px;
+  width: 0; height: 1px;
+  background: var(--ember);
+  transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+nav.main-nav ul a:hover::after,
+nav.main-nav ul a.active::after { width: 100%; }
+nav.main-nav ul a.active { color: var(--ember); }
+
+.reserve-btn {
+  padding: 0.7rem 1.5rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  background: transparent;
+  cursor: pointer;
+}
+.reserve-btn:hover {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: var(--bone);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 40px; height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.menu-toggle span {
+  display: block;
+  width: 22px; height: 1px;
+  background: var(--ink);
+  transition: all 0.3s;
+}
+.menu-toggle.open span:nth-child(1) { transform: translateY(3px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-3px) rotate(-45deg); }
+
+/* ============================================
+   BUTTONS & CTAs
+   ============================================ */
+.cta-primary {
+  padding: 1.1rem 2.5rem;
+  background: var(--ember);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+  border: 0;
+  font-family: var(--f-body);
+  font-weight: 400;
+}
+.cta-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--ember-deep);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 0;
+}
+.cta-primary span { position: relative; z-index: 1; }
+.cta-primary:hover::before { transform: translateY(0); }
+
+.cta-secondary {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 4px;
+  transition: all 0.3s;
+  font-weight: 400;
+  display: inline-block;
+}
+.cta-secondary:hover { border-color: var(--ember); color: var(--ember); }
+
+/* ============================================
+   SECTION LABELS
+   ============================================ */
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 3rem;
+  display: flex; align-items: center; gap: 1rem;
+  font-weight: 500;
+}
+.section-label::before {
+  content: ''; width: 32px; height: 1px; background: var(--ember);
+}
+.section-label .num {
+  color: var(--ash);
+  font-family: var(--f-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+/* ============================================
+   PAGE HERO (for non-home pages)
+   ============================================ */
+.page-hero {
+  padding: 12rem 2.5rem 5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.2) contrast(0.9) brightness(1.05);
+  opacity: 0.35;
+}
+.page-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(244, 236, 224, 0.8) 0%,
+    rgba(244, 236, 224, 0.6) 50%,
+    rgba(244, 236, 224, 0.95) 100%);
+}
+.page-hero > *:not(.page-hero-bg) {
+  position: relative;
+  z-index: 1;
+}
+.page-hero .kanji-label {
+  font-family: var(--f-jp);
+  font-size: 1.2rem;
+  color: var(--ember);
+  letter-spacing: 0.5em;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+.page-hero h1 {
+  font-family: var(--f-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.page-hero h1 em { font-style: italic; color: var(--ember); }
+.page-hero .lede {
+  font-family: var(--f-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer.site-footer {
+  padding: 5rem 2.5rem 3rem;
+  border-top: 1px solid var(--line);
+  background: var(--bone-deep);
+}
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+}
+.footer-brand .mark {
+  font-family: var(--f-display);
+  font-size: 1.75rem;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--ink);
+  display: inline-block;
+}
+.footer-brand .mark .kanji {
+  font-family: var(--f-jp);
+  font-size: 1rem;
+  color: var(--ember);
+  margin-left: 0.5rem;
+  font-weight: 400;
+}
+.footer-brand p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  max-width: 320px;
+  line-height: 1.7;
+}
+
+.footer-block h6 {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+.footer-block a,
+.footer-block p {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.7;
+  margin-bottom: 0.4rem;
+  font-family: var(--f-body);
+  transition: color 0.3s;
+}
+.footer-block a:hover { color: var(--ember); }
+.footer-block small {
+  font-size: 0.75rem;
+  color: var(--ash);
+  display: block;
+  margin-top: 0.4rem;
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 4rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--ash);
+  text-transform: uppercase;
+}
+.footer-bottom a { color: var(--ash); text-decoration: none; margin-left: 1.5rem; }
+.footer-bottom a:hover { color: var(--ember); }
+
+/* ============================================
+   Reveal on scroll
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   MEDIA CONTAINERS
+   Drop-in image/video slots used across pages.
+   Each has fallback styling so the layout survives
+   without media, and smooth loading when media is added.
+   ============================================ */
+
+/* Generic media frame — holds img/video and crops cleanly */
+.media-frame {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8dcc8 0%, #d4c5ad 100%);
+}
+.media-frame img,
+.media-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.media-frame:hover img,
+.media-frame:hover video { transform: scale(1.03); }
+
+/* Placeholder overlay — shown when no media is present.
+   Add an <img> or <video> and the overlay is hidden automatically. */
+.media-frame .placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: var(--f-jp);
+  font-weight: 200;
+  color: var(--ink);
+  opacity: 0.3;
+  letter-spacing: 0.3em;
+  text-align: center;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(181, 74, 31, 0.18), transparent 55%),
+    radial-gradient(circle at 70% 70%, rgba(122, 46, 18, 0.22), transparent 60%);
+}
+.media-frame .placeholder .jp {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+.media-frame .placeholder .label {
+  font-family: var(--f-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ash);
+  opacity: 0.7;
+}
+.media-frame:has(img) .placeholder,
+.media-frame:has(video) .placeholder { display: none; }
+
+/* Decorative ember frame (optional) */
+.media-frame.framed::before {
+  content: '';
+  position: absolute;
+  top: 12px; left: 12px; right: 12px; bottom: 12px;
+  border: 1px solid rgba(250, 245, 236, 0.4);
+  pointer-events: none;
+  z-index: 2;
+}
+.media-frame.ember-border {
+  outline: 1px solid var(--ember);
+  outline-offset: -1px;
+}
+
+/* Aspect ratios */
+.ratio-3-4 { aspect-ratio: 3/4; }
+.ratio-4-5 { aspect-ratio: 4/5; }
+.ratio-1-1 { aspect-ratio: 1/1; }
+.ratio-16-9 { aspect-ratio: 16/9; }
+.ratio-5-7 { aspect-ratio: 5/7; }
+
+/* Hero video — full-bleed background behind content */
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero-video-bg video,
+.hero-video-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  filter: grayscale(0.3) contrast(0.95);
+}
+.hero-video-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, var(--bone) 0%, rgba(244, 236, 224, 0.4) 40%, var(--bone) 100%);
+  pointer-events: none;
+}
+
+/* Gallery strip — horizontal scrolling media row */
+.gallery-strip {
+  padding: 8rem 0;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--bone);
+}
+.gallery-strip-header {
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 3rem;
+}
+.gallery-strip-header h2 {
+  font-family: var(--f-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+.gallery-strip-header h2 em { font-style: italic; color: var(--ember); }
+.gallery-strip-header p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 380px;
+}
+.gallery-track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 2.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-item {
+  flex: 0 0 auto;
+  width: clamp(260px, 28vw, 400px);
+  scroll-snap-align: start;
+}
+.gallery-item .media-frame { aspect-ratio: 3/4; }
+.gallery-item .caption {
+  margin-top: 1.25rem;
+  font-family: var(--f-display);
+  font-size: 0.95rem;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+.gallery-item .caption .jp-caption {
+  font-family: var(--f-jp);
+  color: var(--ash);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  margin-left: 0.5rem;
+  font-weight: 300;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 900px) {
+  nav.main-nav { padding: 1.25rem 1.5rem; }
+  nav.main-nav.scrolled { padding: 1rem 1.5rem; }
+  
+  nav.main-nav ul {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bone);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 99;
+  }
+  nav.main-nav ul.open { transform: translateX(0); }
+  nav.main-nav ul a {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .menu-toggle { display: flex; z-index: 101; }
+  nav.main-nav .reserve-btn { display: none; }
+  
+  .page-hero { padding: 9rem 1.5rem 4rem; }
+  
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  .footer-bottom > div { margin: 0; }
+  .footer-bottom a { margin: 0 0.75rem; }
+
+  .gallery-strip { padding: 5rem 0; }
+  .gallery-strip-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .gallery-track { padding: 0 1.5rem; gap: 1rem; }
+  .gallery-item { width: 70vw; }
+}
+
+@media (max-width: 600px) {
+  .footer-inner { grid-template-columns: 1fr; }
+}
+
+</style>
+
+<style>
+  /* Menu tabs */
+  .menu-tabs {
+    padding: 3rem 2.5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .tab-btn {
+    background: none;
+    border: 0;
+    padding: 1.5rem 3rem;
+    font-family: var(--f-display);
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ash);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+    font-weight: 400;
+  }
+  .tab-btn .jp-inline {
+    font-family: var(--f-jp);
+    font-size: 0.85rem;
+    margin-left: 0.75rem;
+    letter-spacing: 0.2em;
+  }
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 2px;
+    background: var(--ember);
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .tab-btn:hover { color: var(--ink); }
+  .tab-btn.active { color: var(--ember); }
+  .tab-btn.active::after { transform: scaleX(1); }
+  
+  .menu-panel { display: none; padding: 5rem 2.5rem 8rem; }
+  .menu-panel.active { display: block; }
+  
+  .menu-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .menu-section {
+    margin-bottom: 5rem;
+  }
+  .menu-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 2rem;
+  }
+  .menu-section-header h2 {
+    font-family: var(--f-display);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ember);
+  }
+  .menu-section-header .jp-title {
+    font-family: var(--f-jp);
+    font-size: 1.3rem;
+    color: var(--ink);
+    letter-spacing: 0.2em;
+    font-weight: 300;
+  }
+  
+  .menu-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px dotted var(--line);
+    align-items: baseline;
+  }
+  .menu-item:last-child { border-bottom: 0; }
+  .menu-item .name {
+    font-family: var(--f-display);
+    font-size: 1.3rem;
+    color: var(--ink);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  .menu-item .name em { font-style: italic; color: var(--ember); }
+  .menu-item .desc {
+    font-size: 0.85rem;
+    color: var(--ash);
+    margin-top: 0.4rem;
+    line-height: 1.5;
+  }
+  .menu-item .price {
+    font-family: var(--f-display);
+    font-size: 1.2rem;
+    color: var(--ember);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  
+  /* Nigiri two-column price */
+  .menu-item.nigiri {
+    grid-template-columns: 1fr auto auto;
+    gap: 2rem 3rem;
+  }
+  .menu-item.nigiri .price {
+    min-width: 60px;
+    text-align: right;
+  }
+  .menu-item.nigiri .price.alt {
+    color: var(--ember-deep);
+    font-weight: 500;
+  }
+  .nigiri-header {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 2rem 3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-top: 1rem;
+  }
+  .nigiri-header > div:nth-child(2),
+  .nigiri-header > div:nth-child(3) {
+    text-align: right;
+    min-width: 60px;
+  }
+  
+  /* Lunch set card style */
+  .lunch-set {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  .lunch-card {
+    padding: 2rem;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 120px;
+    gap: 2rem;
+    align-items: start;
+    transition: all 0.4s;
+  }
+  .lunch-card:hover {
+    border-color: var(--ember);
+    transform: translateX(4px);
+  }
+  .lunch-card h3 {
+    font-family: var(--f-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .lunch-card h3 em { font-style: italic; color: var(--ember); }
+  .lunch-card ul {
+    list-style: none;
+  }
+  .lunch-card ul li {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    padding: 0.25rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .lunch-card ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--ember);
+  }
+  .lunch-card .price {
+    font-family: var(--f-display);
+    font-size: 1.75rem;
+    color: var(--ember);
+    text-align: right;
+    font-weight: 400;
+  }
+  
+  .menu-intro {
+    padding: 4rem 2.5rem 2rem;
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .menu-intro p {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+  
+  /* Dish showcase */
+  .dish-showcase {
+    padding: 3rem 2.5rem 5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .dish-showcase-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .dish-card {
+    position: relative;
+  }
+  .dish-image {
+    aspect-ratio: 3/4;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--bone-deep) 0%, #d4c5ad 100%);
+    margin-bottom: 1.5rem;
+  }
+  .dish-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .dish-card:hover .dish-image img { transform: scale(1.04); }
+  .dish-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+  }
+  .dish-placeholder span {
+    font-family: var(--f-jp);
+    font-size: 6rem;
+    font-weight: 200;
+    color: var(--ember);
+    opacity: 0.35;
+  }
+  .dish-caption {
+    text-align: center;
+  }
+  .dish-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  .dish-name {
+    font-family: var(--f-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .dish-name em { font-style: italic; color: var(--ember); }
+  .dish-sub {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--ash);
+  }
+
+  /* Menu closing */
+  .menu-closing {
+    padding: 6rem 2.5rem;
+    text-align: center;
+    background: var(--bone-deep);
+    border-top: 1px solid var(--line);
+  }
+  .menu-closing p {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .menu-tabs { padding: 2rem 1rem 0; }
+    .tab-btn { padding: 1rem 1.25rem; font-size: 0.75rem; letter-spacing: 0.2em; }
+    .tab-btn .jp-inline { display: none; }
+    .menu-panel { padding: 3rem 1.5rem 5rem; }
+    .menu-section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    .lunch-card {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .lunch-card .price { text-align: left; }
+    .menu-item.nigiri {
+      grid-template-columns: 1fr auto auto;
+      gap: 1rem 1.5rem;
+    }
+    .menu-item.nigiri .price { font-size: 1rem; min-width: 45px; }
+    .nigiri-header { gap: 1rem 1.5rem; }
+    .dish-showcase { padding: 2rem 1.5rem 3rem; }
+    .dish-showcase-inner { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="main-nav">
+  <a href="index.html" class="mark">KOKIN <span class="kanji">古今</span></a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Story</a></li>
+    <li><a href="menu.html" class="active">Menu</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="visit.html">Visit</a></li>
+  </ul>
+  <a href="https://www.exploretock.com/kokin-london" class="reserve-btn" target="_blank" rel="noopener">Reserve</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"><img src="assets/kokin-montage2-poster.jpg" alt="Sushi and sashimi at Kokin" onerror="this.parentElement.style.display='none'" /></div>
+  <div class="kanji-label">お 品 書 き</div>
+  <h1>The <em>menu</em></h1>
+  <p class="lede">A menu shaped by fire, guided by seasonality, and grounded in deep respect for every ingredient. Subject to seasonal change.</p>
+</section>
+
+<div class="menu-intro">
+  <p>Wild bluefin tuna sourced from Spain and Portugal. A5 Miyazaki Wagyu. Cherry and apple wood. Binchotan charcoal. Selected each morning, served each evening.</p>
+</div>
+
+<section class="dish-showcase">
+  <div class="dish-showcase-inner">
+    <div class="dish-card reveal">
+      <div class="dish-image">
+        <img src="assets/tunasushi.jpg" alt="" onerror="this.style.display='none'" />
+        <div class="dish-placeholder"><span>鮪</span></div>
+      </div>
+      <div class="dish-caption">
+        <div class="dish-label">Signature</div>
+        <div class="dish-name"><em>Bluefin</em> Tuna</div>
+        <div class="dish-sub">Whole-fish, woodfire &amp; knife</div>
+      </div>
+    </div>
+    <div class="dish-card reveal">
+      <div class="dish-image">
+        <img src="assets/make-sushi.jpg" alt="" onerror="this.style.display='none'" />
+        <div class="dish-placeholder"><span>和</span></div>
+      </div>
+      <div class="dish-caption">
+        <div class="dish-label">From the Fire</div>
+        <div class="dish-name">A5 <em>Wagyu</em></div>
+        <div class="dish-sub">Miyazaki · Sukiyaki style</div>
+      </div>
+    </div>
+    <div class="dish-card reveal">
+      <div class="dish-image">
+        <img src="assets/nigiri.jpg" alt="" onerror="this.style.display='none'" />
+        <div class="dish-placeholder"><span>寿</span></div>
+      </div>
+      <div class="dish-caption">
+        <div class="dish-label">Nigiri</div>
+        <div class="dish-name"><em>Kokin</em> Style</div>
+        <div class="dish-sub">Wood-fire smoked rice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="menu-tabs">
+  <button class="tab-btn active" data-tab="alacarte">À La Carte <span class="jp-inline">献 立</span></button>
+  <button class="tab-btn" data-tab="lunch">Lunch Set <span class="jp-inline">昼 定 食</span></button>
+</div>
+
+<!-- À LA CARTE -->
+<div class="menu-panel active" id="alacarte">
+  <div class="menu-inner">
+    
+    <div class="menu-section">
+      <div class="menu-section-header">
+        <h2>— Starters</h2>
+        <div class="jp-title">前 菜</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Oyster</div>
+          <div class="desc">With apple-smoked celeriac purée and nabansu jelly</div>
+        </div>
+        <div class="price">£4.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Grilled Tuna Skewer</div>
+          <div class="desc">With egg yolk curry sauce</div>
+        </div>
+        <div class="price">£5.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Japanese Yam Cake</div>
+          <div class="desc">With wagyu miso, grilled padrón peppers and enoki mushroom</div>
+        </div>
+        <div class="price">£7</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Homemade Tofu</div>
+          <div class="desc">Tofu cream with langoustine tartare</div>
+        </div>
+        <div class="price">£8</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Avocado Rice Cracker</div>
+          <div class="desc">Rice cracker with avocado and white crab meat</div>
+        </div>
+        <div class="price">£8</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Saba Sushi <span style="font-size:0.75rem; color: var(--ash);">(3 pcs)</span></div>
+          <div class="desc">Vinegar-marinated smoked mackerel sushi</div>
+        </div>
+        <div class="price">£10</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Wood-fire <em>Anago</em> Chawanmushi</div>
+          <div class="desc">Japanese steamed egg custard with conger eel</div>
+        </div>
+        <div class="price">£12</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Petite Ramen</div>
+          <div class="desc">Ramen noodles with langoustine stock and chicken stock</div>
+        </div>
+        <div class="price">£8.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">One-Bite <em>Fish &amp; Chips</em></div>
+          <div class="desc">Crispy-scale amadai, thin purple potato, smoked N25 caviar</div>
+        </div>
+        <div class="price">£13.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Scallop Tartare</div>
+          <div class="desc">Wood-fire grilled scallops with ama-ebi and salmon roe</div>
+        </div>
+        <div class="price">£18.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Japanese Assorted Starter Platter</div>
+          <div class="desc">Oyster · tofu · tuna skewer · saba sushi · chawanmushi</div>
+        </div>
+        <div class="price">£35</div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-section-header">
+        <h2>— Deep-Fry</h2>
+        <div class="jp-title">揚 げ 物</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Seasonal Vegetables Tempura</div>
+          <div class="desc">Selection of five kinds of seasonal vegetables</div>
+        </div>
+        <div class="price">£18</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Unagi Tempura</div>
+          <div class="desc">With homemade 8-year aged unagi sauce</div>
+        </div>
+        <div class="price">£18</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Crispy-Scale <em>Amadai</em></div>
+          <div class="desc">Japanese tilefish with lobster curry sauce</div>
+        </div>
+        <div class="price">£28</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Native Lobster Tempura</div>
+          <div class="desc">Lobster and vegetable tempura with morels XO sauce</div>
+        </div>
+        <div class="price">£38</div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-section-header">
+        <h2>— From the Fire</h2>
+        <div class="jp-title">炭 火</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Wood-fire Grilled Tuna <em>Kama</em> <span style="font-size:0.75rem; color: var(--ash);">(200g)</span></div>
+          <div class="desc">Portugal wild bluefin tuna collar with 8-year aged ponzu</div>
+        </div>
+        <div class="price">£28</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Miso Iberico Pork <span style="font-size:0.75rem; color: var(--ash);">(200g)</span></div>
+          <div class="desc">Wood-fire grilled with charcoal-grilled leek</div>
+        </div>
+        <div class="price">£28</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Duck Breast, <em>Two Fires</em></div>
+          <div class="desc">Wood-fire &amp; charcoal grilled, seasonal vegetables, duck liver sauce</div>
+        </div>
+        <div class="price">£32</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Grilled Native Lobster <span style="font-size:0.75rem; color: var(--ash);">(half)</span></div>
+          <div class="desc">Grilled with smoked umami butter</div>
+        </div>
+        <div class="price">£35</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Olive Wagyu Short Rib <span style="font-size:0.75rem; color: var(--ash);">(100g)</span></div>
+          <div class="desc">Wood-fire grilled with seasonal vegetables</div>
+        </div>
+        <div class="price">£36</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">A5 Miyazaki Wagyu <em>Sukiyaki</em> <span style="font-size:0.75rem; color: var(--ash);">(80g)</span></div>
+          <div class="desc">Wood-fire &amp; charcoal grilled with wild mushrooms, onsen tamago</div>
+        </div>
+        <div class="price">£60</div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-section-header">
+        <h2>— Sashimi <span style="font-size:0.75rem; color: var(--ash); margin-left: 0.5rem;">(2 pcs)</span></h2>
+        <div class="jp-title">刺 身</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="name">Portugal Wild Tuna <em>Akami</em> <span style="font-size:0.8rem; color: var(--ash);">(lean)</span></div></div>
+        <div class="price">£9</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="name">Portugal Wild Tuna <em>Chutoro</em> <span style="font-size:0.8rem; color: var(--ash);">(medium fat)</span></div></div>
+        <div class="price">£10</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="name">Portugal Wild Tuna <em>Otoro</em> <span style="font-size:0.8rem; color: var(--ash);">(fattest belly)</span></div></div>
+        <div class="price">£13</div>
+      </div>
+      <div class="menu-item"><div><div class="name">Trout</div></div><div class="price">£6.50</div></div>
+      <div class="menu-item"><div><div class="name">Sea Bream</div></div><div class="price">£7.50</div></div>
+      <div class="menu-item"><div><div class="name">Hamachi</div></div><div class="price">£8</div></div>
+      <div class="menu-item"><div><div class="name">Brill</div></div><div class="price">£8.50</div></div>
+      <div class="menu-item"><div><div class="name">Scallop</div></div><div class="price">£10</div></div>
+      <div class="menu-item"><div><div class="name">Langoustine</div></div><div class="price">£10</div></div>
+      <div class="menu-item"><div><div class="name">Cuttlefish Tartare</div></div><div class="price">£6</div></div>
+      <div class="menu-item"><div><div class="name">Salmon Roe</div></div><div class="price">£8.50</div></div>
+      <div class="menu-item">
+        <div><div class="name">Chef's Selection <span style="font-size:0.8rem; color: var(--ash);">(5 kinds)</span></div></div>
+        <div class="price">£38</div>
+      </div>
+      <div class="menu-item">
+        <div><div class="name">Chef's Selection <span style="font-size:0.8rem; color: var(--ash);">(7 kinds)</span></div></div>
+        <div class="price">£52</div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-section-header">
+        <h2>— Nigiri <span style="font-size:0.75rem; color: var(--ash); margin-left: 0.5rem;">(1 pc)</span></h2>
+        <div class="jp-title">握 り 寿 司</div>
+      </div>
+      <div class="nigiri-header">
+        <div></div>
+        <div>Classic</div>
+        <div>Kokin Style*</div>
+      </div>
+      <div class="menu-item nigiri"><div><div class="name">Portugal Wild Tuna Akami</div></div><div class="price">£5</div><div class="price alt">£6</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Portugal Wild Tuna Chutoro</div></div><div class="price">£6</div><div class="price alt">£7</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Portugal Wild Tuna Otoro</div></div><div class="price">£7.50</div><div class="price alt">£8.50</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Trout</div></div><div class="price">£4.80</div><div class="price alt">£5.70</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Hamachi</div></div><div class="price">£5</div><div class="price alt">£6</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Brill</div></div><div class="price">£5</div><div class="price alt">£6</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Sea Bream</div></div><div class="price">£4</div><div class="price alt">£5</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Scallop</div></div><div class="price">£7</div><div class="price alt">£8</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Langoustine</div></div><div class="price">£10</div><div class="price alt">£11</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Cuttlefish Tartare</div></div><div class="price">£4</div><div class="price alt">£5</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Salmon Roe</div></div><div class="price">£6.50</div><div class="price alt">£7.50</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Anago <span style="font-size:0.8rem; color: var(--ash);">(conger eel)</span></div></div><div class="price">£6</div><div class="price alt">£7</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Wood-fire Smoked Tuna</div></div><div class="price">£6.50</div><div class="price alt">£7.50</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Wood-fire Smoked Scallops</div></div><div class="price">£7.50</div><div class="price alt">£8.50</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Chef's Selection <span style="font-size:0.8rem; color: var(--ash);">(5 kinds)</span></div></div><div class="price">£27</div><div class="price alt">£32</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Chef's Selection <span style="font-size:0.8rem; color: var(--ash);">(8 kinds)</span></div></div><div class="price">£45</div><div class="price alt">£53</div></div>
+      <p style="font-size: 0.75rem; color: var(--ash); margin-top: 2rem; font-style: italic; letter-spacing: 0.05em;">* Kokin Style nigiri is prepared with wood-fire smoked sushi rice</p>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-section-header">
+        <h2>— Signature Sushi</h2>
+        <div class="jp-title">こ こ ん 特 製</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Portugal Wild Tuna Maki Roll <span style="font-size:0.75rem; color: var(--ash);">(3 pcs)</span></div>
+          <div class="desc">Sushi roll with three cuts of Portugal wild bluefin tuna</div>
+        </div>
+        <div class="price">£12</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name"><em>TEMAE Sushi</em> — "sushi made by me"</div>
+          <div class="desc">Wood-fire smoked sushi rice · three cuts of bluefin · ikura salmon roe</div>
+        </div>
+        <div class="price">£35</div>
+      </div>
+      <p style="font-size: 0.8rem; color: var(--ash); margin-top: 1.5rem; font-style: italic;">Supplements: cuttlefish tartare £10 · langoustine tartare £18 · Oscietra Reserve caviar (10g) £33 · (30g) £95</p>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-section-header">
+        <h2>— Dessert</h2>
+        <div class="jp-title">甘 味</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Wood-fired Ice Cream</div>
+          <div class="desc">With fermented raspberries</div>
+        </div>
+        <div class="price">£10</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Wagashi Selection</div>
+          <div class="desc">Four kinds of chef's dessert bite</div>
+        </div>
+        <div class="price">£18</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LUNCH SET -->
+<div class="menu-panel" id="lunch">
+  <div class="menu-inner">
+    <div style="text-align: center; margin-bottom: 4rem;">
+      <p style="font-family: var(--f-display); font-style: italic; font-size: 1.1rem; color: var(--ink-soft); max-width: 580px; margin: 0 auto; line-height: 1.6;">Available from 12pm to 2pm (last order) · Tuesday to Sunday</p>
+    </div>
+    
+    <div class="lunch-set">
+      <div class="lunch-card">
+        <div>
+          <h3>Vegetable Chirashi</h3>
+          <ul>
+            <li>Vegetable chirashi</li>
+            <li>Vegetable tempura</li>
+            <li>Miso soup</li>
+          </ul>
+        </div>
+        <div class="price">£26</div>
+      </div>
+      
+      <div class="lunch-card">
+        <div>
+          <h3>Grilled Salmon Set</h3>
+          <ul>
+            <li>Grilled salmon</li>
+            <li>Deep-fried chicken</li>
+            <li>Sashimi, 3 kinds</li>
+            <li>Japanese steamed rice</li>
+            <li>Miso soup</li>
+          </ul>
+        </div>
+        <div class="price">£28</div>
+      </div>
+      
+      <div class="lunch-card">
+        <div>
+          <h3>Nigiri Sushi Set</h3>
+          <ul>
+            <li>Nigiri sushi (6 pcs)</li>
+            <li>Cucumber roll (3 pcs)</li>
+            <li>Prawn tempura</li>
+            <li>Miso soup</li>
+          </ul>
+        </div>
+        <div class="price">£32</div>
+      </div>
+      
+      <div class="lunch-card">
+        <div>
+          <h3>Prawn Tempura Set</h3>
+          <ul>
+            <li>Prawn tempura</li>
+            <li>Deep-fried chicken</li>
+            <li>Sashimi, 3 kinds</li>
+            <li>Japanese steamed rice</li>
+            <li>Miso soup</li>
+          </ul>
+        </div>
+        <div class="price">£32</div>
+      </div>
+      
+      <div class="lunch-card">
+        <div>
+          <h3><em>Chirashi</em> Set</h3>
+          <ul>
+            <li>Chirashi don</li>
+            <li>Prawn tempura</li>
+            <li>Miso soup</li>
+          </ul>
+        </div>
+        <div class="price">£35</div>
+      </div>
+      
+      <div class="lunch-card">
+        <div>
+          <h3><em>Unagi</em> Donburi</h3>
+          <ul>
+            <li>Grilled unagi rice bowl</li>
+            <li>Miso soup</li>
+            <li>Pickle</li>
+          </ul>
+        </div>
+        <div class="price">£38</div>
+      </div>
+      
+      <div class="lunch-card">
+        <div>
+          <h3>Grilled <em>Wagyu</em> Set</h3>
+          <ul>
+            <li>Grilled A5 Wagyu</li>
+            <li>Deep-fried chicken</li>
+            <li>Sashimi, 3 kinds</li>
+            <li>Japanese steamed rice</li>
+            <li>Miso soup</li>
+          </ul>
+        </div>
+        <div class="price">£65</div>
+      </div>
+      
+      <div class="lunch-card">
+        <div>
+          <h3><em>Wagyu</em> × <em>Otoro</em> Donburi</h3>
+          <ul>
+            <li>Grilled A5 Wagyu</li>
+            <li>Tuna otoro</li>
+            <li>Miso soup</li>
+            <li>Pickles</li>
+          </ul>
+        </div>
+        <div class="price">£90</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="menu-closing">
+  <p>Menus change with the season. Vegetarian, vegan, and dietary requirements are accommodated where possible — please let us know when booking.</p>
+  <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Reserve a table</span></a>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="mark">KOKIN <span class="kanji">古今</span></div>
+      <p>A fire-born tradition, reborn in the heart of modern London. Chef Daisuke Shimoyama's modern kaiseki restaurant on the seventh floor of The Stratford.</p>
+    </div>
+    <div class="footer-block">
+      <h6>Explore</h6>
+      <a href="story.html">Our Story</a>
+      <a href="menu.html">Menu</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="visit.html">Visit</a>
+    </div>
+    <div class="footer-block">
+      <h6>Visit</h6>
+      <p>7th Floor, The Stratford<br/>20 International Way<br/>London E20 1FD</p>
+      <a href="tel:02038020402">020 3802 0402</a>
+    </div>
+    <div class="footer-block">
+      <h6>Reserve</h6>
+      <a href="https://www.exploretock.com/kokin-london" target="_blank" rel="noopener">Book via Tock →</a>
+      <a href="mailto:reservations@kokin.co.uk">reservations@kokin.co.uk</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Kokin London</div>
+    <div>
+      <a href="#">Privacy</a>
+      <a href="#">Cookies</a>
+      <a href="#">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// KOKIN · Shared site scripts
+
+(function () {
+  // Nav scroll state
+  const nav = document.querySelector('.main-nav');
+  if (nav) {
+    const onScroll = () => {
+      if (window.scrollY > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Mobile menu
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.main-nav ul');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      menu.classList.toggle('open');
+    });
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        menu.classList.remove('open');
+      });
+    });
+  }
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+</script>
+<script>
+  // Menu tabs
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(target).classList.add('active');
+      window.scrollTo({ top: document.querySelector('.menu-tabs').offsetTop - 80, behavior: 'smooth' });
+    });
+  });
+</script>
+</body>
+</html>

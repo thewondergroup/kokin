@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery — Kokin — Photography from a Japanese Woodfire Kitchen</title>
+<meta name="description" content="A visual record of Kokin London — the dining room, the fire, the tuna, the craft. Photography from Chef Daisuke Shimoyama's modern kaiseki restaurant in Stratford." />
+<meta name="keywords" content="Kokin London photos, Japanese restaurant gallery, sushi photography, woodfire Japanese, Stratford Japanese restaurant" />
+<link rel="canonical" href="https://kokin.co.uk/gallery.html" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;500&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   KOKIN · Shared design system
+   古今 — past and present
+   ============================================ */
+
+:root {
+  /* Warm paper palette */
+  --bone: #f4ece0;           /* base background — warm washi */
+  --bone-deep: #ebe1d2;      /* slightly deeper tone for alt sections */
+  --cream: #faf5ec;          /* lightest */
+  --ink: #1c1713;            /* deep warm black for text */
+  --ink-soft: #3a332c;       /* secondary text */
+  --ash: #7a6f62;            /* tertiary / captions */
+  --ash-dim: #a89a87;        /* hairline greys */
+  --ember: #b54a1f;          /* ember — primary accent */
+  --ember-deep: #7a2e12;     /* hover state */
+  --line: rgba(28, 23, 19, 0.12);
+  --line-strong: rgba(28, 23, 19, 0.22);
+  
+  --f-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --f-jp: 'Noto Serif JP', serif;
+  --f-body: 'Inter Tight', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-weight: 300;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* subtle paper grain */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 1000;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+}
+
+img, video { max-width: 100%; display: block; }
+
+/* Comprehensive link reset — kill all default browser colours */
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+button { font-family: inherit; color: inherit; }
+
+/* ============================================
+   NAV
+   ============================================ */
+nav.main-nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.75rem 2.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+nav.main-nav.scrolled {
+  background: rgba(244, 236, 224, 0.88);
+  backdrop-filter: blur(14px);
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+nav.main-nav .mark {
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.35em;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+nav.main-nav .mark .kanji {
+  font-family: var(--f-jp);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  margin-left: 0.5rem;
+  font-weight: 400;
+}
+nav.main-nav ul {
+  display: flex; list-style: none; gap: 2.5rem;
+}
+nav.main-nav ul a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 400;
+  position: relative;
+  transition: opacity 0.3s;
+}
+nav.main-nav ul a::after {
+  content: '';
+  position: absolute; left: 0; bottom: -6px;
+  width: 0; height: 1px;
+  background: var(--ember);
+  transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+nav.main-nav ul a:hover::after,
+nav.main-nav ul a.active::after { width: 100%; }
+nav.main-nav ul a.active { color: var(--ember); }
+
+.reserve-btn {
+  padding: 0.7rem 1.5rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  background: transparent;
+  cursor: pointer;
+}
+.reserve-btn:hover {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: var(--bone);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 40px; height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.menu-toggle span {
+  display: block;
+  width: 22px; height: 1px;
+  background: var(--ink);
+  transition: all 0.3s;
+}
+.menu-toggle.open span:nth-child(1) { transform: translateY(3px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-3px) rotate(-45deg); }
+
+/* ============================================
+   BUTTONS & CTAs
+   ============================================ */
+.cta-primary {
+  padding: 1.1rem 2.5rem;
+  background: var(--ember);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+  border: 0;
+  font-family: var(--f-body);
+  font-weight: 400;
+}
+.cta-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--ember-deep);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 0;
+}
+.cta-primary span { position: relative; z-index: 1; }
+.cta-primary:hover::before { transform: translateY(0); }
+
+.cta-secondary {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 4px;
+  transition: all 0.3s;
+  font-weight: 400;
+  display: inline-block;
+}
+.cta-secondary:hover { border-color: var(--ember); color: var(--ember); }
+
+/* ============================================
+   SECTION LABELS
+   ============================================ */
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 3rem;
+  display: flex; align-items: center; gap: 1rem;
+  font-weight: 500;
+}
+.section-label::before {
+  content: ''; width: 32px; height: 1px; background: var(--ember);
+}
+.section-label .num {
+  color: var(--ash);
+  font-family: var(--f-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+/* ============================================
+   PAGE HERO (for non-home pages)
+   ============================================ */
+.page-hero {
+  padding: 12rem 2.5rem 5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.2) contrast(0.9) brightness(1.05);
+  opacity: 0.35;
+}
+.page-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(244, 236, 224, 0.8) 0%,
+    rgba(244, 236, 224, 0.6) 50%,
+    rgba(244, 236, 224, 0.95) 100%);
+}
+.page-hero > *:not(.page-hero-bg) {
+  position: relative;
+  z-index: 1;
+}
+.page-hero .kanji-label {
+  font-family: var(--f-jp);
+  font-size: 1.2rem;
+  color: var(--ember);
+  letter-spacing: 0.5em;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+.page-hero h1 {
+  font-family: var(--f-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.page-hero h1 em { font-style: italic; color: var(--ember); }
+.page-hero .lede {
+  font-family: var(--f-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer.site-footer {
+  padding: 5rem 2.5rem 3rem;
+  border-top: 1px solid var(--line);
+  background: var(--bone-deep);
+}
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+}
+.footer-brand .mark {
+  font-family: var(--f-display);
+  font-size: 1.75rem;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--ink);
+  display: inline-block;
+}
+.footer-brand .mark .kanji {
+  font-family: var(--f-jp);
+  font-size: 1rem;
+  color: var(--ember);
+  margin-left: 0.5rem;
+  font-weight: 400;
+}
+.footer-brand p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  max-width: 320px;
+  line-height: 1.7;
+}
+
+.footer-block h6 {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+.footer-block a,
+.footer-block p {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.7;
+  margin-bottom: 0.4rem;
+  font-family: var(--f-body);
+  transition: color 0.3s;
+}
+.footer-block a:hover { color: var(--ember); }
+.footer-block small {
+  font-size: 0.75rem;
+  color: var(--ash);
+  display: block;
+  margin-top: 0.4rem;
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 4rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--ash);
+  text-transform: uppercase;
+}
+.footer-bottom a { color: var(--ash); text-decoration: none; margin-left: 1.5rem; }
+.footer-bottom a:hover { color: var(--ember); }
+
+/* ============================================
+   Reveal on scroll
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   MEDIA CONTAINERS
+   Drop-in image/video slots used across pages.
+   Each has fallback styling so the layout survives
+   without media, and smooth loading when media is added.
+   ============================================ */
+
+/* Generic media frame — holds img/video and crops cleanly */
+.media-frame {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8dcc8 0%, #d4c5ad 100%);
+}
+.media-frame img,
+.media-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.media-frame:hover img,
+.media-frame:hover video { transform: scale(1.03); }
+
+/* Placeholder overlay — shown when no media is present.
+   Add an <img> or <video> and the overlay is hidden automatically. */
+.media-frame .placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: var(--f-jp);
+  font-weight: 200;
+  color: var(--ink);
+  opacity: 0.3;
+  letter-spacing: 0.3em;
+  text-align: center;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(181, 74, 31, 0.18), transparent 55%),
+    radial-gradient(circle at 70% 70%, rgba(122, 46, 18, 0.22), transparent 60%);
+}
+.media-frame .placeholder .jp {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+.media-frame .placeholder .label {
+  font-family: var(--f-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ash);
+  opacity: 0.7;
+}
+.media-frame:has(img) .placeholder,
+.media-frame:has(video) .placeholder { display: none; }
+
+/* Decorative ember frame (optional) */
+.media-frame.framed::before {
+  content: '';
+  position: absolute;
+  top: 12px; left: 12px; right: 12px; bottom: 12px;
+  border: 1px solid rgba(250, 245, 236, 0.4);
+  pointer-events: none;
+  z-index: 2;
+}
+.media-frame.ember-border {
+  outline: 1px solid var(--ember);
+  outline-offset: -1px;
+}
+
+/* Aspect ratios */
+.ratio-3-4 { aspect-ratio: 3/4; }
+.ratio-4-5 { aspect-ratio: 4/5; }
+.ratio-1-1 { aspect-ratio: 1/1; }
+.ratio-16-9 { aspect-ratio: 16/9; }
+.ratio-5-7 { aspect-ratio: 5/7; }
+
+/* Hero video — full-bleed background behind content */
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero-video-bg video,
+.hero-video-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  filter: grayscale(0.3) contrast(0.95);
+}
+.hero-video-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, var(--bone) 0%, rgba(244, 236, 224, 0.4) 40%, var(--bone) 100%);
+  pointer-events: none;
+}
+
+/* Gallery strip — horizontal scrolling media row */
+.gallery-strip {
+  padding: 8rem 0;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--bone);
+}
+.gallery-strip-header {
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 3rem;
+}
+.gallery-strip-header h2 {
+  font-family: var(--f-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+.gallery-strip-header h2 em { font-style: italic; color: var(--ember); }
+.gallery-strip-header p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 380px;
+}
+.gallery-track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 2.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-item {
+  flex: 0 0 auto;
+  width: clamp(260px, 28vw, 400px);
+  scroll-snap-align: start;
+}
+.gallery-item .media-frame { aspect-ratio: 3/4; }
+.gallery-item .caption {
+  margin-top: 1.25rem;
+  font-family: var(--f-display);
+  font-size: 0.95rem;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+.gallery-item .caption .jp-caption {
+  font-family: var(--f-jp);
+  color: var(--ash);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  margin-left: 0.5rem;
+  font-weight: 300;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 900px) {
+  nav.main-nav { padding: 1.25rem 1.5rem; }
+  nav.main-nav.scrolled { padding: 1rem 1.5rem; }
+  
+  nav.main-nav ul {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bone);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 99;
+  }
+  nav.main-nav ul.open { transform: translateX(0); }
+  nav.main-nav ul a {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .menu-toggle { display: flex; z-index: 101; }
+  nav.main-nav .reserve-btn { display: none; }
+  
+  .page-hero { padding: 9rem 1.5rem 4rem; }
+  
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  .footer-bottom > div { margin: 0; }
+  .footer-bottom a { margin: 0 0.75rem; }
+
+  .gallery-strip { padding: 5rem 0; }
+  .gallery-strip-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .gallery-track { padding: 0 1.5rem; gap: 1rem; }
+  .gallery-item { width: 70vw; }
+}
+
+@media (max-width: 600px) {
+  .footer-inner { grid-template-columns: 1fr; }
+}
+
+</style>
+
+<style>
+  /* Gallery filter bar */
+  .filter-bar {
+    padding: 3rem 2.5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+  }
+  .filter-btn {
+    background: none;
+    border: 0;
+    padding: 1rem 1.5rem;
+    font-family: var(--f-display);
+    font-size: 0.8rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ash);
+    cursor: pointer;
+    position: relative;
+    transition: color 0.3s;
+    font-weight: 400;
+  }
+  .filter-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 1.5rem; right: 1.5rem;
+    height: 1px;
+    background: var(--ember);
+    transform: scaleX(0);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .filter-btn:hover { color: var(--ink); }
+  .filter-btn.active { color: var(--ember); }
+  .filter-btn.active::after { transform: scaleX(1); }
+  .filter-btn .count {
+    font-size: 0.6rem;
+    color: var(--ash-dim);
+    margin-left: 0.4rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* Masonry grid */
+  .gallery-grid {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 4rem 2.5rem 8rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    grid-auto-flow: dense;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--bone-deep) 0%, var(--cream) 100%);
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+                opacity 0.4s;
+    aspect-ratio: 3/4;
+  }
+  /* Vary aspect ratios and spans for editorial feel */
+  .gallery-item.tall { aspect-ratio: 3/5; grid-row: span 2; }
+  .gallery-item.wide { aspect-ratio: 4/3; grid-column: span 2; }
+  .gallery-item.square { aspect-ratio: 1/1; }
+  .gallery-item.portrait { aspect-ratio: 2/3; }
+  .gallery-item.landscape { aspect-ratio: 3/2; grid-column: span 2; }
+  
+  .gallery-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .gallery-item:hover img { transform: scale(1.05); }
+  .gallery-item.hidden { display: none; }
+  
+  /* Placeholder with kanji */
+  .gallery-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--f-jp);
+    color: var(--ember);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+  .gallery-placeholder .char {
+    font-size: 4rem;
+    font-weight: 200;
+    line-height: 1;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+  .gallery-placeholder .label {
+    font-family: var(--f-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ash);
+    opacity: 0.8;
+  }
+  
+  /* Overlay caption on hover */
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(28, 23, 19, 0.75));
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 2;
+    pointer-events: none;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .gallery-overlay .caption {
+    color: var(--cream);
+    font-family: var(--f-display);
+    font-size: 0.95rem;
+    font-style: italic;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+  }
+  .gallery-overlay .tag {
+    color: var(--ember);
+    font-family: var(--f-body);
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+  }
+  
+  /* Closing band */
+  .gallery-closing {
+    padding: 8rem 2.5rem;
+    background: var(--bone-deep);
+    border-top: 1px solid var(--line);
+    text-align: center;
+  }
+  .gallery-closing .kanji-label {
+    font-family: var(--f-jp);
+    font-size: 1.1rem;
+    color: var(--ember);
+    letter-spacing: 0.5em;
+    margin-bottom: 1.5rem;
+  }
+  .gallery-closing h2 {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .gallery-closing h2 em { font-style: italic; color: var(--ember); }
+  .gallery-closing p {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .filter-bar { padding: 2rem 1rem 0; gap: 0.5rem; }
+    .filter-btn { padding: 0.75rem 0.75rem; font-size: 0.7rem; letter-spacing: 0.2em; }
+    .gallery-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      padding: 2.5rem 1rem 5rem;
+    }
+    .gallery-item.wide,
+    .gallery-item.landscape { grid-column: span 2; }
+    .gallery-item.tall { grid-row: span 2; }
+    .gallery-closing { padding: 5rem 1.5rem; }
+  }
+  
+  @media (max-width: 520px) {
+    .gallery-grid { grid-template-columns: 1fr; }
+    .gallery-item,
+    .gallery-item.wide,
+    .gallery-item.landscape { grid-column: span 1; }
+    .gallery-item.tall { grid-row: span 1; aspect-ratio: 3/4; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="main-nav">
+  <a href="index.html" class="mark">KOKIN <span class="kanji">古今</span></a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="story.html">Story</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html" class="active">Gallery</a></li>
+    <li><a href="visit.html">Visit</a></li>
+  </ul>
+  <a href="https://www.exploretock.com/kokin-london" class="reserve-btn" target="_blank" rel="noopener">Reserve</a>
+</nav>
+
+<section class="page-hero">
+  <div class="page-hero-bg"><img src="assets/kokin-showacse-poster.jpg" alt="Woodfire kitchen at Kokin" onerror="this.parentElement.style.display='none'" /></div>
+  <div class="kanji-label">画 廊</div>
+  <h1>The <em>gallery</em></h1>
+  <p class="lede">A visual record of the room, the fire, the knife, and the plate. Photography from the kitchen and the pass.</p>
+</section>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="room">The Room</button>
+  <button class="filter-btn" data-filter="fire">The Fire</button>
+  <button class="filter-btn" data-filter="tuna">The Tuna</button>
+  <button class="filter-btn" data-filter="dishes">Dishes</button>
+  <button class="filter-btn" data-filter="events">Events</button>
+</div>
+
+<div class="gallery-grid">
+  
+  <!-- Row 1 -->
+  <div class="gallery-item tall" data-cat="tuna">
+    <img src="assets/sashimi-tuna.jpg" alt="Tuna sashimi at Kokin" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">鮪</div><div class="label">Tuna</div></div>
+    <div class="gallery-overlay"><div><div class="tag">The Tuna</div><div class="caption">Wild bluefin akami, lifted</div></div></div>
+  </div>
+  
+  <div class="gallery-item" data-cat="dishes">
+    <img src="assets/oyster.jpg" alt="Oyster with nabansu jelly" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">牡</div><div class="label">Oyster</div></div>
+    <div class="gallery-overlay"><div><div class="tag">Dishes</div><div class="caption">Oyster &amp; nabansu jelly</div></div></div>
+  </div>
+  
+  <div class="gallery-item" data-cat="fire">
+    <img src="assets/kokin-showacse-poster.jpg" alt="Fish grilling over woodfire" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">炎</div><div class="label">Fire</div></div>
+    <div class="gallery-overlay"><div><div class="tag">The Fire</div><div class="caption">Cherry wood, mid-service</div></div></div>
+  </div>
+  
+  <!-- Row 2 -->
+  <div class="gallery-item" data-cat="room">
+    <img src="assets/headchef1.jpg" alt="Chef Shimoyama at the pass" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">匠</div><div class="label">The Chef</div></div>
+    <div class="gallery-overlay"><div><div class="tag">The Room</div><div class="caption">Chef Shimoyama at the pass</div></div></div>
+  </div>
+  
+  <div class="gallery-item wide" data-cat="dishes">
+    <img src="assets/mixed-platter.jpg" alt="Assorted Japanese starter platter" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">膳</div><div class="label">Platter</div></div>
+    <div class="gallery-overlay"><div><div class="tag">Dishes</div><div class="caption">Seasonal assorted platter</div></div></div>
+  </div>
+  
+  <!-- Row 3 -->
+  <div class="gallery-item" data-cat="dishes">
+    <img src="assets/scallops.jpg" alt="Scallop sashimi in shell" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">貝</div><div class="label">Scallop</div></div>
+    <div class="gallery-overlay"><div><div class="tag">Dishes</div><div class="caption">Scallop sashimi, in shell</div></div></div>
+  </div>
+  
+  <div class="gallery-item tall" data-cat="tuna">
+    <img src="assets/tunasushi.jpg" alt="Bluefin otoro nigiri close-up" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">握</div><div class="label">Nigiri</div></div>
+    <div class="gallery-overlay"><div><div class="tag">The Tuna</div><div class="caption">Otoro nigiri, close</div></div></div>
+  </div>
+  
+  <div class="gallery-item" data-cat="dishes">
+    <img src="assets/sea-urchin.jpg" alt="Sea urchin dish with mushrooms" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">雲</div><div class="label">Uni</div></div>
+    <div class="gallery-overlay"><div><div class="tag">Dishes</div><div class="caption">Sea urchin &amp; mushrooms</div></div></div>
+  </div>
+  
+  <!-- Row 4 -->
+  <div class="gallery-item" data-cat="events">
+    <img src="assets/cocktail-matcha.jpg" alt="Matcha cocktail" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">茶</div><div class="label">Matcha</div></div>
+    <div class="gallery-overlay"><div><div class="tag">Events</div><div class="caption">Matcha cocktail, from the bar</div></div></div>
+  </div>
+  
+  <div class="gallery-item wide" data-cat="dishes">
+    <img src="assets/sashimi-platter.jpg" alt="Mixed sashimi platter" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">刺</div><div class="label">Sashimi</div></div>
+    <div class="gallery-overlay"><div><div class="tag">Dishes</div><div class="caption">Chef's sashimi selection</div></div></div>
+  </div>
+  
+  <!-- Row 5 -->
+  <div class="gallery-item" data-cat="events">
+    <img src="assets/cocktail-pink.jpg" alt="Pink cocktail" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">盃</div><div class="label">Cocktail</div></div>
+    <div class="gallery-overlay"><div><div class="tag">Events</div><div class="caption">Weekend brunch, poured</div></div></div>
+  </div>
+  
+  <div class="gallery-item" data-cat="room">
+    <img src="assets/second-in-command.jpg" alt="Chef plating sashimi course" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">料</div><div class="label">Plating</div></div>
+    <div class="gallery-overlay"><div><div class="tag">The Room</div><div class="caption">Plating the sashimi course</div></div></div>
+  </div>
+  
+  <div class="gallery-item tall" data-cat="dishes">
+    <img src="assets/make-sushi.jpg" alt="Signature TEMAE sushi" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">寿</div><div class="label">TEMAE</div></div>
+    <div class="gallery-overlay"><div><div class="tag">Dishes</div><div class="caption">TEMAE — smoked rice, ikura, tuna</div></div></div>
+  </div>
+  
+  <!-- Row 6 -->
+  <div class="gallery-item wide" data-cat="tuna">
+    <img src="assets/kokin-montage2-poster.jpg" alt="Tuna chirashi bowl" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">丼</div><div class="label">Chirashi</div></div>
+    <div class="gallery-overlay"><div><div class="tag">The Tuna</div><div class="caption">Chirashi — otoro, chutoro, akami</div></div></div>
+  </div>
+  
+  <div class="gallery-item" data-cat="room">
+    <img src="assets/barman.jpg" alt="Bartender with signature cocktail" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">酒</div><div class="label">The Bar</div></div>
+    <div class="gallery-overlay"><div><div class="tag">The Room</div><div class="caption">At the bar, service</div></div></div>
+  </div>
+  
+  <!-- Row 7 -->
+  <div class="gallery-item" data-cat="dishes">
+    <img src="assets/scallops2.jpg" alt="Grilled scallop with roe" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">帆</div><div class="label">Scallop</div></div>
+    <div class="gallery-overlay"><div><div class="tag">Dishes</div><div class="caption">Wood-fire scallop &amp; ikura</div></div></div>
+  </div>
+  
+  <div class="gallery-item" data-cat="dishes">
+    <img src="assets/nigiri.jpg" alt="Kokin-style smoked rice nigiri" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">飯</div><div class="label">Kokin Nigiri</div></div>
+    <div class="gallery-overlay"><div><div class="tag">Dishes</div><div class="caption">Kokin-style, smoked rice</div></div></div>
+  </div>
+  
+  <div class="gallery-item" data-cat="tuna">
+    <img src="assets/tuna-sashimi.jpg" alt="Tuna sashimi" onerror="this.style.display='none'" />
+    <div class="gallery-placeholder"><div class="char">身</div><div class="label">Sashimi</div></div>
+    <div class="gallery-overlay"><div><div class="tag">The Tuna</div><div class="caption">Three cuts, one fish</div></div></div>
+  </div>
+  
+</div>
+
+<section class="gallery-closing">
+  <div class="reveal">
+    <div class="kanji-label">予 約</div>
+    <h2>Experience it<br/><em>in person</em>.</h2>
+    <p>The photographs are only a fragment. The fire, the knife, the plate — best seen seven floors above Stratford, on any evening except Monday.</p>
+    <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Reserve a table</span></a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="mark">KOKIN <span class="kanji">古今</span></div>
+      <p>A fire-born tradition, reborn in the heart of modern London. Chef Daisuke Shimoyama's modern kaiseki restaurant on the seventh floor of The Stratford.</p>
+    </div>
+    <div class="footer-block">
+      <h6>Explore</h6>
+      <a href="story.html">Our Story</a>
+      <a href="menu.html">Menu</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="visit.html">Visit</a>
+    </div>
+    <div class="footer-block">
+      <h6>Visit</h6>
+      <p>7th Floor, The Stratford<br/>20 International Way<br/>London E20 1FD</p>
+      <a href="tel:02038020402">020 3802 0402</a>
+    </div>
+    <div class="footer-block">
+      <h6>Reserve</h6>
+      <a href="https://www.exploretock.com/kokin-london" target="_blank" rel="noopener">Book via Tock →</a>
+      <a href="mailto:reservations@kokin.co.uk">reservations@kokin.co.uk</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Kokin London</div>
+    <div>
+      <a href="#">Privacy</a>
+      <a href="#">Cookies</a>
+      <a href="#">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// KOKIN · Shared site scripts
+
+(function () {
+  // Nav scroll state
+  const nav = document.querySelector('.main-nav');
+  if (nav) {
+    const onScroll = () => {
+      if (window.scrollY > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Mobile menu
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.main-nav ul');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      menu.classList.toggle('open');
+    });
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        menu.classList.remove('open');
+      });
+    });
+  }
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+</script>
+<script>
+  // Category filter
+  const buttons = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.gallery-item');
+  
+  // Update counts on buttons
+  buttons.forEach(btn => {
+    const filter = btn.dataset.filter;
+    let count;
+    if (filter === 'all') {
+      count = items.length;
+    } else {
+      count = document.querySelectorAll(`[data-cat="${filter}"]`).length;
+    }
+    const countSpan = document.createElement('span');
+    countSpan.className = 'count';
+    countSpan.textContent = count;
+    btn.appendChild(countSpan);
+  });
+  
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter;
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      items.forEach(item => {
+        if (filter === 'all' || item.dataset.cat === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

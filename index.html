@@ -1,0 +1,1715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kokin — 古今 — Modern Kaiseki Restaurant, Stratford London</title>
+<meta name="description" content="Kokin (古今) — Chef Daisuke Shimoyama's modern kaiseki restaurant in Stratford, London. Woodfire, sustainable bluefin tuna, and cuisine rooted in heritage yet always evolving." />
+<meta name="keywords" content="Japanese restaurant London, kaiseki Stratford, modern Japanese cuisine, woodfire Japanese, Daisuke Shimoyama, bluefin tuna London" />
+<link rel="canonical" href="https://kokin.co.uk/" />
+
+<!-- OG -->
+<meta property="og:type" content="restaurant" />
+<meta property="og:title" content="Kokin — 古今 — Modern Kaiseki, Stratford London" />
+<meta property="og:description" content="A tradition reborn in the heart of modern London." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;500&family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   KOKIN · Shared design system
+   古今 — past and present
+   ============================================ */
+
+:root {
+  /* Warm paper palette */
+  --bone: #f4ece0;           /* base background — warm washi */
+  --bone-deep: #ebe1d2;      /* slightly deeper tone for alt sections */
+  --cream: #faf5ec;          /* lightest */
+  --ink: #1c1713;            /* deep warm black for text */
+  --ink-soft: #3a332c;       /* secondary text */
+  --ash: #7a6f62;            /* tertiary / captions */
+  --ash-dim: #a89a87;        /* hairline greys */
+  --ember: #b54a1f;          /* ember — primary accent */
+  --ember-deep: #7a2e12;     /* hover state */
+  --line: rgba(28, 23, 19, 0.12);
+  --line-strong: rgba(28, 23, 19, 0.22);
+  
+  --f-display: 'Cormorant Garamond', 'Times New Roman', serif;
+  --f-jp: 'Noto Serif JP', serif;
+  --f-body: 'Inter Tight', -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-weight: 300;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* subtle paper grain */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 1000;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.07 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  opacity: 0.55;
+  mix-blend-mode: multiply;
+}
+
+img, video { max-width: 100%; display: block; }
+
+/* Comprehensive link reset — kill all default browser colours */
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: inherit;
+  text-decoration: none;
+}
+button { font-family: inherit; color: inherit; }
+
+/* ============================================
+   NAV
+   ============================================ */
+nav.main-nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 1.75rem 2.5rem;
+  display: flex; justify-content: space-between; align-items: center;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+nav.main-nav.scrolled {
+  background: rgba(244, 236, 224, 0.88);
+  backdrop-filter: blur(14px);
+  padding: 1rem 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+nav.main-nav .mark {
+  font-family: var(--f-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.35em;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+nav.main-nav .mark .kanji {
+  font-family: var(--f-jp);
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  color: var(--ember);
+  margin-left: 0.5rem;
+  font-weight: 400;
+}
+nav.main-nav ul {
+  display: flex; list-style: none; gap: 2.5rem;
+}
+nav.main-nav ul a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 400;
+  position: relative;
+  transition: opacity 0.3s;
+}
+nav.main-nav ul a::after {
+  content: '';
+  position: absolute; left: 0; bottom: -6px;
+  width: 0; height: 1px;
+  background: var(--ember);
+  transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+nav.main-nav ul a:hover::after,
+nav.main-nav ul a.active::after { width: 100%; }
+nav.main-nav ul a.active { color: var(--ember); }
+
+.reserve-btn {
+  padding: 0.7rem 1.5rem;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  background: transparent;
+  cursor: pointer;
+}
+.reserve-btn:hover {
+  background: var(--ember);
+  border-color: var(--ember);
+  color: var(--bone);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.5rem;
+  width: 40px; height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+}
+.menu-toggle span {
+  display: block;
+  width: 22px; height: 1px;
+  background: var(--ink);
+  transition: all 0.3s;
+}
+.menu-toggle.open span:nth-child(1) { transform: translateY(3px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-3px) rotate(-45deg); }
+
+/* ============================================
+   BUTTONS & CTAs
+   ============================================ */
+.cta-primary {
+  padding: 1.1rem 2.5rem;
+  background: var(--ember);
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+  border: 0;
+  font-family: var(--f-body);
+  font-weight: 400;
+}
+.cta-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--ember-deep);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 0;
+}
+.cta-primary span { position: relative; z-index: 1; }
+.cta-primary:hover::before { transform: translateY(0); }
+
+.cta-secondary {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 4px;
+  transition: all 0.3s;
+  font-weight: 400;
+  display: inline-block;
+}
+.cta-secondary:hover { border-color: var(--ember); color: var(--ember); }
+
+/* ============================================
+   SECTION LABELS
+   ============================================ */
+.section-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 3rem;
+  display: flex; align-items: center; gap: 1rem;
+  font-weight: 500;
+}
+.section-label::before {
+  content: ''; width: 32px; height: 1px; background: var(--ember);
+}
+.section-label .num {
+  color: var(--ash);
+  font-family: var(--f-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  font-weight: 400;
+}
+
+/* ============================================
+   PAGE HERO (for non-home pages)
+   ============================================ */
+.page-hero {
+  padding: 12rem 2.5rem 5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.page-hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.2) contrast(0.9) brightness(1.05);
+  opacity: 0.35;
+}
+.page-hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    rgba(244, 236, 224, 0.8) 0%,
+    rgba(244, 236, 224, 0.6) 50%,
+    rgba(244, 236, 224, 0.95) 100%);
+}
+.page-hero > *:not(.page-hero-bg) {
+  position: relative;
+  z-index: 1;
+}
+.page-hero .kanji-label {
+  font-family: var(--f-jp);
+  font-size: 1.2rem;
+  color: var(--ember);
+  letter-spacing: 0.5em;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+.page-hero h1 {
+  font-family: var(--f-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.page-hero h1 em { font-style: italic; color: var(--ember); }
+.page-hero .lede {
+  font-family: var(--f-display);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--ink-soft);
+  max-width: 640px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+footer.site-footer {
+  padding: 5rem 2.5rem 3rem;
+  border-top: 1px solid var(--line);
+  background: var(--bone-deep);
+}
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 4rem;
+}
+.footer-brand .mark {
+  font-family: var(--f-display);
+  font-size: 1.75rem;
+  letter-spacing: 0.3em;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  color: var(--ink);
+  display: inline-block;
+}
+.footer-brand .mark .kanji {
+  font-family: var(--f-jp);
+  font-size: 1rem;
+  color: var(--ember);
+  margin-left: 0.5rem;
+  font-weight: 400;
+}
+.footer-brand p {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  max-width: 320px;
+  line-height: 1.7;
+}
+
+.footer-block h6 {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ember);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+.footer-block a,
+.footer-block p {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.7;
+  margin-bottom: 0.4rem;
+  font-family: var(--f-body);
+  transition: color 0.3s;
+}
+.footer-block a:hover { color: var(--ember); }
+.footer-block small {
+  font-size: 0.75rem;
+  color: var(--ash);
+  display: block;
+  margin-top: 0.4rem;
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 4rem auto 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  color: var(--ash);
+  text-transform: uppercase;
+}
+.footer-bottom a { color: var(--ash); text-decoration: none; margin-left: 1.5rem; }
+.footer-bottom a:hover { color: var(--ember); }
+
+/* ============================================
+   Reveal on scroll
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================
+   MEDIA CONTAINERS
+   Drop-in image/video slots used across pages.
+   Each has fallback styling so the layout survives
+   without media, and smooth loading when media is added.
+   ============================================ */
+
+/* Generic media frame — holds img/video and crops cleanly */
+.media-frame {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8dcc8 0%, #d4c5ad 100%);
+}
+.media-frame img,
+.media-frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.media-frame:hover img,
+.media-frame:hover video { transform: scale(1.03); }
+
+/* Placeholder overlay — shown when no media is present.
+   Add an <img> or <video> and the overlay is hidden automatically. */
+.media-frame .placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: var(--f-jp);
+  font-weight: 200;
+  color: var(--ink);
+  opacity: 0.3;
+  letter-spacing: 0.3em;
+  text-align: center;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(181, 74, 31, 0.18), transparent 55%),
+    radial-gradient(circle at 70% 70%, rgba(122, 46, 18, 0.22), transparent 60%);
+}
+.media-frame .placeholder .jp {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+.media-frame .placeholder .label {
+  font-family: var(--f-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--ash);
+  opacity: 0.7;
+}
+.media-frame:has(img) .placeholder,
+.media-frame:has(video) .placeholder { display: none; }
+
+/* Decorative ember frame (optional) */
+.media-frame.framed::before {
+  content: '';
+  position: absolute;
+  top: 12px; left: 12px; right: 12px; bottom: 12px;
+  border: 1px solid rgba(250, 245, 236, 0.4);
+  pointer-events: none;
+  z-index: 2;
+}
+.media-frame.ember-border {
+  outline: 1px solid var(--ember);
+  outline-offset: -1px;
+}
+
+/* Aspect ratios */
+.ratio-3-4 { aspect-ratio: 3/4; }
+.ratio-4-5 { aspect-ratio: 4/5; }
+.ratio-1-1 { aspect-ratio: 1/1; }
+.ratio-16-9 { aspect-ratio: 16/9; }
+.ratio-5-7 { aspect-ratio: 5/7; }
+
+/* Hero video — full-bleed background behind content */
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.hero-video-bg video,
+.hero-video-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  filter: grayscale(0.3) contrast(0.95);
+}
+.hero-video-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, var(--bone) 0%, rgba(244, 236, 224, 0.4) 40%, var(--bone) 100%);
+  pointer-events: none;
+}
+
+/* Gallery strip — horizontal scrolling media row */
+.gallery-strip {
+  padding: 8rem 0;
+  border-top: 1px solid var(--line);
+  overflow: hidden;
+  background: var(--bone);
+}
+.gallery-strip-header {
+  max-width: 1400px;
+  margin: 0 auto 4rem;
+  padding: 0 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 3rem;
+}
+.gallery-strip-header h2 {
+  font-family: var(--f-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+}
+.gallery-strip-header h2 em { font-style: italic; color: var(--ember); }
+.gallery-strip-header p {
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  max-width: 380px;
+}
+.gallery-track {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0 2.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.gallery-track::-webkit-scrollbar { display: none; }
+.gallery-item {
+  flex: 0 0 auto;
+  width: clamp(260px, 28vw, 400px);
+  scroll-snap-align: start;
+}
+.gallery-item .media-frame { aspect-ratio: 3/4; }
+.gallery-item .caption {
+  margin-top: 1.25rem;
+  font-family: var(--f-display);
+  font-size: 0.95rem;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  font-weight: 400;
+}
+.gallery-item .caption .jp-caption {
+  font-family: var(--f-jp);
+  color: var(--ash);
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  margin-left: 0.5rem;
+  font-weight: 300;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 900px) {
+  nav.main-nav { padding: 1.25rem 1.5rem; }
+  nav.main-nav.scrolled { padding: 1rem 1.5rem; }
+  
+  nav.main-nav ul {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--bone);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    transform: translateX(100%);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    z-index: 99;
+  }
+  nav.main-nav ul.open { transform: translateX(0); }
+  nav.main-nav ul a {
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .menu-toggle { display: flex; z-index: 101; }
+  nav.main-nav .reserve-btn { display: none; }
+  
+  .page-hero { padding: 9rem 1.5rem 4rem; }
+  
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  .footer-bottom > div { margin: 0; }
+  .footer-bottom a { margin: 0 0.75rem; }
+
+  .gallery-strip { padding: 5rem 0; }
+  .gallery-strip-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .gallery-track { padding: 0 1.5rem; gap: 1rem; }
+  .gallery-item { width: 70vw; }
+}
+
+@media (max-width: 600px) {
+  .footer-inner { grid-template-columns: 1fr; }
+}
+
+</style>
+
+<style>
+  /* ─── Home-specific styles ─── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex; align-items: center;
+    padding: 6rem 2.5rem 3rem;
+    overflow: hidden;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    pointer-events: none;
+  }
+  .hero-grid > div:first-child { border-right: 1px solid var(--line); }
+  
+  .hero-content {
+    position: relative; z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%; gap: 4rem;
+    align-items: center;
+  }
+  .hero-left { padding-right: 2rem; }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ash);
+    margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+    opacity: 0; animation: fadeUp 1s 0.3s forwards;
+  }
+  .hero-eyebrow::before { content: ''; width: 48px; height: 1px; background: var(--ember); }
+  
+  .hero-title {
+    font-family: var(--f-display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.95;
+    font-weight: 300;
+    letter-spacing: -0.015em;
+    margin-bottom: 2rem;
+    opacity: 0; animation: fadeUp 1.2s 0.5s forwards;
+  }
+  .hero-title em { font-style: italic; color: var(--ember); font-weight: 400; }
+  
+  .hero-body {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 460px;
+    margin-bottom: 3rem;
+    line-height: 1.7;
+    opacity: 0; animation: fadeUp 1s 0.8s forwards;
+  }
+  .hero-cta {
+    display: flex; gap: 2rem; align-items: center;
+    opacity: 0; animation: fadeUp 1s 1.1s forwards;
+  }
+
+  .hero-right {
+    position: relative;
+    height: 75vh;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: grayscale(0.15) contrast(1.05);
+  }
+  .hero-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      rgba(244, 236, 224, 0.6) 0%,
+      rgba(235, 225, 210, 0.45) 50%,
+      rgba(181, 74, 31, 0.15) 100%);
+    z-index: 1;
+  }
+  .kanji-display {
+    font-family: var(--f-jp);
+    font-weight: 200;
+    font-size: clamp(14rem, 28vw, 26rem);
+    line-height: 0.85;
+    color: var(--ink);
+    position: relative;
+    z-index: 2;
+    mix-blend-mode: multiply;
+    opacity: 0; animation: fadeIn 2s 0.2s forwards;
+  }
+  .kanji-display .ko { display: block; }
+  .kanji-display .kin {
+    color: var(--ember);
+    display: block;
+    margin-top: -0.15em;
+    margin-left: 0.4em;
+  }
+  .kanji-caption {
+    position: absolute;
+    bottom: 2rem; right: 0;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--ash);
+    text-align: right;
+    z-index: 2;
+    opacity: 0; animation: fadeUp 1s 1.5s forwards;
+  }
+  .kanji-caption b {
+    color: var(--ink);
+    font-weight: 500;
+    display: block;
+    margin-top: 0.3rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .scroll-cue {
+    position: absolute;
+    bottom: 2.5rem; left: 50%;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
+    opacity: 0; animation: fadeIn 2s 2s forwards;
+  }
+  .scroll-cue span {
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+  .scroll-cue .line {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, var(--ember), transparent);
+    position: relative;
+    overflow: hidden;
+  }
+  .scroll-cue .line::after {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 100%; height: 20px;
+    background: var(--ink);
+    animation: scrollDot 2.5s infinite;
+  }
+  @keyframes scrollDot {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(300%); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* Philosophy teaser */
+  .philosophy {
+    padding: 10rem 2.5rem;
+    border-top: 1px solid var(--line);
+    background: var(--bone-deep);
+  }
+  .philo-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 6rem;
+    align-items: start;
+  }
+  .philo-left { position: sticky; top: 8rem; }
+  .philo-kanji {
+    font-family: var(--f-jp);
+    font-size: 9rem;
+    font-weight: 200;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--ember);
+    margin-bottom: 2rem;
+  }
+  .philo-title {
+    font-family: var(--f-display);
+    font-size: clamp(2.25rem, 3.5vw, 3.25rem);
+    line-height: 1.05;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+  .philo-title em { color: var(--ember); font-style: italic; }
+  
+  .philo-right { padding-top: 1rem; }
+  .philo-lead {
+    font-family: var(--f-display);
+    font-size: 1.8rem;
+    line-height: 1.35;
+    font-weight: 300;
+    color: var(--ink);
+    margin-bottom: 3rem;
+    font-style: italic;
+  }
+  .philo-body {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    max-width: 560px;
+  }
+  .philo-body p + p { margin-top: 1.5rem; }
+  .philo-cta { margin-top: 3rem; }
+
+  /* Chef teaser */
+  .chef {
+    padding: 10rem 2.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .chef-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .chef-portrait-wrap { position: relative; }
+  .chef-portrait {
+    aspect-ratio: 3/4;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #e8dcc8 0%, #d4c5ad 100%);
+  }
+  .chef-portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 2;
+  }
+  .chef-portrait::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(181, 74, 31, 0.18), transparent 55%),
+      radial-gradient(circle at 70% 70%, rgba(122, 46, 18, 0.22), transparent 60%);
+  }
+  .chef-portrait::after {
+    content: '下山 大輔';
+    position: absolute;
+    inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--f-jp);
+    font-size: 3.5rem;
+    font-weight: 200;
+    color: var(--ink);
+    opacity: 0.25;
+    letter-spacing: 0.3em;
+  }
+  .chef-portrait-frame {
+    position: absolute;
+    top: -12px; left: -12px; right: -12px; bottom: -12px;
+    border: 1px solid var(--ember);
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  .chef-content h3 {
+    font-family: var(--f-display);
+    font-size: clamp(2.5rem, 4vw, 3.75rem);
+    line-height: 1;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.5rem;
+  }
+  .chef-content .jp-name {
+    font-family: var(--f-jp);
+    font-size: 1.1rem;
+    color: var(--ash);
+    letter-spacing: 0.3em;
+    margin-bottom: 2rem;
+  }
+  .chef-content .tagline {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--ember);
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--ember);
+  }
+  .chef-content p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    margin-bottom: 1.5rem;
+    max-width: 560px;
+  }
+  .chef-cta { margin-top: 2rem; }
+
+  /* Woodfire pillars */
+  .fire {
+    padding: 10rem 2.5rem;
+    border-top: 1px solid var(--line);
+    background: var(--bone-deep);
+    position: relative;
+    overflow: hidden;
+  }
+  .fire::before {
+    content: '';
+    position: absolute;
+    top: -20%; right: -20%;
+    width: 70%; height: 140%;
+    background: radial-gradient(ellipse, rgba(181, 74, 31, 0.06), transparent 60%);
+    pointer-events: none;
+  }
+  .fire-header {
+    max-width: 1400px;
+    margin: 0 auto 6rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+  .fire-title {
+    font-family: var(--f-display);
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .fire-title em { font-style: italic; color: var(--ember); }
+  .fire-intro {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    max-width: 440px;
+  }
+  
+  .fire-pillars {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+  }
+  .pillar {
+    padding: 3rem 2.5rem;
+    border-right: 1px solid var(--line);
+    transition: background 0.4s;
+  }
+  .pillar:last-child { border-right: 0; }
+  .pillar:hover { background: rgba(181, 74, 31, 0.04); }
+  
+  .pillar-num {
+    font-family: var(--f-display);
+    font-size: 0.9rem;
+    color: var(--ember);
+    letter-spacing: 0.3em;
+    margin-bottom: 2rem;
+  }
+  .pillar-icon { width: 64px; height: 64px; margin-bottom: 2rem; }
+  .pillar h4 {
+    font-family: var(--f-display);
+    font-size: 1.85rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+  }
+  .pillar .jp {
+    font-family: var(--f-jp);
+    font-size: 0.9rem;
+    color: var(--ash);
+    letter-spacing: 0.2em;
+    margin-bottom: 1.5rem;
+  }
+  .pillar p {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+  }
+
+  /* ========= MOMENTS STRIP ========= */
+  .moments {
+    padding: 8rem 0 0;
+    border-top: 1px solid var(--line);
+    background: var(--bone);
+  }
+  .moments-header {
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+    padding: 0 2.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+  .moments-header h2 {
+    font-family: var(--f-display);
+    font-size: clamp(2.5rem, 4.5vw, 3.75rem);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.015em;
+  }
+  .moments-header h2 em { font-style: italic; color: var(--ember); }
+  .moments-header .intro {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    max-width: 420px;
+  }
+  .moments-strip {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px;
+    overflow: hidden;
+  }
+  .moment {
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(160deg, var(--bone-deep) 0%, var(--cream) 100%);
+    cursor: pointer;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .moment:nth-child(even) {
+    transform: translateY(2rem);
+    background: linear-gradient(160deg, #e8dcc8 0%, var(--bone-deep) 100%);
+  }
+  .moment img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .moment:hover img { transform: scale(1.04); }
+  .moment-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--f-jp);
+    font-size: 2.5rem;
+    font-weight: 200;
+    color: var(--ember);
+    opacity: 0.3;
+    letter-spacing: 0.2em;
+    pointer-events: none;
+  }
+
+  /* ========= EVENTS TEASER (new) ========= */
+  .events-teaser {
+    padding: 10rem 2.5rem;
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+  .events-header {
+    max-width: 1400px;
+    margin: 0 auto 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+  .events-header h2 {
+    font-family: var(--f-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .events-header h2 em { font-style: italic; color: var(--ember); }
+  .events-header .intro {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--ink-soft);
+    max-width: 440px;
+  }
+  
+  .events-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .event-card {
+    background: var(--cream);
+    padding: 3rem;
+    border: 1px solid var(--line);
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    overflow: hidden;
+  }
+  .event-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--ember);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .event-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -20px rgba(28, 23, 19, 0.15);
+  }
+  .event-card:hover::before { transform: scaleY(1); }
+  
+  .event-day {
+    font-family: var(--f-display);
+    font-size: 0.85rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 500;
+  }
+  .event-day .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--ember);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  .event-card .jp-label {
+    font-family: var(--f-jp);
+    font-size: 1.1rem;
+    color: var(--ash);
+    letter-spacing: 0.3em;
+    margin-bottom: 0.75rem;
+    font-weight: 300;
+  }
+  .event-card h3 {
+    font-family: var(--f-display);
+    font-size: 2.5rem;
+    font-weight: 400;
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+  .event-card h3 em { font-style: italic; color: var(--ember); }
+  .event-card .desc {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+    max-width: 420px;
+  }
+  .event-card .meta {
+    display: flex;
+    gap: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ash);
+  }
+  .event-card .meta b {
+    display: block;
+    color: var(--ink);
+    font-family: var(--f-display);
+    font-size: 1.05rem;
+    letter-spacing: 0.05em;
+    text-transform: none;
+    font-weight: 400;
+    margin-top: 0.3rem;
+  }
+  .event-card .arrow {
+    position: absolute;
+    top: 3rem; right: 3rem;
+    font-family: var(--f-display);
+    font-size: 1.5rem;
+    color: var(--ember);
+    transition: transform 0.4s;
+  }
+  .event-card:hover .arrow { transform: translate(4px, -4px); }
+  
+  .events-cta {
+    max-width: 1400px;
+    margin: 4rem auto 0;
+    text-align: center;
+  }
+
+  /* Visit preview */
+  .visit-preview {
+    padding: 10rem 2.5rem;
+    border-top: 1px solid var(--line);
+    background: var(--bone-deep);
+  }
+  .visit-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+  }
+  .visit-left h2 {
+    font-family: var(--f-display);
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+  .visit-left h2 em { font-style: italic; color: var(--ember); }
+  .visit-left p {
+    color: var(--ink-soft);
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 420px;
+    margin-bottom: 3rem;
+  }
+  .visit-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem 4rem;
+  }
+  .visit-block h6 {
+    font-size: 0.68rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--ember);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  .visit-block p, .visit-block a {
+    font-family: var(--f-display);
+    font-size: 1.2rem;
+    line-height: 1.45;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 400;
+  }
+  .visit-block a:hover { color: var(--ember); }
+  .visit-block small {
+    display: block;
+    font-family: var(--f-body);
+    font-size: 0.8rem;
+    color: var(--ash);
+    margin-top: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero-content, .philo-grid, .chef-grid, .fire-header, .events-header, .events-grid, .visit-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    .hero-grid { display: none; }
+    .hero-right { height: 40vh; }
+    .philo-left { position: static; }
+    .fire-pillars { grid-template-columns: 1fr; }
+    .pillar { border-right: 0; border-bottom: 1px solid var(--line); }
+    .visit-right { grid-template-columns: 1fr; gap: 3rem; }
+    .hero, .philosophy, .chef, .fire, .events-teaser, .visit-preview {
+      padding-left: 1.5rem; padding-right: 1.5rem;
+    }
+    .philosophy, .chef, .fire, .events-teaser, .visit-preview {
+      padding-top: 6rem; padding-bottom: 6rem;
+    }
+    .event-card { padding: 2rem; }
+    .event-card .arrow { top: 2rem; right: 2rem; }
+    .moments { padding-top: 5rem; }
+    .moments-header {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 0 1.5rem;
+    }
+    .moments-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .moment:nth-child(even) { transform: none; }
+    .moment:nth-child(n+5) { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="main-nav" id="mainNav">
+  <a href="index.html" class="mark">KOKIN <span class="kanji">古今</span></a>
+  <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="story.html">Story</a></li>
+    <li><a href="menu.html">Menu</a></li>
+    <li><a href="events.html">Events</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="visit.html">Visit</a></li>
+  </ul>
+  <a href="https://www.exploretock.com/kokin-london" class="reserve-btn" target="_blank" rel="noopener">Reserve</a>
+</nav>
+
+<!-- ─────── HERO ─────── -->
+<section class="hero">
+  <!-- MEDIA SLOT: drop a <video> or <img> inside .hero-video-bg for a full-bleed backdrop.
+       Recommended: silent looping video of fire/smoke/steam, 10–20s, <5MB, 1920×1080.
+       Example: <video autoplay muted loop playsinline poster="hero-poster.jpg"><source src="hero.mp4" type="video/mp4"></video>
+       Leave empty and the subtle kanji hero will show as-is. -->
+  <div class="hero-video-bg">
+    <!-- <video autoplay muted loop playsinline><source src="media/hero-fire.mp4" type="video/mp4"></video> -->
+  </div>
+  <div class="hero-grid"><div></div><div></div></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Modern Kaiseki · Stratford, London</div>
+      <h1 class="hero-title">Where <em>fire</em><br/>meets the<br/>present moment.</h1>
+      <p class="hero-body">Kokin is chef Daisuke Shimoyama's vision of Japanese cuisine — rooted in heritage, guided by woodfire, and alive with flavour. A tradition reborn in the heart of modern London.</p>
+      <div class="hero-cta">
+        <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Reserve a table</span></a>
+        <a href="story.html" class="cta-secondary">Our story →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <!-- Background video slot — drop your .mp4 into assets/ and update src below -->
+      <video class="hero-video" autoplay muted loop playsinline poster="assets/kokin-montage1-poster.jpg">
+        <source src="assets/kokin-montage1.mp4" type="video/mp4">
+      </video>
+      <div class="hero-video-overlay"></div>
+      <div class="kanji-display">
+        <span class="ko">古</span>
+        <span class="kin">今</span>
+      </div>
+      <div class="kanji-caption">
+        古今 · Ko · Kin
+        <b>Past &amp; Present</b>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- ─────── PHILOSOPHY ─────── -->
+<section class="philosophy">
+  <div class="philo-grid">
+    <div class="philo-left reveal">
+      <div class="section-label"><span class="num">01</span> Philosophy</div>
+      <div class="philo-kanji">古今</div>
+      <h2 class="philo-title">A cuisine rooted in <em>heritage</em>, always <em>evolving</em>.</h2>
+    </div>
+    <div class="philo-right reveal">
+      <p class="philo-lead">"Kokin is where time converges — informing every choice, every flavour, every moment."</p>
+      <div class="philo-body">
+        <p>The character <b>古</b> (ko) represents the old — history, depth, and tradition. <b>今</b> (kin) means now — freshness, movement, and the beauty of the present moment.</p>
+        <p>Together they form Kokin: a tribute to the timeless spirit of Japanese cuisine. Traditional techniques honoured. Contemporary sensibility embraced. A fire-born tradition, reborn in the heart of modern London.</p>
+      </div>
+      <div class="philo-cta">
+        <a href="story.html" class="cta-secondary">Read the full story →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────── CHEF ─────── -->
+<section class="chef">
+  <div class="chef-grid">
+    <div class="reveal">
+      <div class="chef-portrait-wrap">
+        <div class="chef-portrait-frame"></div>
+        <div class="chef-portrait">
+          <img src="assets/headchef2.jpg" alt="Chef Daisuke Shimoyama at Kokin" onerror="this.style.display='none'" />
+        </div>
+      </div>
+    </div>
+    <div class="chef-content reveal">
+      <div class="section-label"><span class="num">02</span> The Chef</div>
+      <h3>Daisuke<br/>Shimoyama</h3>
+      <div class="jp-name">下山 大輔</div>
+      <div class="tagline">Refining kaiseki through fire and philosophy.</div>
+      <p>Chef Shimoyama's cooking is shaped by the mountains of Gunma — the warmth, scent, and rhythm of burning pine that formed his earliest food memories. Over two decades he has carried those memories through some of the world's most exacting kitchens, including Michelin three-starred Ryugin in Tokyo and Michelin-starred Umu in London.</p>
+      <p>Kokin is his bold and elemental vision: Japanese cuisine shaped by fire, guided by seasonality, and grounded in deep respect for every ingredient.</p>
+      <div class="chef-cta">
+        <a href="story.html" class="cta-secondary">Meet the chef →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────── FIRE ─────── -->
+<section class="fire">
+  <div class="fire-header">
+    <h2 class="fire-title reveal">Fire is not a<br/>technique —<br/><em>it is an ingredient.</em></h2>
+    <p class="fire-intro reveal">At the centre of Kokin is woodfire: primal, intimate, and rich with memory. Cherry and apple wood infuse delicate smoke. Binchotan charcoal brings clean, high heat. Every flame has a purpose.</p>
+  </div>
+  <div class="fire-pillars">
+    <div class="pillar reveal">
+      <div class="pillar-num">— 01</div>
+      <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" stroke="#b54a1f" stroke-width="1.25">
+        <path d="M32 54 C 20 54, 12 44, 14 32 C 16 20, 26 18, 28 26 C 30 20, 38 10, 38 22 C 42 14, 52 18, 50 34 C 48 46, 42 54, 32 54 Z"/>
+        <path d="M32 48 C 26 48, 22 42, 24 36 C 28 40, 30 36, 32 32 C 34 36, 38 36, 36 44 C 36 46, 34 48, 32 48 Z" fill="#b54a1f" fill-opacity="0.25"/>
+      </svg>
+      <h4>Woodfire</h4>
+      <div class="jp">木火 · Kibi</div>
+      <p>Cherry and apple wood infuse the dishes with delicate, fragrant smoke — a warmth that evokes childhood kitchens and mountain fires.</p>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-num">— 02</div>
+      <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" stroke="#b54a1f" stroke-width="1.25">
+        <rect x="10" y="28" width="44" height="18" rx="1"/>
+        <path d="M14 28 L14 22 M22 28 L22 20 M30 28 L30 22 M38 28 L38 20 M46 28 L46 22 M54 28 L54 20"/>
+        <path d="M14 46 L14 52 M54 46 L54 52"/>
+        <circle cx="32" cy="37" r="1.5" fill="#b54a1f"/>
+      </svg>
+      <h4>Binchotan</h4>
+      <div class="jp">備長炭 · White charcoal</div>
+      <p>A clean, sustained high heat that draws out clarity and texture from each ingredient — a technique perfected across centuries.</p>
+    </div>
+    <div class="pillar reveal">
+      <div class="pillar-num">— 03</div>
+      <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" stroke="#b54a1f" stroke-width="1.25">
+        <path d="M8 32 C 20 24, 30 40, 44 32 C 52 28, 58 32, 58 32 C 58 32, 52 36, 44 36 C 30 36, 20 20, 8 32 Z"/>
+        <circle cx="50" cy="30" r="1" fill="#b54a1f"/>
+        <path d="M14 36 C 18 38, 22 38, 26 36"/>
+      </svg>
+      <h4>Bluefin</h4>
+      <div class="jp">本鮪 · Hon-maguro</div>
+      <p>Whole wild tuna from Spain and Portugal, broken down in-house with precision and reverence — otoro to kama, nothing wasted.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────── GALLERY STRIP ─────── -->
+<!-- MEDIA SLOTS: Each .gallery-item holds one image or short video.
+     Recommended: 6–10 items. Mix of dishes, fire moments, dining room, and chef-at-work shots.
+     Replace each placeholder with <img src="..."> or <video autoplay muted loop playsinline><source src="..."></video>.
+     Captions are optional — edit or remove the .caption div. -->
+<section class="gallery-strip">
+  <div class="gallery-strip-header reveal">
+    <h2>A glimpse of<br/>the <em>room</em>.</h2>
+    <p>Woodfire, whole fish, seasonal plates, and the quiet theatre of the pass. Scroll through to see more.</p>
+  </div>
+  <div class="gallery-track reveal">
+    <div class="gallery-item">
+      <div class="media-frame ember-border">
+        <!-- <img src="media/gallery-01.jpg" alt="Wood-fire grilled tuna kama"> -->
+        <div class="placeholder"><div class="jp">炎</div><div class="label">Image 01</div></div>
+      </div>
+      <div class="caption">Wood-fire grilled tuna <span class="jp-caption">鮪 カマ</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="media-frame">
+        <!-- <video autoplay muted loop playsinline><source src="media/gallery-02.mp4" type="video/mp4"></video> -->
+        <div class="placeholder"><div class="jp">動</div><div class="label">Video 02</div></div>
+      </div>
+      <div class="caption">The pass at service <span class="jp-caption">厨 房</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="media-frame">
+        <!-- <img src="media/gallery-03.jpg" alt="Chef's signature nigiri"> -->
+        <div class="placeholder"><div class="jp">鮨</div><div class="label">Image 03</div></div>
+      </div>
+      <div class="caption">Chef's nigiri selection <span class="jp-caption">握 り</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="media-frame">
+        <!-- <img src="media/gallery-04.jpg" alt="Whole bluefin tuna breakdown"> -->
+        <div class="placeholder"><div class="jp">鮪</div><div class="label">Image 04</div></div>
+      </div>
+      <div class="caption">Whole bluefin breakdown <span class="jp-caption">解 体</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="media-frame">
+        <!-- <img src="media/gallery-05.jpg" alt="The dining room at Kokin"> -->
+        <div class="placeholder"><div class="jp">室</div><div class="label">Image 05</div></div>
+      </div>
+      <div class="caption">The dining room <span class="jp-caption">客 間</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="media-frame">
+        <!-- <video autoplay muted loop playsinline><source src="media/gallery-06.mp4" type="video/mp4"></video> -->
+        <div class="placeholder"><div class="jp">煙</div><div class="label">Video 06</div></div>
+      </div>
+      <div class="caption">Cherry wood smoke <span class="jp-caption">桜 煙</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="media-frame">
+        <!-- <img src="media/gallery-07.jpg" alt="A5 Wagyu sukiyaki"> -->
+        <div class="placeholder"><div class="jp">和</div><div class="label">Image 07</div></div>
+      </div>
+      <div class="caption">A5 Wagyu sukiyaki <span class="jp-caption">和 牛</span></div>
+    </div>
+    <div class="gallery-item">
+      <div class="media-frame">
+        <!-- <img src="media/gallery-08.jpg" alt="Wagashi dessert selection"> -->
+        <div class="placeholder"><div class="jp">甘</div><div class="label">Image 08</div></div>
+      </div>
+      <div class="caption">Wagashi desserts <span class="jp-caption">和 菓 子</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────── MOMENTS STRIP ─────── -->
+<section class="moments">
+  <div class="moments-header">
+    <div class="reveal">
+      <div class="section-label"><span class="num">04</span> Moments</div>
+      <h2>Glimpses of<br/>the <em>craft</em>.</h2>
+    </div>
+    <p class="intro reveal">A fire-led kitchen, a knife in practised hands, a plate set with intention. Small moments from the dining room and beyond.</p>
+  </div>
+  <div class="moments-strip">
+    <div class="moment reveal">
+      <img src="assets/kokin-showacse-poster.jpg" alt="Fish over woodfire" onerror="this.style.display='none'" />
+      <div class="moment-placeholder">炎</div>
+    </div>
+    <div class="moment reveal">
+      <img src="assets/second-in-command.jpg" alt="Chef plating" onerror="this.style.display='none'" />
+      <div class="moment-placeholder">匠</div>
+    </div>
+    <div class="moment reveal">
+      <img src="assets/make-sushi.jpg" alt="Signature TEMAE sushi" onerror="this.style.display='none'" />
+      <div class="moment-placeholder">寿</div>
+    </div>
+    <div class="moment reveal">
+      <img src="assets/oyster.jpg" alt="Oyster with jelly" onerror="this.style.display='none'" />
+      <div class="moment-placeholder">牡</div>
+    </div>
+    <div class="moment reveal">
+      <img src="assets/cocktail-matcha.jpg" alt="Matcha cocktail" onerror="this.style.display='none'" />
+      <div class="moment-placeholder">盃</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────── EVENTS TEASER ─────── -->
+<section class="events-teaser">
+  <div class="events-header">
+    <div class="reveal">
+      <div class="section-label"><span class="num">05</span> What's On</div>
+      <h2>Regular <em>rituals</em>,<br/>fleeting seasons.</h2>
+    </div>
+    <p class="intro reveal">A small programme of recurring experiences — some weekly, some seasonal — designed to bring guests closer to the craft. Each one worth planning around.</p>
+  </div>
+  
+  <div class="events-grid">
+    <a href="events.html#tuna-samurai" class="event-card reveal">
+      <div class="event-day"><span class="dot"></span>Every Wednesday · Evening</div>
+      <div class="jp-label">鮪 侍</div>
+      <h3><em>Tuna</em><br/>Samurai</h3>
+      <p class="desc">A live whole-bluefin breakdown performed at your table. Watch as chef Shimoyama butchers the fish with precision and reverence, then tastes every cut — from otoro to the rare collar — in a sequence that unfolds before you.</p>
+      <div class="meta">
+        <div>When<br/><b>Wed, 7pm</b></div>
+        <div>From<br/><b>£85 pp</b></div>
+      </div>
+      <div class="arrow">↗</div>
+    </a>
+    
+    <a href="events.html#bottomless-brunch" class="event-card reveal">
+      <div class="event-day"><span class="dot"></span>Every Saturday &amp; Sunday</div>
+      <div class="jp-label">昼 宴</div>
+      <h3>Bottomless<br/><em>Brunch</em></h3>
+      <p class="desc">Weekends reimagined. A curated selection of chef's brunch dishes — sushi, tempura, wood-fire small plates — paired with ninety minutes of free-flowing sake highballs, sparkling wine, or Japanese-inspired cocktails.</p>
+      <div class="meta">
+        <div>When<br/><b>Sat &amp; Sun, 12 – 3pm</b></div>
+        <div>From<br/><b>£55 pp</b></div>
+      </div>
+      <div class="arrow">↗</div>
+    </a>
+  </div>
+  
+  <div class="events-cta reveal">
+    <a href="events.html" class="cta-secondary">View all events &amp; offers →</a>
+  </div>
+</section>
+
+<!-- ─────── VISIT PREVIEW ─────── -->
+<section class="visit-preview">
+  <div class="visit-inner">
+    <div class="visit-left reveal">
+      <div class="section-label"><span class="num">06</span> Visit</div>
+      <h2>Seven floors<br/>above the <em>city</em>.</h2>
+      <p>Find us on the seventh floor of The Stratford. Dinner is served Tuesday through Sunday, with a lunch set available midday.</p>
+      <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Reserve at Tock</span></a>
+    </div>
+    <div class="visit-right reveal">
+      <div class="visit-block">
+        <h6>Address</h6>
+        <a href="https://maps.app.goo.gl/3irW97itfDHkeKet7" target="_blank" rel="noopener">
+          Kokin Restaurant<br/>7th Floor, The Stratford<br/>20 International Way<br/>London E20 1FD
+        </a>
+      </div>
+      <div class="visit-block">
+        <h6>Reservations</h6>
+        <a href="tel:02038020402">020 3802 0402</a>
+        <small>Or book online via Tock</small>
+      </div>
+      <div class="visit-block">
+        <h6>Hours</h6>
+        <p>Lunch · 12:00 – 14:00<br/>Dinner · 18:00 – 22:30</p>
+        <small>Tuesday – Sunday · Closed Monday</small>
+      </div>
+      <div class="visit-block">
+        <h6>Private Events</h6>
+        <a href="mailto:reservations@kokin.co.uk">reservations@kokin.co.uk</a>
+        <small>Whole tuna ceremonies, private dining</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────── FOOTER ─────── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="mark">KOKIN <span class="kanji">古今</span></div>
+      <p>A fire-born tradition, reborn in the heart of modern London. Chef Daisuke Shimoyama's modern kaiseki restaurant on the seventh floor of The Stratford.</p>
+    </div>
+    <div class="footer-block">
+      <h6>Explore</h6>
+      <a href="story.html">Our Story</a>
+      <a href="menu.html">Menu</a>
+      <a href="events.html">Events</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="visit.html">Visit</a>
+    </div>
+    <div class="footer-block">
+      <h6>Visit</h6>
+      <p>7th Floor, The Stratford<br/>20 International Way<br/>London E20 1FD</p>
+      <a href="tel:02038020402">020 3802 0402</a>
+    </div>
+    <div class="footer-block">
+      <h6>Reserve</h6>
+      <a href="https://www.exploretock.com/kokin-london" target="_blank" rel="noopener">Book via Tock →</a>
+      <a href="mailto:reservations@kokin.co.uk">reservations@kokin.co.uk</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Kokin London</div>
+    <div>
+      <a href="#">Privacy</a>
+      <a href="#">Cookies</a>
+      <a href="#">Accessibility</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// KOKIN · Shared site scripts
+
+(function () {
+  // Nav scroll state
+  const nav = document.querySelector('.main-nav');
+  if (nav) {
+    const onScroll = () => {
+      if (window.scrollY > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  // Mobile menu
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.main-nav ul');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      menu.classList.toggle('open');
+    });
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        toggle.classList.remove('open');
+        menu.classList.remove('open');
+      });
+    });
+  }
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+</script>
+</body>
+</html>

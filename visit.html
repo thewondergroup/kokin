@@ -96,6 +96,17 @@ nav.main-nav .mark {
   font-weight: 500;
   color: var(--ink);
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+nav.main-nav .mark img {
+  height: 42px;
+  width: auto;
+  display: block;
+  transition: height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+nav.main-nav.scrolled .mark img {
+  height: 36px;
 }
 nav.main-nav .mark .kanji {
   font-family: var(--f-jp);
@@ -319,9 +330,14 @@ footer.site-footer {
   font-size: 1.75rem;
   letter-spacing: 0.3em;
   font-weight: 500;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   color: var(--ink);
   display: inline-block;
+}
+.footer-brand .mark img {
+  height: 60px;
+  width: auto;
+  display: block;
 }
 .footer-brand .mark .kanji {
   font-family: var(--f-jp);
@@ -917,7 +933,7 @@ footer.site-footer {
 <body>
 
 <nav class="main-nav">
-  <a href="index.html" class="mark">KOKIN <span class="kanji">古今</span></a>
+  <a href="index.html" class="mark"><img src="Kokin-Logo-black.png" alt="Kokin 古今" /></a>
   <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   <ul>
     <li><a href="index.html">Home</a></li>
@@ -1090,7 +1106,7 @@ footer.site-footer {
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand">
-      <div class="mark">KOKIN <span class="kanji">古今</span></div>
+      <div class="mark"><img src="Kokin-Logo-black.png" alt="Kokin 古今" /></div>
       <p>A fire-born tradition, reborn in the heart of modern London. Chef Daisuke Shimoyama's modern kaiseki restaurant on the seventh floor of The Stratford.</p>
     </div>
     <div class="footer-block">

@@ -554,11 +554,12 @@ footer.site-footer {
   /* ─── Home-specific styles ─── */
   /* ─── Full-bleed vibrant hero ─── */
   .hero {
-    min-height: 100vh;
+    height: 100vh;
+    min-height: 640px;
     position: relative;
     display: flex;
     align-items: flex-end;
-    padding: 6rem 2.5rem 8rem;
+    padding: 5rem 2.5rem 5rem;
     overflow: hidden;
     background: #1a1410;
   }
@@ -634,7 +635,7 @@ footer.site-footer {
     letter-spacing: 0.4em;
     text-transform: uppercase;
     color: var(--ember);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -651,12 +652,12 @@ footer.site-footer {
   
   .hero-title-new {
     font-family: var(--f-display);
-    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    font-size: clamp(3rem, min(7vw, 10vh), 6rem);
     font-weight: 300;
-    line-height: 0.92;
+    line-height: 0.95;
     letter-spacing: -0.02em;
     color: var(--cream);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     text-shadow: 0 2px 28px rgba(0, 0, 0, 0.45);
   }
   .hero-title-new em {
@@ -684,11 +685,11 @@ footer.site-footer {
   .hero-body-new {
     font-family: var(--f-display);
     font-style: italic;
-    font-size: 1.3rem;
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
     color: rgba(250, 245, 236, 0.92);
-    max-width: 560px;
-    margin-bottom: 3rem;
-    line-height: 1.55;
+    max-width: 520px;
+    margin-bottom: 2rem;
+    line-height: 1.5;
     text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
     opacity: 0;
     animation: fadeUp 1s 1.3s forwards;
@@ -696,7 +697,7 @@ footer.site-footer {
   
   .hero-cta-new {
     display: flex;
-    gap: 2.5rem;
+    gap: 2rem;
     align-items: center;
     flex-wrap: wrap;
     opacity: 0;
@@ -733,38 +734,6 @@ footer.site-footer {
   }
   .cta-hero-secondary:hover .arrow { transform: translateX(4px); }
   
-  .scroll-cue {
-    position: absolute;
-    bottom: 2rem; left: 50%;
-    transform: translateX(-50%);
-    display: flex; flex-direction: column; align-items: center; gap: 0.8rem;
-    z-index: 3;
-    opacity: 0;
-    animation: fadeIn 2s 2.2s forwards;
-  }
-  .scroll-cue span {
-    font-size: 0.6rem;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: rgba(250, 245, 236, 0.7);
-  }
-  .scroll-cue .line {
-    width: 1px; height: 60px;
-    background: linear-gradient(to bottom, var(--ember), transparent);
-    position: relative;
-    overflow: hidden;
-  }
-  .scroll-cue .line::after {
-    content: '';
-    position: absolute; top: 0; left: 0;
-    width: 100%; height: 20px;
-    background: var(--cream);
-    animation: scrollDot 2.5s infinite;
-  }
-  @keyframes scrollDot {
-    0% { transform: translateY(-100%); }
-    100% { transform: translateY(300%); }
-  }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
@@ -781,23 +750,28 @@ footer.site-footer {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 7fr 5fr;
-    gap: 5rem;
+    grid-template-columns: 5fr 7fr;
+    gap: 6rem;
     align-items: center;
   }
-  .food-video {
+  .food-image {
     position: relative;
-    aspect-ratio: 4/5;
+    aspect-ratio: 3/4;
+    max-width: 480px;
     overflow: hidden;
     background: #1a1410;
     border: 1px solid rgba(181, 74, 31, 0.25);
   }
-  .food-video video {
+  .food-image img {
     position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .food-image:hover img {
+    transform: scale(1.04);
   }
   .food-content {
     padding: 0 1rem;
@@ -1274,6 +1248,37 @@ footer.site-footer {
     letter-spacing: 0.05em;
   }
 
+  /* Short viewport (laptop screens, zoomed, browsers with toolbars) */
+  @media (max-height: 780px) and (min-width: 1025px) {
+    .hero {
+      padding: 4rem 2.5rem 3.5rem;
+    }
+    .hero-eyebrow-new { margin-bottom: 1rem; }
+    .hero-title-new {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      margin-bottom: 1rem;
+    }
+    .hero-body-new {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-cta-btn {
+      padding: 0.9rem 2rem !important;
+    }
+    .hero-corner-kanji {
+      top: 5rem;
+      font-size: clamp(3rem, 5vw, 4.5rem);
+    }
+  }
+  
+  /* Very short viewport */
+  @media (max-height: 640px) {
+    .hero { padding: 3rem 2.5rem 2.5rem; }
+    .hero-title-new { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .hero-body-new { font-size: 0.95rem; margin-bottom: 1.25rem; }
+    .hero-corner-caption { display: none; }
+  }
+  
   /* Responsive */
   @media (max-width: 1024px) {
     .chef-grid, .events-header, .events-grid, .visit-inner {
@@ -1406,19 +1411,13 @@ footer.site-footer {
     <b>Past &amp; Present</b>
   </div>
   
-  <div class="scroll-cue">
-    <span>Scroll</span>
-    <div class="line"></div>
-  </div>
 </section>
 
 <!-- ─────── FOOD ─────── -->
 <section class="food">
   <div class="food-inner">
-    <div class="food-video reveal">
-      <video autoplay muted loop playsinline poster="assets/kokin-montage2-poster.jpg">
-        <source src="assets/kokin-montage2.mp4" type="video/mp4">
-      </video>
+    <div class="food-image reveal">
+      <img src="assets/tunasushi.jpg" alt="Bluefin otoro nigiri" />
     </div>
     <div class="food-content reveal">
       <div class="section-label"><span class="num">01</span> The Food</div>

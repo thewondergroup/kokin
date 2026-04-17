@@ -828,57 +828,70 @@ footer.site-footer {
     100% { transform: translateX(-50%); }
   }
 
-  /* Philosophy teaser */
-  .philosophy {
-    padding: 10rem 2.5rem;
+  /* ========= PHOTO RAIL ========= */
+  .photo-rail {
+    padding: 3rem 0;
     border-top: 1px solid var(--line);
     background: var(--bone-deep);
+    overflow: hidden;
+    position: relative;
   }
-  .philo-grid {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: 6rem;
-    align-items: start;
+  .photo-rail::before,
+  .photo-rail::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
   }
-  .philo-left { position: sticky; top: 8rem; }
-  .philo-kanji {
-    font-family: var(--f-jp);
-    font-size: 9rem;
-    font-weight: 200;
-    line-height: 1;
-    color: transparent;
-    -webkit-text-stroke: 1px var(--ember);
-    margin-bottom: 2rem;
+  .photo-rail::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bone-deep) 0%, transparent 100%);
   }
-  .philo-title {
-    font-family: var(--f-display);
-    font-size: clamp(2.25rem, 3.5vw, 3.25rem);
-    line-height: 1.05;
-    font-weight: 300;
-    letter-spacing: -0.01em;
+  .photo-rail::after {
+    right: 0;
+    background: linear-gradient(-90deg, var(--bone-deep) 0%, transparent 100%);
   }
-  .philo-title em { color: var(--ember); font-style: italic; }
-  
-  .philo-right { padding-top: 1rem; }
-  .philo-lead {
-    font-family: var(--f-display);
-    font-size: 1.8rem;
-    line-height: 1.35;
-    font-weight: 300;
-    color: var(--ink);
-    margin-bottom: 3rem;
-    font-style: italic;
+  .photo-rail-track {
+    display: flex;
+    gap: 1.25rem;
+    animation: rail-scroll 90s linear infinite;
+    width: max-content;
   }
-  .philo-body {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--ink-soft);
-    max-width: 560px;
+  .photo-rail:hover .photo-rail-track {
+    animation-play-state: paused;
   }
-  .philo-body p + p { margin-top: 1.5rem; }
-  .philo-cta { margin-top: 3rem; }
+  .rail-item {
+    flex-shrink: 0;
+    width: 280px;
+    height: 380px;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--bone-deep) 0%, #d4c5ad 100%);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .rail-item.tall {
+    width: 280px;
+    height: 460px;
+    align-self: center;
+  }
+  .rail-item.wide {
+    width: 420px;
+    height: 320px;
+    align-self: center;
+  }
+  .rail-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .rail-item:hover img {
+    transform: scale(1.05);
+  }
+  @keyframes rail-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 0.625rem)); }
+  }
 
   /* Chef teaser */
   .chef {
@@ -1104,11 +1117,8 @@ footer.site-footer {
   }
   .fire-header {
     max-width: 1400px;
-    margin: 0 auto 6rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: end;
+    margin: 0 auto 5rem;
+    text-align: center;
   }
   .fire-title {
     font-family: var(--f-display);
@@ -1118,54 +1128,77 @@ footer.site-footer {
     letter-spacing: -0.02em;
   }
   .fire-title em { font-style: italic; color: var(--ember); }
-  .fire-intro {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: var(--ink-soft);
-    max-width: 440px;
-  }
   
   .fire-pillars {
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--line);
+    gap: 1.25rem;
   }
   .pillar {
-    padding: 3rem 2.5rem;
-    border-right: 1px solid var(--line);
-    transition: background 0.4s;
+    position: relative;
+    overflow: hidden;
+    background: #1a1410;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .pillar:last-child { border-right: 0; }
-  .pillar:hover { background: rgba(181, 74, 31, 0.04); }
-  
-  .pillar-num {
+  .pillar:hover {
+    transform: translateY(-4px);
+  }
+  .pillar-img {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .pillar-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .pillar:hover .pillar-img img {
+    transform: scale(1.06);
+  }
+  .pillar-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      transparent 50%,
+      rgba(0, 0, 0, 0.85) 100%);
+  }
+  .pillar-label {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    right: 2rem;
+    z-index: 2;
+    color: var(--cream);
+  }
+  .pillar-label .num {
     font-family: var(--f-display);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: var(--ember);
-    letter-spacing: 0.3em;
-    margin-bottom: 2rem;
+    letter-spacing: 0.35em;
+    margin-bottom: 1rem;
+    display: block;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
   }
-  .pillar-icon { width: 64px; height: 64px; margin-bottom: 2rem; }
   .pillar h4 {
     font-family: var(--f-display);
-    font-size: 1.85rem;
+    font-size: 2rem;
     font-weight: 400;
-    margin-bottom: 0.5rem;
-    line-height: 1.1;
+    margin-bottom: 0.3rem;
+    line-height: 1;
+    color: var(--cream);
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
   }
   .pillar .jp {
     font-family: var(--f-jp);
     font-size: 0.9rem;
-    color: var(--ash);
+    color: rgba(250, 245, 236, 0.8);
     letter-spacing: 0.2em;
-    margin-bottom: 1.5rem;
-  }
-  .pillar p {
-    font-size: 0.9rem;
-    line-height: 1.7;
-    color: var(--ink-soft);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
   }
 
   /* ========= MOMENTS STRIP ========= */
@@ -1375,6 +1408,93 @@ footer.site-footer {
   }
   .event-card:hover .arrow { transform: translate(4px, -4px); }
   
+  /* ── Media-background event cards ── */
+  .event-card-media {
+    padding: 0;
+    background: #1a1410;
+    border: 1px solid rgba(181, 74, 31, 0.25);
+    aspect-ratio: 4/5;
+    overflow: hidden;
+  }
+  .event-card-media::before {
+    display: none;
+  }
+  .event-card-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .event-card-bg img,
+  .event-card-bg video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .event-card-media:hover .event-card-bg img,
+  .event-card-media:hover .event-card-bg video {
+    transform: scale(1.04);
+  }
+  .event-card-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.2) 0%,
+      rgba(0, 0, 0, 0.15) 40%,
+      rgba(0, 0, 0, 0.85) 100%);
+  }
+  .event-card-content {
+    position: relative;
+    z-index: 1;
+    padding: 3rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: var(--cream);
+  }
+  .event-card-media .event-day {
+    color: var(--ember);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 1rem;
+  }
+  .event-card-media .jp-label {
+    color: rgba(250, 245, 236, 0.7);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5rem;
+  }
+  .event-card-media h3 {
+    color: var(--cream);
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    font-size: 3rem;
+  }
+  .event-card-media h3 em {
+    color: var(--ember);
+  }
+  .event-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(250, 245, 236, 0.2);
+  }
+  .event-footer .from {
+    font-family: var(--f-display);
+    font-size: 1.1rem;
+    color: var(--ember);
+    font-weight: 400;
+  }
+  .event-footer .arrow {
+    font-family: var(--f-display);
+    font-size: 1.5rem;
+    color: var(--cream);
+    transition: transform 0.4s;
+  }
+  .event-card-media:hover .event-footer .arrow {
+    transform: translate(4px, -4px);
+    color: var(--ember);
+  }
+  
   .events-cta {
     max-width: 1400px;
     margin: 4rem auto 0;
@@ -1443,13 +1563,13 @@ footer.site-footer {
 
   /* Responsive */
   @media (max-width: 1024px) {
-    .philo-grid, .chef-grid, .fire-header, .events-header, .events-grid, .visit-inner {
+    .chef-grid, .events-header, .events-grid, .visit-inner {
       grid-template-columns: 1fr;
       gap: 3rem;
     }
     .philo-left { position: static; }
     .fire-pillars { grid-template-columns: 1fr; }
-    .pillar { border-right: 0; border-bottom: 1px solid var(--line); }
+    .pillar { }
     .visit-right { grid-template-columns: 1fr; gap: 3rem; }
     .hero {
       padding: 7rem 1.5rem 6rem;
@@ -1490,6 +1610,25 @@ footer.site-footer {
       transform: translateY(-4px);
     }
     .moments { padding-top: 5rem; }
+    /* Photo rail — smaller items on mobile */
+    .rail-item {
+      width: 200px;
+      height: 270px;
+    }
+    .rail-item.tall {
+      width: 200px;
+      height: 330px;
+    }
+    .rail-item.wide {
+      width: 300px;
+      height: 220px;
+    }
+    /* Event card media — smaller aspect on mobile */
+    .event-card-media {
+      aspect-ratio: 4/5;
+    }
+    .event-card-content { padding: 2rem; }
+    .event-card-media h3 { font-size: 2.25rem; }
     .moments-header {
       grid-template-columns: 1fr;
       gap: 2rem;
@@ -1597,24 +1736,36 @@ footer.site-footer {
   </div>
 </div>
 
-<!-- ─────── PHILOSOPHY ─────── -->
-<section class="philosophy">
-  <div class="philo-grid">
-    <div class="philo-left reveal">
-      <div class="section-label"><span class="num">01</span> Philosophy</div>
-      <div class="philo-kanji">古今</div>
-      <h2 class="philo-title">A cuisine rooted in <em>heritage</em>, always <em>evolving</em>.</h2>
-    </div>
-    <div class="philo-right reveal">
-      <p class="philo-lead">"Kokin is where time converges — informing every choice, every flavour, every moment."</p>
-      <div class="philo-body">
-        <p>The character <b>古</b> (ko) represents the old — history, depth, and tradition. <b>今</b> (kin) means now — freshness, movement, and the beauty of the present moment.</p>
-        <p>Together they form Kokin: a tribute to the timeless spirit of Japanese cuisine. Traditional techniques honoured. Contemporary sensibility embraced. A fire-born tradition, reborn in the heart of modern London.</p>
-      </div>
-      <div class="philo-cta">
-        <a href="story.html" class="cta-secondary">Read the full story →</a>
-      </div>
-    </div>
+<!-- ─────── PHOTO RAIL ─────── -->
+<section class="photo-rail">
+  <div class="photo-rail-track">
+    <!-- Duplicated for seamless loop -->
+    <div class="rail-item"><img src="assets/sashimi-tuna.jpg" alt="Tuna sashimi" /></div>
+    <div class="rail-item tall"><img src="assets/headchef1.jpg" alt="Chef Shimoyama" /></div>
+    <div class="rail-item"><img src="assets/oyster.jpg" alt="Oyster" /></div>
+    <div class="rail-item wide"><img src="assets/kokin-showacse-poster.jpg" alt="Woodfire" /></div>
+    <div class="rail-item"><img src="assets/make-sushi.jpg" alt="TEMAE sushi" /></div>
+    <div class="rail-item"><img src="assets/cocktail-matcha.jpg" alt="Matcha cocktail" /></div>
+    <div class="rail-item tall"><img src="assets/second-in-command.jpg" alt="Plating" /></div>
+    <div class="rail-item"><img src="assets/scallops.jpg" alt="Scallop sashimi" /></div>
+    <div class="rail-item"><img src="assets/tunasushi.jpg" alt="Bluefin nigiri" /></div>
+    <div class="rail-item wide"><img src="assets/mixed-platter.jpg" alt="Mixed platter" /></div>
+    <div class="rail-item"><img src="assets/sea-urchin.jpg" alt="Sea urchin" /></div>
+    <div class="rail-item"><img src="assets/cocktail-pink.jpg" alt="Brunch cocktail" /></div>
+    
+    <!-- Duplicate for seamless loop -->
+    <div class="rail-item"><img src="assets/sashimi-tuna.jpg" alt="" /></div>
+    <div class="rail-item tall"><img src="assets/headchef1.jpg" alt="" /></div>
+    <div class="rail-item"><img src="assets/oyster.jpg" alt="" /></div>
+    <div class="rail-item wide"><img src="assets/kokin-showacse-poster.jpg" alt="" /></div>
+    <div class="rail-item"><img src="assets/make-sushi.jpg" alt="" /></div>
+    <div class="rail-item"><img src="assets/cocktail-matcha.jpg" alt="" /></div>
+    <div class="rail-item tall"><img src="assets/second-in-command.jpg" alt="" /></div>
+    <div class="rail-item"><img src="assets/scallops.jpg" alt="" /></div>
+    <div class="rail-item"><img src="assets/tunasushi.jpg" alt="" /></div>
+    <div class="rail-item wide"><img src="assets/mixed-platter.jpg" alt="" /></div>
+    <div class="rail-item"><img src="assets/sea-urchin.jpg" alt="" /></div>
+    <div class="rail-item"><img src="assets/cocktail-pink.jpg" alt="" /></div>
   </div>
 </section>
 
@@ -1634,8 +1785,6 @@ footer.site-footer {
       <h3>Daisuke<br/>Shimoyama</h3>
       <div class="jp-name">下山 大輔</div>
       <div class="tagline">Refining kaiseki through fire and philosophy.</div>
-      <p>Chef Shimoyama's cooking is shaped by the mountains of Gunma — the warmth, scent, and rhythm of burning pine that formed his earliest food memories. Over two decades he has carried those memories through some of the world's most exacting kitchens, including Michelin three-starred Ryugin in Tokyo and Michelin-starred Umu in London.</p>
-      <p>Kokin is his bold and elemental vision: Japanese cuisine shaped by fire, guided by seasonality, and grounded in deep respect for every ingredient.</p>
       <div class="chef-cta">
         <a href="story.html" class="cta-secondary">Meet the chef →</a>
       </div>
@@ -1687,41 +1836,37 @@ footer.site-footer {
 <section class="fire">
   <div class="fire-header">
     <h2 class="fire-title reveal">Fire is not a<br/>technique —<br/><em>it is an ingredient.</em></h2>
-    <p class="fire-intro reveal">At the centre of Kokin is woodfire: primal, intimate, and rich with memory. Cherry and apple wood infuse delicate smoke. Binchotan charcoal brings clean, high heat. Every flame has a purpose.</p>
   </div>
   <div class="fire-pillars">
     <div class="pillar reveal">
-      <div class="pillar-num">— 01</div>
-      <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" stroke="#b54a1f" stroke-width="1.25">
-        <path d="M32 54 C 20 54, 12 44, 14 32 C 16 20, 26 18, 28 26 C 30 20, 38 10, 38 22 C 42 14, 52 18, 50 34 C 48 46, 42 54, 32 54 Z"/>
-        <path d="M32 48 C 26 48, 22 42, 24 36 C 28 40, 30 36, 32 32 C 34 36, 38 36, 36 44 C 36 46, 34 48, 32 48 Z" fill="#b54a1f" fill-opacity="0.25"/>
-      </svg>
-      <h4>Woodfire</h4>
-      <div class="jp">木火 · Kibi</div>
-      <p>Cherry and apple wood infuse the dishes with delicate, fragrant smoke — a warmth that evokes childhood kitchens and mountain fires.</p>
+      <div class="pillar-img">
+        <img src="assets/kokin-showacse-poster.jpg" alt="Cherry wood fire" />
+      </div>
+      <div class="pillar-label">
+        <span class="num">— 01</span>
+        <h4>Woodfire</h4>
+        <div class="jp">木火 · Kibi</div>
+      </div>
     </div>
     <div class="pillar reveal">
-      <div class="pillar-num">— 02</div>
-      <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" stroke="#b54a1f" stroke-width="1.25">
-        <rect x="10" y="28" width="44" height="18" rx="1"/>
-        <path d="M14 28 L14 22 M22 28 L22 20 M30 28 L30 22 M38 28 L38 20 M46 28 L46 22 M54 28 L54 20"/>
-        <path d="M14 46 L14 52 M54 46 L54 52"/>
-        <circle cx="32" cy="37" r="1.5" fill="#b54a1f"/>
-      </svg>
-      <h4>Binchotan</h4>
-      <div class="jp">備長炭 · White charcoal</div>
-      <p>A clean, sustained high heat that draws out clarity and texture from each ingredient — a technique perfected across centuries.</p>
+      <div class="pillar-img">
+        <img src="assets/scallops2.jpg" alt="Binchotan-grilled scallop" />
+      </div>
+      <div class="pillar-label">
+        <span class="num">— 02</span>
+        <h4>Binchotan</h4>
+        <div class="jp">備長炭 · White charcoal</div>
+      </div>
     </div>
     <div class="pillar reveal">
-      <div class="pillar-num">— 03</div>
-      <svg class="pillar-icon" viewBox="0 0 64 64" fill="none" stroke="#b54a1f" stroke-width="1.25">
-        <path d="M8 32 C 20 24, 30 40, 44 32 C 52 28, 58 32, 58 32 C 58 32, 52 36, 44 36 C 30 36, 20 20, 8 32 Z"/>
-        <circle cx="50" cy="30" r="1" fill="#b54a1f"/>
-        <path d="M14 36 C 18 38, 22 38, 26 36"/>
-      </svg>
-      <h4>Bluefin</h4>
-      <div class="jp">本鮪 · Hon-maguro</div>
-      <p>Whole wild tuna from Spain and Portugal, broken down in-house with precision and reverence — otoro to kama, nothing wasted.</p>
+      <div class="pillar-img">
+        <img src="assets/tunasushi.jpg" alt="Whole bluefin tuna" />
+      </div>
+      <div class="pillar-label">
+        <span class="num">— 03</span>
+        <h4>Bluefin</h4>
+        <div class="jp">本鮪 · Hon-maguro</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1764,34 +1909,44 @@ footer.site-footer {
   <div class="events-header">
     <div class="reveal">
       <div class="section-label"><span class="num">05</span> What's On</div>
-      <h2>Regular <em>rituals</em>,<br/>fleeting seasons.</h2>
+      <h2>Regular <em>rituals</em>.</h2>
     </div>
-    <p class="intro reveal">A small programme of recurring experiences — some weekly, some seasonal — designed to bring guests closer to the craft. Each one worth planning around.</p>
+    <p class="intro reveal">Weekly experiences worth planning around.</p>
   </div>
   
   <div class="events-grid">
-    <a href="events.html#tuna-samurai" class="event-card reveal">
-      <div class="event-day"><span class="dot"></span>Every Wednesday · Evening</div>
-      <div class="jp-label">鮪 侍</div>
-      <h3><em>Tuna</em><br/>Samurai</h3>
-      <p class="desc">A live whole-bluefin breakdown performed at your table. Watch as chef Shimoyama butchers the fish with precision and reverence, then tastes every cut — from otoro to the rare collar — in a sequence that unfolds before you.</p>
-      <div class="meta">
-        <div>When<br/><b>Wed, 7pm</b></div>
-        <div>From<br/><b>£85 pp</b></div>
+    <a href="events.html#tuna-samurai" class="event-card event-card-media reveal">
+      <div class="event-card-bg">
+        <video autoplay muted loop playsinline poster="assets/tuna-samuari-poster.jpg">
+          <source src="assets/tuna-samuari.mp4" type="video/mp4">
+        </video>
+        <div class="event-card-gradient"></div>
       </div>
-      <div class="arrow">↗</div>
+      <div class="event-card-content">
+        <div class="event-day"><span class="dot"></span>Every Wednesday · 7pm</div>
+        <div class="jp-label">鮪 侍</div>
+        <h3><em>Tuna</em><br/>Samurai</h3>
+        <div class="event-footer">
+          <span class="from">From £85 pp</span>
+          <span class="arrow">↗</span>
+        </div>
+      </div>
     </a>
     
-    <a href="events.html#bottomless-brunch" class="event-card reveal">
-      <div class="event-day"><span class="dot"></span>Every Saturday &amp; Sunday</div>
-      <div class="jp-label">昼 宴</div>
-      <h3>Bottomless<br/><em>Brunch</em></h3>
-      <p class="desc">Weekends reimagined. A curated selection of chef's brunch dishes — sushi, tempura, wood-fire small plates — paired with ninety minutes of free-flowing sake highballs, sparkling wine, or Japanese-inspired cocktails.</p>
-      <div class="meta">
-        <div>When<br/><b>Sat &amp; Sun, 12 – 3pm</b></div>
-        <div>From<br/><b>£55 pp</b></div>
+    <a href="events.html#bottomless-brunch" class="event-card event-card-media reveal">
+      <div class="event-card-bg">
+        <img src="assets/cocktail-pink.jpg" alt="Bottomless brunch cocktail" />
+        <div class="event-card-gradient"></div>
       </div>
-      <div class="arrow">↗</div>
+      <div class="event-card-content">
+        <div class="event-day"><span class="dot"></span>Sat &amp; Sun · 12–3pm</div>
+        <div class="jp-label">昼 宴</div>
+        <h3>Bottomless<br/><em>Brunch</em></h3>
+        <div class="event-footer">
+          <span class="from">From £55 pp</span>
+          <span class="arrow">↗</span>
+        </div>
+      </div>
     </a>
   </div>
   

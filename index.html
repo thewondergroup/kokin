@@ -516,67 +516,12 @@ footer.site-footer {
 }
 
 /* Gallery strip — horizontal scrolling media row */
-.gallery-strip {
-  padding: 8rem 0;
-  border-top: 1px solid var(--line);
-  overflow: hidden;
-  background: var(--bone);
-}
-.gallery-strip-header {
-  max-width: 1400px;
-  margin: 0 auto 4rem;
-  padding: 0 2.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 3rem;
-}
-.gallery-strip-header h2 {
-  font-family: var(--f-display);
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 300;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
-}
-.gallery-strip-header h2 em { font-style: italic; color: var(--ember); }
-.gallery-strip-header p {
-  font-size: 0.95rem;
-  color: var(--ink-soft);
-  line-height: 1.7;
-  max-width: 380px;
-}
-.gallery-track {
-  display: flex;
-  gap: 1.5rem;
-  padding: 0 2.5rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-.gallery-track::-webkit-scrollbar { display: none; }
-.gallery-item {
-  flex: 0 0 auto;
-  width: clamp(260px, 28vw, 400px);
-  scroll-snap-align: start;
-}
-.gallery-item .media-frame { aspect-ratio: 3/4; }
-.gallery-item .caption {
-  margin-top: 1.25rem;
-  font-family: var(--f-display);
-  font-size: 0.95rem;
-  color: var(--ink);
-  letter-spacing: 0.02em;
-  font-weight: 400;
-}
-.gallery-item .caption .jp-caption {
-  font-family: var(--f-jp);
-  color: var(--ash);
-  font-size: 0.8rem;
-  letter-spacing: 0.3em;
-  margin-left: 0.5rem;
-  font-weight: 300;
-}
+
+
+
+
+
+
 
 /* ============================================
    Responsive
@@ -619,16 +564,6 @@ footer.site-footer {
   }
   .footer-bottom > div { margin: 0; }
   .footer-bottom a { margin: 0 0.75rem; }
-
-  .gallery-strip { padding: 5rem 0; }
-  .gallery-strip-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 1.5rem;
-    margin-bottom: 3rem;
-  }
-  .gallery-track { padding: 0 1.5rem; gap: 1rem; }
-  .gallery-item { width: 70vw; }
 }
 
 @media (max-width: 600px) {
@@ -1464,76 +1399,6 @@ footer.site-footer {
       <h4>Bluefin</h4>
       <div class="jp">本鮪 · Hon-maguro</div>
       <p>Whole wild tuna from Spain and Portugal, broken down in-house with precision and reverence — otoro to kama, nothing wasted.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ─────── GALLERY STRIP ─────── -->
-<!-- MEDIA SLOTS: Each .gallery-item holds one image or short video.
-     Recommended: 6–10 items. Mix of dishes, fire moments, dining room, and chef-at-work shots.
-     Replace each placeholder with <img src="..."> or <video autoplay muted loop playsinline><source src="..."></video>.
-     Captions are optional — edit or remove the .caption div. -->
-<section class="gallery-strip">
-  <div class="gallery-strip-header reveal">
-    <h2>A glimpse of<br/>the <em>room</em>.</h2>
-    <p>Woodfire, whole fish, seasonal plates, and the quiet theatre of the pass. Scroll through to see more.</p>
-  </div>
-  <div class="gallery-track reveal">
-    <div class="gallery-item">
-      <div class="media-frame ember-border">
-        <!-- <img src="media/gallery-01.jpg" alt="Wood-fire grilled tuna kama"> -->
-        <div class="placeholder"><div class="jp">炎</div><div class="label">Image 01</div></div>
-      </div>
-      <div class="caption">Wood-fire grilled tuna <span class="jp-caption">鮪 カマ</span></div>
-    </div>
-    <div class="gallery-item">
-      <div class="media-frame">
-        <!-- <video autoplay muted loop playsinline><source src="media/gallery-02.mp4" type="video/mp4"></video> -->
-        <div class="placeholder"><div class="jp">動</div><div class="label">Video 02</div></div>
-      </div>
-      <div class="caption">The pass at service <span class="jp-caption">厨 房</span></div>
-    </div>
-    <div class="gallery-item">
-      <div class="media-frame">
-        <!-- <img src="media/gallery-03.jpg" alt="Chef's signature nigiri"> -->
-        <div class="placeholder"><div class="jp">鮨</div><div class="label">Image 03</div></div>
-      </div>
-      <div class="caption">Chef's nigiri selection <span class="jp-caption">握 り</span></div>
-    </div>
-    <div class="gallery-item">
-      <div class="media-frame">
-        <!-- <img src="media/gallery-04.jpg" alt="Whole bluefin tuna breakdown"> -->
-        <div class="placeholder"><div class="jp">鮪</div><div class="label">Image 04</div></div>
-      </div>
-      <div class="caption">Whole bluefin breakdown <span class="jp-caption">解 体</span></div>
-    </div>
-    <div class="gallery-item">
-      <div class="media-frame">
-        <!-- <img src="media/gallery-05.jpg" alt="The dining room at Kokin"> -->
-        <div class="placeholder"><div class="jp">室</div><div class="label">Image 05</div></div>
-      </div>
-      <div class="caption">The dining room <span class="jp-caption">客 間</span></div>
-    </div>
-    <div class="gallery-item">
-      <div class="media-frame">
-        <!-- <video autoplay muted loop playsinline><source src="media/gallery-06.mp4" type="video/mp4"></video> -->
-        <div class="placeholder"><div class="jp">煙</div><div class="label">Video 06</div></div>
-      </div>
-      <div class="caption">Cherry wood smoke <span class="jp-caption">桜 煙</span></div>
-    </div>
-    <div class="gallery-item">
-      <div class="media-frame">
-        <!-- <img src="media/gallery-07.jpg" alt="A5 Wagyu sukiyaki"> -->
-        <div class="placeholder"><div class="jp">和</div><div class="label">Image 07</div></div>
-      </div>
-      <div class="caption">A5 Wagyu sukiyaki <span class="jp-caption">和 牛</span></div>
-    </div>
-    <div class="gallery-item">
-      <div class="media-frame">
-        <!-- <img src="media/gallery-08.jpg" alt="Wagashi dessert selection"> -->
-        <div class="placeholder"><div class="jp">甘</div><div class="label">Image 08</div></div>
-      </div>
-      <div class="caption">Wagashi desserts <span class="jp-caption">和 菓 子</span></div>
     </div>
   </div>
 </section>

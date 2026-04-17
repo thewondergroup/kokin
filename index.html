@@ -493,20 +493,6 @@ footer.site-footer {
 .ratio-16-9 { aspect-ratio: 16/9; }
 .ratio-5-7 { aspect-ratio: 5/7; }
 
-/* Hero video — full-bleed background behind content */
-.hero-video-bg {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  z-index: 0;
-}
-.hero-video-bg video,
-.hero-video-bg img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 /* Gallery strip — horizontal scrolling media row */
 
 
@@ -785,112 +771,54 @@ footer.site-footer {
   }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-  /* ========= TICKER MARQUEE ========= */
-  .ticker {
-    background: var(--ember);
-    color: var(--cream);
-    padding: 1.25rem 0;
-    overflow: hidden;
-    white-space: nowrap;
-    border-top: 1px solid var(--ember-deep);
-    border-bottom: 1px solid var(--ember-deep);
-    position: relative;
-  }
-  .ticker-track {
-    display: flex;
-    animation: ticker-scroll 40s linear infinite;
-    width: max-content;
-  }
-  .ticker-content {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    padding-right: 2rem;
-    font-family: var(--f-display);
-    font-size: 1.1rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-  }
-  .ticker-content span {
-    flex-shrink: 0;
-  }
-  .ticker-content .dot {
-    color: var(--cream);
-    opacity: 0.5;
-    font-size: 1.3rem;
-    line-height: 1;
-  }
-  .ticker:hover .ticker-track {
-    animation-play-state: paused;
-  }
-  @keyframes ticker-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  /* ========= PHOTO RAIL ========= */
-  .photo-rail {
-    padding: 3rem 0;
+  /* ========= FOOD SECTION ========= */
+  .food {
+    padding: 10rem 2.5rem;
     border-top: 1px solid var(--line);
-    background: var(--bone-deep);
-    overflow: hidden;
+    background: var(--bone);
+  }
+  .food-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .food-video {
     position: relative;
-  }
-  .photo-rail::before,
-  .photo-rail::after {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 120px;
-    z-index: 2;
-    pointer-events: none;
-  }
-  .photo-rail::before {
-    left: 0;
-    background: linear-gradient(90deg, var(--bone-deep) 0%, transparent 100%);
-  }
-  .photo-rail::after {
-    right: 0;
-    background: linear-gradient(-90deg, var(--bone-deep) 0%, transparent 100%);
-  }
-  .photo-rail-track {
-    display: flex;
-    gap: 1.25rem;
-    animation: rail-scroll 90s linear infinite;
-    width: max-content;
-  }
-  .photo-rail:hover .photo-rail-track {
-    animation-play-state: paused;
-  }
-  .rail-item {
-    flex-shrink: 0;
-    width: 280px;
-    height: 380px;
+    aspect-ratio: 4/5;
     overflow: hidden;
-    background: linear-gradient(160deg, var(--bone-deep) 0%, #d4c5ad 100%);
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+    background: #1a1410;
+    border: 1px solid rgba(181, 74, 31, 0.25);
   }
-  .rail-item.tall {
-    width: 280px;
-    height: 460px;
-    align-self: center;
-  }
-  .rail-item.wide {
-    width: 420px;
-    height: 320px;
-    align-self: center;
-  }
-  .rail-item img {
-    width: 100%; height: 100%;
+  .food-video video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .rail-item:hover img {
-    transform: scale(1.05);
+  .food-content {
+    padding: 0 1rem;
   }
-  @keyframes rail-scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 0.625rem)); }
+  .food-content h2 {
+    font-family: var(--f-display);
+    font-size: clamp(2.75rem, 5vw, 4.25rem);
+    font-weight: 300;
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+  .food-content h2 em { font-style: italic; color: var(--ember); }
+  .food-content p {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin-bottom: 3rem;
+    max-width: 500px;
   }
 
   /* Chef teaser */
@@ -979,295 +907,6 @@ footer.site-footer {
     max-width: 560px;
   }
   .chef-cta { margin-top: 2rem; }
-
-  /* ========= VIDEO STRIP ========= */
-  .video-strip {
-    padding: 8rem 2.5rem 10rem;
-    background: #1a1410;
-    color: var(--cream);
-    position: relative;
-    border-top: 1px solid var(--line);
-  }
-  .video-strip-header {
-    max-width: 1400px;
-    margin: 0 auto 4rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: end;
-  }
-  .video-strip-header .section-label {
-    color: var(--ember);
-    margin-bottom: 2rem;
-  }
-  .video-strip-header .section-label::before {
-    background: var(--ember);
-  }
-  .video-strip-header .section-label .num {
-    color: rgba(250, 245, 236, 0.5);
-  }
-  .video-strip-header h2 {
-    font-family: var(--f-display);
-    font-size: clamp(2.75rem, 5.5vw, 4.5rem);
-    font-weight: 300;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-    color: var(--cream);
-  }
-  .video-strip-header h2 em {
-    font-style: italic;
-    color: var(--ember);
-  }
-  .video-strip-header p {
-    font-family: var(--f-display);
-    font-style: italic;
-    font-size: 1.15rem;
-    line-height: 1.6;
-    color: rgba(250, 245, 236, 0.75);
-    max-width: 440px;
-  }
-  
-  .video-strip-grid {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-  .vs-item {
-    position: relative;
-    aspect-ratio: 3/4;
-    overflow: hidden;
-    background: #0f0a06;
-    border: 1px solid rgba(181, 74, 31, 0.25);
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
-                border-color 0.4s;
-  }
-  .vs-item:nth-child(2) {
-    transform: translateY(2.5rem);
-  }
-  .vs-item:hover {
-    border-color: var(--ember);
-    transform: translateY(-4px);
-  }
-  .vs-item:nth-child(2):hover {
-    transform: translateY(calc(2.5rem - 4px));
-  }
-  .vs-item video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-  .vs-item::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg,
-      transparent 0%,
-      transparent 55%,
-      rgba(0, 0, 0, 0.7) 100%);
-    z-index: 1;
-    pointer-events: none;
-  }
-  .vs-label {
-    position: absolute;
-    bottom: 1.75rem;
-    left: 1.75rem;
-    right: 1.75rem;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    color: var(--cream);
-  }
-  .vs-label .vs-jp {
-    font-family: var(--f-jp);
-    font-size: 2rem;
-    font-weight: 300;
-    line-height: 1;
-    color: var(--ember);
-    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
-  }
-  .vs-label .vs-title {
-    font-family: var(--f-display);
-    font-size: 1rem;
-    font-style: italic;
-    color: var(--cream);
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
-  }
-
-  /* Woodfire pillars */
-  .fire {
-    padding: 10rem 2.5rem;
-    border-top: 1px solid var(--line);
-    background: var(--bone-deep);
-    position: relative;
-    overflow: hidden;
-  }
-  .fire::before {
-    content: '';
-    position: absolute;
-    top: -20%; right: -20%;
-    width: 70%; height: 140%;
-    background: radial-gradient(ellipse, rgba(181, 74, 31, 0.06), transparent 60%);
-    pointer-events: none;
-  }
-  .fire-header {
-    max-width: 1400px;
-    margin: 0 auto 5rem;
-    text-align: center;
-  }
-  .fire-title {
-    font-family: var(--f-display);
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    font-weight: 300;
-    line-height: 0.95;
-    letter-spacing: -0.02em;
-  }
-  .fire-title em { font-style: italic; color: var(--ember); }
-  
-  .fire-pillars {
-    max-width: 1400px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.25rem;
-  }
-  .pillar {
-    position: relative;
-    overflow: hidden;
-    background: #1a1410;
-    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  .pillar:hover {
-    transform: translateY(-4px);
-  }
-  .pillar-img {
-    position: relative;
-    aspect-ratio: 4/5;
-    overflow: hidden;
-  }
-  .pillar-img img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  .pillar:hover .pillar-img img {
-    transform: scale(1.06);
-  }
-  .pillar-img::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg,
-      transparent 0%,
-      transparent 50%,
-      rgba(0, 0, 0, 0.85) 100%);
-  }
-  .pillar-label {
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    right: 2rem;
-    z-index: 2;
-    color: var(--cream);
-  }
-  .pillar-label .num {
-    font-family: var(--f-display);
-    font-size: 0.75rem;
-    color: var(--ember);
-    letter-spacing: 0.35em;
-    margin-bottom: 1rem;
-    display: block;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
-  }
-  .pillar h4 {
-    font-family: var(--f-display);
-    font-size: 2rem;
-    font-weight: 400;
-    margin-bottom: 0.3rem;
-    line-height: 1;
-    color: var(--cream);
-    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
-  }
-  .pillar .jp {
-    font-family: var(--f-jp);
-    font-size: 0.9rem;
-    color: rgba(250, 245, 236, 0.8);
-    letter-spacing: 0.2em;
-    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
-  }
-
-  /* ========= MOMENTS STRIP ========= */
-  .moments {
-    padding: 8rem 0 0;
-    border-top: 1px solid var(--line);
-    background: var(--bone);
-  }
-  .moments-header {
-    max-width: 1400px;
-    margin: 0 auto 4rem;
-    padding: 0 2.5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: end;
-  }
-  .moments-header h2 {
-    font-family: var(--f-display);
-    font-size: clamp(2.5rem, 4.5vw, 3.75rem);
-    font-weight: 300;
-    line-height: 1;
-    letter-spacing: -0.015em;
-  }
-  .moments-header h2 em { font-style: italic; color: var(--ember); }
-  .moments-header .intro {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--ink-soft);
-    max-width: 420px;
-  }
-  .moments-strip {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 2px;
-    overflow: hidden;
-  }
-  .moment {
-    aspect-ratio: 3/4;
-    overflow: hidden;
-    position: relative;
-    background: linear-gradient(160deg, var(--bone-deep) 0%, var(--cream) 100%);
-    cursor: pointer;
-    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  .moment:nth-child(even) {
-    transform: translateY(2rem);
-    background: linear-gradient(160deg, #e8dcc8 0%, var(--bone-deep) 100%);
-  }
-  .moment img {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-  }
-  .moment:hover img { transform: scale(1.04); }
-  .moment-placeholder {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--f-jp);
-    font-size: 2.5rem;
-    font-weight: 200;
-    color: var(--ember);
-    opacity: 0.3;
-    letter-spacing: 0.2em;
-    pointer-events: none;
-  }
 
   /* ========= EVENTS TEASER (new) ========= */
   .events-teaser {
@@ -1501,6 +1140,80 @@ footer.site-footer {
     text-align: center;
   }
 
+  /* ========= GALLERY PREVIEW (masonry) ========= */
+  .gallery-preview {
+    padding: 10rem 2.5rem;
+    border-top: 1px solid var(--line);
+    background: var(--bone);
+  }
+  .gallery-preview-header {
+    max-width: 1400px;
+    margin: 0 auto 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+  }
+  .gallery-preview-header h2 {
+    font-family: var(--f-display);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .gallery-preview-header h2 em {
+    font-style: italic;
+    color: var(--ember);
+  }
+  .gallery-preview-header p {
+    font-family: var(--f-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-soft);
+  }
+  
+  .masonry {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 200px;
+    gap: 1rem;
+  }
+  .masonry-item {
+    position: relative;
+    overflow: hidden;
+    background: var(--bone-deep);
+    display: block;
+    grid-row: span 1;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .masonry-item.m-tall { grid-row: span 2; }
+  .masonry-item.m-wide { grid-column: span 2; }
+  .masonry-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .masonry-item:hover { transform: translateY(-3px); }
+  .masonry-item:hover img { transform: scale(1.05); }
+  .masonry-item::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(181, 74, 31, 0) 100%);
+    transition: background 0.4s;
+  }
+  .masonry-item:hover::after {
+    background: linear-gradient(180deg, transparent 60%, rgba(181, 74, 31, 0.2) 100%);
+  }
+  
+  .gallery-preview-cta {
+    max-width: 1400px;
+    margin: 4rem auto 0;
+    text-align: center;
+  }
+
   /* Visit preview */
   .visit-preview {
     padding: 10rem 2.5rem;
@@ -1610,23 +1323,28 @@ footer.site-footer {
       transform: translateY(-4px);
     }
     .moments { padding-top: 5rem; }
-    /* Photo rail — smaller items on mobile */
-    .rail-item {
-      width: 200px;
-      height: 270px;
+    /* Food section */
+    .food { padding: 5rem 1.5rem; }
+    .food-inner {
+      grid-template-columns: 1fr;
+      gap: 3rem;
     }
-    .rail-item.tall {
-      width: 200px;
-      height: 330px;
+    .food-content { padding: 0; }
+    /* Gallery preview */
+    .gallery-preview { padding: 5rem 1.5rem; }
+    .gallery-preview-header {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
     }
-    .rail-item.wide {
-      width: 300px;
-      height: 220px;
+    .masonry {
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 180px;
+      gap: 0.6rem;
     }
-    /* Event card media — smaller aspect on mobile */
-    .event-card-media {
-      aspect-ratio: 4/5;
-    }
+    .masonry-item.m-wide { grid-column: span 2; }
+    /* Event card media */
+    .event-card-media { aspect-ratio: 4/5; }
     .event-card-content { padding: 2rem; }
     .event-card-media h3 { font-size: 2.25rem; }
     .moments-header {
@@ -1679,7 +1397,7 @@ footer.site-footer {
     <p class="hero-body-new">Chef Daisuke Shimoyama's vision of Japanese cuisine — rooted in heritage, guided by woodfire, alive with flavour.</p>
     <div class="hero-cta-new">
       <a href="https://www.exploretock.com/kokin-london" class="cta-primary hero-cta-btn" target="_blank" rel="noopener"><span>Reserve a table</span></a>
-      <a href="story.html" class="cta-hero-secondary">Our story <span class="arrow">→</span></a>
+      <a href="menu.html" class="cta-hero-secondary">View menu <span class="arrow">→</span></a>
     </div>
   </div>
   
@@ -1694,212 +1412,19 @@ footer.site-footer {
   </div>
 </section>
 
-<!-- ─────── TICKER MARQUEE ─────── -->
-<div class="ticker">
-  <div class="ticker-track">
-    <div class="ticker-content">
-      <span>古今</span>
-      <span class="dot">·</span>
-      <span>Tuna Samurai · every Wednesday</span>
-      <span class="dot">·</span>
-      <span>鮪侍</span>
-      <span class="dot">·</span>
-      <span>Bottomless Brunch · every weekend</span>
-      <span class="dot">·</span>
-      <span>昼宴</span>
-      <span class="dot">·</span>
-      <span>Woodfire-led · kaiseki reimagined</span>
-      <span class="dot">·</span>
-      <span>古今</span>
-      <span class="dot">·</span>
-      <span>Seventh floor · The Stratford</span>
-      <span class="dot">·</span>
-    </div>
-    <div class="ticker-content" aria-hidden="true">
-      <span>古今</span>
-      <span class="dot">·</span>
-      <span>Tuna Samurai · every Wednesday</span>
-      <span class="dot">·</span>
-      <span>鮪侍</span>
-      <span class="dot">·</span>
-      <span>Bottomless Brunch · every weekend</span>
-      <span class="dot">·</span>
-      <span>昼宴</span>
-      <span class="dot">·</span>
-      <span>Woodfire-led · kaiseki reimagined</span>
-      <span class="dot">·</span>
-      <span>古今</span>
-      <span class="dot">·</span>
-      <span>Seventh floor · The Stratford</span>
-      <span class="dot">·</span>
-    </div>
-  </div>
-</div>
-
-<!-- ─────── PHOTO RAIL ─────── -->
-<section class="photo-rail">
-  <div class="photo-rail-track">
-    <!-- Duplicated for seamless loop -->
-    <div class="rail-item"><img src="assets/sashimi-tuna.jpg" alt="Tuna sashimi" /></div>
-    <div class="rail-item tall"><img src="assets/headchef1.jpg" alt="Chef Shimoyama" /></div>
-    <div class="rail-item"><img src="assets/oyster.jpg" alt="Oyster" /></div>
-    <div class="rail-item wide"><img src="assets/kokin-showacse-poster.jpg" alt="Woodfire" /></div>
-    <div class="rail-item"><img src="assets/make-sushi.jpg" alt="TEMAE sushi" /></div>
-    <div class="rail-item"><img src="assets/cocktail-matcha.jpg" alt="Matcha cocktail" /></div>
-    <div class="rail-item tall"><img src="assets/second-in-command.jpg" alt="Plating" /></div>
-    <div class="rail-item"><img src="assets/scallops.jpg" alt="Scallop sashimi" /></div>
-    <div class="rail-item"><img src="assets/tunasushi.jpg" alt="Bluefin nigiri" /></div>
-    <div class="rail-item wide"><img src="assets/mixed-platter.jpg" alt="Mixed platter" /></div>
-    <div class="rail-item"><img src="assets/sea-urchin.jpg" alt="Sea urchin" /></div>
-    <div class="rail-item"><img src="assets/cocktail-pink.jpg" alt="Brunch cocktail" /></div>
-    
-    <!-- Duplicate for seamless loop -->
-    <div class="rail-item"><img src="assets/sashimi-tuna.jpg" alt="" /></div>
-    <div class="rail-item tall"><img src="assets/headchef1.jpg" alt="" /></div>
-    <div class="rail-item"><img src="assets/oyster.jpg" alt="" /></div>
-    <div class="rail-item wide"><img src="assets/kokin-showacse-poster.jpg" alt="" /></div>
-    <div class="rail-item"><img src="assets/make-sushi.jpg" alt="" /></div>
-    <div class="rail-item"><img src="assets/cocktail-matcha.jpg" alt="" /></div>
-    <div class="rail-item tall"><img src="assets/second-in-command.jpg" alt="" /></div>
-    <div class="rail-item"><img src="assets/scallops.jpg" alt="" /></div>
-    <div class="rail-item"><img src="assets/tunasushi.jpg" alt="" /></div>
-    <div class="rail-item wide"><img src="assets/mixed-platter.jpg" alt="" /></div>
-    <div class="rail-item"><img src="assets/sea-urchin.jpg" alt="" /></div>
-    <div class="rail-item"><img src="assets/cocktail-pink.jpg" alt="" /></div>
-  </div>
-</section>
-
-<!-- ─────── CHEF ─────── -->
-<section class="chef">
-  <div class="chef-grid">
-    <div class="reveal">
-      <div class="chef-portrait-wrap">
-        <div class="chef-portrait-frame"></div>
-        <div class="chef-portrait">
-          <img src="assets/headchef2.jpg" alt="Chef Daisuke Shimoyama at Kokin" onerror="this.style.display='none'" />
-        </div>
-      </div>
-    </div>
-    <div class="chef-content reveal">
-      <div class="section-label"><span class="num">02</span> The Chef</div>
-      <h3>Daisuke<br/>Shimoyama</h3>
-      <div class="jp-name">下山 大輔</div>
-      <div class="tagline">Refining kaiseki through fire and philosophy.</div>
-      <div class="chef-cta">
-        <a href="story.html" class="cta-secondary">Meet the chef →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─────── VIDEO STRIP ─────── -->
-<section class="video-strip">
-  <div class="video-strip-header">
-    <div class="reveal">
-      <div class="section-label"><span class="num">03</span> In Motion</div>
-      <h2><em>Kokin</em>, mid-service.</h2>
-    </div>
-    <p class="reveal">Three moments from the dining room — the knife, the bowl, the flame. Watch, then come see it in person.</p>
-  </div>
-  <div class="video-strip-grid">
-    <div class="vs-item reveal">
-      <video autoplay muted loop playsinline poster="assets/tuna-samuari-poster.jpg">
-        <source src="assets/tuna-samuari.mp4" type="video/mp4">
-      </video>
-      <div class="vs-label">
-        <div class="vs-jp">鮪 侍</div>
-        <div class="vs-title">The whole bluefin</div>
-      </div>
-    </div>
-    <div class="vs-item reveal">
+<!-- ─────── FOOD ─────── -->
+<section class="food">
+  <div class="food-inner">
+    <div class="food-video reveal">
       <video autoplay muted loop playsinline poster="assets/kokin-montage2-poster.jpg">
         <source src="assets/kokin-montage2.mp4" type="video/mp4">
       </video>
-      <div class="vs-label">
-        <div class="vs-jp">丼</div>
-        <div class="vs-title">The chirashi</div>
-      </div>
     </div>
-    <div class="vs-item reveal">
-      <video autoplay muted loop playsinline poster="assets/kokin-showacse-poster.jpg">
-        <source src="assets/kokin-showacse.mp4" type="video/mp4">
-      </video>
-      <div class="vs-label">
-        <div class="vs-jp">炎</div>
-        <div class="vs-title">The fire</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─────── FIRE ─────── -->
-<section class="fire">
-  <div class="fire-header">
-    <h2 class="fire-title reveal">Fire is not a<br/>technique —<br/><em>it is an ingredient.</em></h2>
-  </div>
-  <div class="fire-pillars">
-    <div class="pillar reveal">
-      <div class="pillar-img">
-        <img src="assets/kokin-showacse-poster.jpg" alt="Cherry wood fire" />
-      </div>
-      <div class="pillar-label">
-        <span class="num">— 01</span>
-        <h4>Woodfire</h4>
-        <div class="jp">木火 · Kibi</div>
-      </div>
-    </div>
-    <div class="pillar reveal">
-      <div class="pillar-img">
-        <img src="assets/scallops2.jpg" alt="Binchotan-grilled scallop" />
-      </div>
-      <div class="pillar-label">
-        <span class="num">— 02</span>
-        <h4>Binchotan</h4>
-        <div class="jp">備長炭 · White charcoal</div>
-      </div>
-    </div>
-    <div class="pillar reveal">
-      <div class="pillar-img">
-        <img src="assets/tunasushi.jpg" alt="Whole bluefin tuna" />
-      </div>
-      <div class="pillar-label">
-        <span class="num">— 03</span>
-        <h4>Bluefin</h4>
-        <div class="jp">本鮪 · Hon-maguro</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─────── MOMENTS STRIP ─────── -->
-<section class="moments">
-  <div class="moments-header">
-    <div class="reveal">
-      <div class="section-label"><span class="num">04</span> Moments</div>
-      <h2>Glimpses of<br/>the <em>craft</em>.</h2>
-    </div>
-    <p class="intro reveal">A fire-led kitchen, a knife in practised hands, a plate set with intention. Small moments from the dining room and beyond.</p>
-  </div>
-  <div class="moments-strip">
-    <div class="moment reveal">
-      <img src="assets/kokin-showacse-poster.jpg" alt="Fish over woodfire" onerror="this.style.display='none'" />
-      <div class="moment-placeholder">炎</div>
-    </div>
-    <div class="moment reveal">
-      <img src="assets/second-in-command.jpg" alt="Chef plating" onerror="this.style.display='none'" />
-      <div class="moment-placeholder">匠</div>
-    </div>
-    <div class="moment reveal">
-      <img src="assets/make-sushi.jpg" alt="Signature TEMAE sushi" onerror="this.style.display='none'" />
-      <div class="moment-placeholder">寿</div>
-    </div>
-    <div class="moment reveal">
-      <img src="assets/oyster.jpg" alt="Oyster with jelly" onerror="this.style.display='none'" />
-      <div class="moment-placeholder">牡</div>
-    </div>
-    <div class="moment reveal">
-      <img src="assets/cocktail-matcha.jpg" alt="Matcha cocktail" onerror="this.style.display='none'" />
-      <div class="moment-placeholder">盃</div>
+    <div class="food-content reveal">
+      <div class="section-label"><span class="num">01</span> The Food</div>
+      <h2>Shaped by <em>fire</em>,<br/>guided by the <em>season</em>.</h2>
+      <p>Wild bluefin broken down by hand, A5 Miyazaki wagyu over cherry-wood flames, a whisper of yuzu on smoked-rice nigiri. A menu that reveres tradition without kneeling to it.</p>
+      <a href="menu.html" class="cta-primary"><span>View the menu</span></a>
     </div>
   </div>
 </section>
@@ -1908,7 +1433,7 @@ footer.site-footer {
 <section class="events-teaser">
   <div class="events-header">
     <div class="reveal">
-      <div class="section-label"><span class="num">05</span> What's On</div>
+      <div class="section-label"><span class="num">02</span> What's On</div>
       <h2>Regular <em>rituals</em>.</h2>
     </div>
     <p class="intro reveal">Weekly experiences worth planning around.</p>
@@ -1955,11 +1480,71 @@ footer.site-footer {
   </div>
 </section>
 
+<!-- ─────── CHEF ─────── -->
+<section class="chef">
+  <div class="chef-grid">
+    <div class="reveal">
+      <div class="chef-portrait-wrap">
+        <div class="chef-portrait-frame"></div>
+        <div class="chef-portrait">
+          <img src="assets/headchef2.jpg" alt="Chef Daisuke Shimoyama at Kokin" onerror="this.style.display='none'" />
+        </div>
+      </div>
+    </div>
+    <div class="chef-content reveal">
+      <div class="section-label"><span class="num">03</span> The Chef</div>
+      <h3>Daisuke<br/>Shimoyama</h3>
+      <div class="jp-name">下山 大輔</div>
+      <div class="tagline">Refining kaiseki through fire and philosophy.</div>
+      <div class="chef-cta">
+        <a href="story.html" class="cta-secondary">Meet the chef →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────── GALLERY PREVIEW ─────── -->
+<section class="gallery-preview">
+  <div class="gallery-preview-header">
+    <div class="reveal">
+      <div class="section-label"><span class="num">04</span> Gallery</div>
+      <h2>A <em>visual</em> record.</h2>
+    </div>
+    <p class="reveal">The room, the fire, the knife, the plate.</p>
+  </div>
+  <div class="masonry">
+    <a href="gallery.html" class="masonry-item m-tall reveal">
+      <img src="assets/sashimi-tuna.jpg" alt="Tuna sashimi" />
+    </a>
+    <a href="gallery.html" class="masonry-item reveal">
+      <img src="assets/oyster.jpg" alt="Oyster" />
+    </a>
+    <a href="gallery.html" class="masonry-item m-wide reveal">
+      <img src="assets/kokin-showacse-poster.jpg" alt="Woodfire grill" />
+    </a>
+    <a href="gallery.html" class="masonry-item reveal">
+      <img src="assets/cocktail-matcha.jpg" alt="Matcha cocktail" />
+    </a>
+    <a href="gallery.html" class="masonry-item m-tall reveal">
+      <img src="assets/make-sushi.jpg" alt="TEMAE sushi" />
+    </a>
+    <a href="gallery.html" class="masonry-item reveal">
+      <img src="assets/scallops.jpg" alt="Scallop sashimi" />
+    </a>
+    <a href="gallery.html" class="masonry-item reveal">
+      <img src="assets/sea-urchin.jpg" alt="Sea urchin" />
+    </a>
+  </div>
+  <div class="gallery-preview-cta reveal">
+    <a href="gallery.html" class="cta-secondary">View full gallery →</a>
+  </div>
+</section>
+
 <!-- ─────── VISIT PREVIEW ─────── -->
 <section class="visit-preview">
   <div class="visit-inner">
     <div class="visit-left reveal">
-      <div class="section-label"><span class="num">06</span> Visit</div>
+      <div class="section-label"><span class="num">05</span> Visit</div>
       <h2>Seven floors<br/>above the <em>city</em>.</h2>
       <p>Find us on the seventh floor of The Stratford. Dinner is served Tuesday through Sunday, with a lunch set available midday.</p>
       <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Reserve at Tock</span></a>

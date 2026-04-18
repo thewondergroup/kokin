@@ -784,19 +784,25 @@ footer.site-footer {
 }
 
 /* White nav at top on all pages — flips to ink on scroll */
-nav.main-nav ul a {
+nav.main-nav ul:not(.open) a {
   color: var(--cream) !important;
   text-shadow: 0 1px 6px rgba(0,0,0,0.35);
 }
-nav.main-nav.scrolled ul a {
+nav.main-nav.scrolled ul:not(.open) a {
   color: var(--ink) !important;
   text-shadow: none;
+}
+/* Mobile: when menu overlay is open, text is dark on cream */
+nav.main-nav ul.open a {
+  color: var(--ink) !important;
+  text-shadow: none !important;
 }
 nav.main-nav .menu-toggle span {
   background: var(--cream) !important;
   box-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
-nav.main-nav.scrolled .menu-toggle span {
+nav.main-nav.scrolled .menu-toggle span,
+nav.main-nav .menu-toggle.open span {
   background: var(--ink) !important;
   box-shadow: none;
 }
@@ -804,8 +810,16 @@ nav.main-nav .mark img {
   filter: brightness(0) invert(1);
   transition: filter 0.4s;
 }
-nav.main-nav.scrolled .mark img {
+nav.main-nav.scrolled .mark img,
+body.menu-open nav.main-nav .mark img {
   filter: none;
+}
+/* Scrolled nav: make fully opaque on mobile — backdrop-filter is unreliable */
+@media (max-width: 900px) {
+  nav.main-nav.scrolled {
+    background: var(--bone) !important;
+    backdrop-filter: none !important;
+  }
 }
 
 nav.main-nav .reserve-btn {

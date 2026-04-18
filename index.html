@@ -543,6 +543,19 @@ footer.site-footer{
     z-index: 99;
   }
   nav.main-nav ul.open{ transform: translateX(0); }
+  /* When mobile menu overlay is open, text is dark on cream background */
+  nav.main-nav ul.open a {
+    color: var(--ink);
+    text-shadow: none;
+  }
+  nav.main-nav .menu-toggle.open span {
+    background: var(--ink);
+  }
+  /* Scrolled nav: fully opaque on mobile — backdrop-filter can be unreliable */
+  nav.main-nav.scrolled {
+    background: var(--bone);
+    backdrop-filter: none;
+  }
   nav.main-nav ul a{
     font-size: 1.1rem;
     letter-spacing: 0.2em;
@@ -1386,8 +1399,8 @@ footer.site-footer{
     .masonry-item.m-wide{ grid-column: span 2; }
     /* Event card media */
     .event-card-media{ aspect-ratio: 4/5; }
-    .event-card-content{ padding: 2rem; }
-    .event-card-media h3{ font-size: 2.25rem; }
+    .event-card-content{ padding: 2rem 2rem 2.5rem; }
+    .event-card-media h3{ font-size: 2rem; margin-bottom: 1.5rem; }
     .moments-header{
       grid-template-columns: 1fr;
       gap: 2rem;

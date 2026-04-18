@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Menu — Kokin — À La Carte &amp; Lunch Set, Modern Kaiseki London</title>
-<meta name="description" content="Kokin's menu — à la carte and lunch set. Wood-fire grilled tuna, A5 Miyazaki Wagyu, bluefin sashimi, and kaiseki-inspired small plates. Tuesday to Sunday in Stratford, London." />
-<meta name="keywords" content="Japanese restaurant menu London, kaiseki menu, bluefin tuna menu, woodfire Japanese menu, Kokin menu, Stratford Japanese" />
+<title>Menu — Kokin — À La Carte &amp; Bottomless Brunch, Japanese Izakaya London</title>
+<meta name="description" content="Kokin's menu — sushi, sashimi, tempura, wood-fire grill, and bottomless brunch. A casual Japanese izakaya on the seventh floor of The Stratford." />
+<meta name="keywords" content="Japanese izakaya London, Kokin menu, bluefin tuna menu, woodfire Japanese, bottomless brunch London, sushi Stratford" />
 <link rel="canonical" href="https://kokin.co.uk/menu.html" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -117,7 +117,7 @@ nav.main-nav .mark .kanji {
   font-weight: 400;
 }
 nav.main-nav ul {
-  display: flex; list-style: none; gap: 2.5rem;
+  display: flex; list-style: none; gap: 1.75rem;
 }
 nav.main-nav ul a {
   color: var(--ink);
@@ -268,16 +268,6 @@ nav.main-nav ul a.active { color: var(--ember); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.55;
-}
-.page-hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg,
-    rgba(244, 236, 224, 0.5) 0%,
-    rgba(244, 236, 224, 0.3) 50%,
-    rgba(244, 236, 224, 0.85) 100%);
 }
 .page-hero > *:not(.page-hero-bg) {
   position: relative;
@@ -963,6 +953,8 @@ footer.site-footer {
     <li><a href="story.html">Story</a></li>
     <li><a href="menu.html" class="active">Menu</a></li>
     <li><a href="events.html">Events</a></li>
+    <li><a href="tuna-showcase.html">Tuna</a></li>
+    <li><a href="bottomless-brunch.html">Brunch</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="visit.html">Visit</a></li>
   </ul>
@@ -977,7 +969,7 @@ footer.site-footer {
   </div>
   <div class="kanji-label">お 品 書 き</div>
   <h1>The <em>menu</em></h1>
-  <p class="lede">A menu shaped by fire, guided by seasonality, and grounded in deep respect for every ingredient. Subject to seasonal change.</p>
+  <p class="lede">Small plates for sharing, larger mains to settle in with, sushi from the counter, and a bottomless brunch on weekends. Everything cooked over fire. Subject to seasonal change.</p>
 </section>
 
 <div class="menu-intro">
@@ -1024,7 +1016,7 @@ footer.site-footer {
 
 <div class="menu-tabs">
   <button class="tab-btn active" data-tab="alacarte">À La Carte <span class="jp-inline">献 立</span></button>
-  <button class="tab-btn" data-tab="lunch">Lunch Set <span class="jp-inline">昼 定 食</span></button>
+  <button class="tab-btn" data-tab="brunch">Bottomless Brunch <span class="jp-inline">昼 宴</span></button>
 </div>
 
 <!-- À LA CARTE -->
@@ -1039,37 +1031,65 @@ footer.site-footer {
       <div class="menu-item">
         <div>
           <div class="name">Oyster</div>
-          <div class="desc">With apple-smoked celeriac purée and nabansu jelly</div>
+          <div class="desc">With oyster purée and nabansu jelly</div>
         </div>
         <div class="price">£4.50</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="name">Grilled Tuna Skewer</div>
-          <div class="desc">With egg yolk curry sauce</div>
+          <div class="name">Agedashi Tofu <span style="font-size:0.75rem; color: var(--ash);">(4 pcs)</span></div>
+          <div class="desc">Deep-fried tofu with sauce</div>
+        </div>
+        <div class="price">£4.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Oyster Katsu</div>
+          <div class="desc">With ponzu mayonnaise</div>
+        </div>
+        <div class="price">£5</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Aubergine Tempura <span style="font-size:0.75rem; color: var(--ash);">(5 pcs)</span></div>
+          <div class="desc">Padron peppers, grated radish, shiso leaves</div>
         </div>
         <div class="price">£5.50</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="name">Japanese Yam Cake</div>
-          <div class="desc">With wagyu miso, grilled padrón peppers and enoki mushroom</div>
+          <div class="name">Japanese Deep-Fried Chicken <span style="font-size:0.75rem; color: var(--ash);">(5 pcs)</span></div>
+          <div class="desc">House kara-age sauce</div>
         </div>
-        <div class="price">£7</div>
+        <div class="price">£5.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Avocado Rice Cracker</div>
+          <div class="desc">Rice cracker with avocado tartare</div>
+        </div>
+        <div class="price">£6.50</div>
       </div>
       <div class="menu-item">
         <div>
           <div class="name">Homemade Tofu</div>
           <div class="desc">Tofu cream with langoustine tartare</div>
         </div>
-        <div class="price">£8</div>
+        <div class="price">£6.50</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="name">Avocado Rice Cracker</div>
-          <div class="desc">Rice cracker with avocado and white crab meat</div>
+          <div class="name">Aubergine <em>Dengaku</em></div>
+          <div class="desc">Grilled aubergine with red miso</div>
         </div>
-        <div class="price">£8</div>
+        <div class="price">£8.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Petite Ramen</div>
+          <div class="desc">Ramen noodles with langoustine and chicken stock</div>
+        </div>
+        <div class="price">£8.50</div>
       </div>
       <div class="menu-item">
         <div>
@@ -1080,158 +1100,51 @@ footer.site-footer {
       </div>
       <div class="menu-item">
         <div>
-          <div class="name">Wood-fire <em>Anago</em> Chawanmushi</div>
-          <div class="desc">Japanese steamed egg custard with conger eel</div>
+          <div class="name">Blue Fin Signature Sushi Bowl</div>
+          <div class="desc">Blue fin tuna with wagyu purée and onsen tamago egg</div>
         </div>
         <div class="price">£12</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="name">Petite Ramen</div>
-          <div class="desc">Ramen noodles with langoustine stock and chicken stock</div>
+          <div class="name">Wood-fire <em>Unagi</em> Chawanmushi <span style="font-size:0.7rem; color: var(--ash); margin-left:0.5rem;">15 min</span></div>
+          <div class="desc">Japanese steamed egg custard with smoked Japanese eels</div>
         </div>
-        <div class="price">£8.50</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">One-Bite <em>Fish &amp; Chips</em></div>
-          <div class="desc">Crispy-scale amadai, thin purple potato, smoked N25 caviar</div>
-        </div>
-        <div class="price">£13.50</div>
+        <div class="price">£12</div>
       </div>
       <div class="menu-item">
         <div>
           <div class="name">Scallop Tartare</div>
-          <div class="desc">Wood-fire grilled scallops with ama-ebi and salmon roe</div>
+          <div class="desc">Wood-fire grilled scallops with ama-ebi and salmon roes</div>
         </div>
-        <div class="price">£18.50</div>
+        <div class="price">£15.50</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="name">Japanese Assorted Starter Platter</div>
-          <div class="desc">Oyster · tofu · tuna skewer · saba sushi · chawanmushi</div>
+          <div class="name">Japanese Assorted Starter Platter <span style="font-size:0.7rem; color: var(--ash); margin-left:0.5rem;">15 min</span></div>
+          <div class="desc">Oyster katsu, homemade tofu, saba sushi, chawanmushi &amp; aubergine tempura</div>
         </div>
-        <div class="price">£35</div>
+        <div class="price">£28</div>
       </div>
     </div>
 
     <div class="menu-section">
       <div class="menu-section-header">
-        <h2>— Deep-Fry</h2>
-        <div class="jp-title">揚 げ 物</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">Seasonal Vegetables Tempura</div>
-          <div class="desc">Selection of five kinds of seasonal vegetables</div>
-        </div>
-        <div class="price">£18</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">Unagi Tempura</div>
-          <div class="desc">With homemade 8-year aged unagi sauce</div>
-        </div>
-        <div class="price">£18</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">Crispy-Scale <em>Amadai</em></div>
-          <div class="desc">Japanese tilefish with lobster curry sauce</div>
-        </div>
-        <div class="price">£28</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">Native Lobster Tempura</div>
-          <div class="desc">Lobster and vegetable tempura with morels XO sauce</div>
-        </div>
-        <div class="price">£38</div>
-      </div>
-    </div>
-
-    <div class="menu-section">
-      <div class="menu-section-header">
-        <h2>— From the Fire</h2>
-        <div class="jp-title">炭 火</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">Wood-fire Grilled Tuna <em>Kama</em> <span style="font-size:0.75rem; color: var(--ash);">(200g)</span></div>
-          <div class="desc">Portugal wild bluefin tuna collar with 8-year aged ponzu</div>
-        </div>
-        <div class="price">£28</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">Miso Iberico Pork <span style="font-size:0.75rem; color: var(--ash);">(200g)</span></div>
-          <div class="desc">Wood-fire grilled with charcoal-grilled leek</div>
-        </div>
-        <div class="price">£28</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">Duck Breast, <em>Two Fires</em></div>
-          <div class="desc">Wood-fire &amp; charcoal grilled, seasonal vegetables, duck liver sauce</div>
-        </div>
-        <div class="price">£32</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">Grilled Native Lobster <span style="font-size:0.75rem; color: var(--ash);">(half)</span></div>
-          <div class="desc">Grilled with smoked umami butter</div>
-        </div>
-        <div class="price">£35</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">Olive Wagyu Short Rib <span style="font-size:0.75rem; color: var(--ash);">(100g)</span></div>
-          <div class="desc">Wood-fire grilled with seasonal vegetables</div>
-        </div>
-        <div class="price">£36</div>
-      </div>
-      <div class="menu-item">
-        <div>
-          <div class="name">A5 Miyazaki Wagyu <em>Sukiyaki</em> <span style="font-size:0.75rem; color: var(--ash);">(80g)</span></div>
-          <div class="desc">Wood-fire &amp; charcoal grilled with wild mushrooms, onsen tamago</div>
-        </div>
-        <div class="price">£60</div>
-      </div>
-    </div>
-
-    <div class="menu-section">
-      <div class="menu-section-header">
-        <h2>— Sashimi <span style="font-size:0.75rem; color: var(--ash); margin-left: 0.5rem;">(2 pcs)</span></h2>
+        <h2>— Sashimi <span style="font-size:0.75rem; color: var(--ash); margin-left: 0.5rem;">(3 pcs)</span></h2>
         <div class="jp-title">刺 身</div>
       </div>
-      <div class="menu-item">
-        <div><div class="name">Portugal Wild Tuna <em>Akami</em> <span style="font-size:0.8rem; color: var(--ash);">(lean)</span></div></div>
-        <div class="price">£9</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="name">Portugal Wild Tuna <em>Chutoro</em> <span style="font-size:0.8rem; color: var(--ash);">(medium fat)</span></div></div>
-        <div class="price">£10</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="name">Portugal Wild Tuna <em>Otoro</em> <span style="font-size:0.8rem; color: var(--ash);">(fattest belly)</span></div></div>
-        <div class="price">£13</div>
-      </div>
-      <div class="menu-item"><div><div class="name">Trout</div></div><div class="price">£6.50</div></div>
+      <div class="menu-item"><div><div class="name">Blue Fin Tuna <em>Akami</em> <span style="font-size:0.8rem; color: var(--ash);">(lean)</span></div></div><div class="price">£9</div></div>
+      <div class="menu-item"><div><div class="name">Blue Fin Tuna <em>Chutoro</em> <span style="font-size:0.8rem; color: var(--ash);">(medium fat)</span></div></div><div class="price">£10</div></div>
+      <div class="menu-item"><div><div class="name">Blue Fin Tuna <em>Otoro</em> <span style="font-size:0.8rem; color: var(--ash);">(fattest belly)</span></div></div><div class="price">£13</div></div>
+      <div class="menu-item"><div><div class="name">Salmon</div></div><div class="price">£6.50</div></div>
       <div class="menu-item"><div><div class="name">Sea Bream</div></div><div class="price">£7.50</div></div>
       <div class="menu-item"><div><div class="name">Hamachi</div></div><div class="price">£8</div></div>
-      <div class="menu-item"><div><div class="name">Brill</div></div><div class="price">£8.50</div></div>
       <div class="menu-item"><div><div class="name">Scallop</div></div><div class="price">£10</div></div>
-      <div class="menu-item"><div><div class="name">Langoustine</div></div><div class="price">£10</div></div>
-      <div class="menu-item"><div><div class="name">Cuttlefish Tartare</div></div><div class="price">£6</div></div>
-      <div class="menu-item"><div><div class="name">Salmon Roe</div></div><div class="price">£8.50</div></div>
-      <div class="menu-item">
-        <div><div class="name">Chef's Selection <span style="font-size:0.8rem; color: var(--ash);">(5 kinds)</span></div></div>
-        <div class="price">£38</div>
-      </div>
-      <div class="menu-item">
-        <div><div class="name">Chef's Selection <span style="font-size:0.8rem; color: var(--ash);">(7 kinds)</span></div></div>
-        <div class="price">£52</div>
-      </div>
+      <div class="menu-item"><div><div class="name">Cuttlefish</div></div><div class="price">£6</div></div>
+      <div class="menu-item"><div><div class="name">Ikura <span style="font-size:0.8rem; color: var(--ash);">(salmon roes)</span></div></div><div class="price">£8.50</div></div>
+      <div class="menu-item"><div><div class="name">Sea Urchin</div></div><div class="price">£12</div></div>
+      <div class="menu-item"><div><div class="name">Chef's Selection <span style="font-size:0.8rem; color: var(--ash);">(5 kinds)</span></div></div><div class="price">£38</div></div>
+      <div class="menu-item"><div><div class="name">Chef's Selection <span style="font-size:0.8rem; color: var(--ash);">(7 kinds)</span></div></div><div class="price">£52</div></div>
     </div>
 
     <div class="menu-section">
@@ -1239,24 +1152,24 @@ footer.site-footer {
         <h2>— Nigiri <span style="font-size:0.75rem; color: var(--ash); margin-left: 0.5rem;">(1 pc)</span></h2>
         <div class="jp-title">握 り 寿 司</div>
       </div>
-      <div class="nigiri-header">
+      <div class="nigiri-header" style="display: grid; grid-template-columns: 1fr auto auto; gap: 2rem 3rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); margin-bottom: 1rem; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ash);">
         <div></div>
-        <div>Classic</div>
-        <div>Kokin Style*</div>
+        <div style="min-width: 60px; text-align: right;">Classic</div>
+        <div style="min-width: 60px; text-align: right;">Kokin*</div>
       </div>
-      <div class="menu-item nigiri"><div><div class="name">Portugal Wild Tuna Akami</div></div><div class="price">£5</div><div class="price alt">£6</div></div>
-      <div class="menu-item nigiri"><div><div class="name">Portugal Wild Tuna Chutoro</div></div><div class="price">£6</div><div class="price alt">£7</div></div>
-      <div class="menu-item nigiri"><div><div class="name">Portugal Wild Tuna Otoro</div></div><div class="price">£7.50</div><div class="price alt">£8.50</div></div>
-      <div class="menu-item nigiri"><div><div class="name">Trout</div></div><div class="price">£4.80</div><div class="price alt">£5.70</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Blue Fin Tuna Akami</div></div><div class="price">£5</div><div class="price alt">£6</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Blue Fin Tuna Chutoro</div></div><div class="price">£6</div><div class="price alt">£7</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Blue Fin Tuna Otoro</div></div><div class="price">£7.50</div><div class="price alt">£8.50</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Salmon</div></div><div class="price">£4.80</div><div class="price alt">£5.70</div></div>
       <div class="menu-item nigiri"><div><div class="name">Hamachi</div></div><div class="price">£5</div><div class="price alt">£6</div></div>
-      <div class="menu-item nigiri"><div><div class="name">Brill</div></div><div class="price">£5</div><div class="price alt">£6</div></div>
       <div class="menu-item nigiri"><div><div class="name">Sea Bream</div></div><div class="price">£4</div><div class="price alt">£5</div></div>
       <div class="menu-item nigiri"><div><div class="name">Scallop</div></div><div class="price">£7</div><div class="price alt">£8</div></div>
-      <div class="menu-item nigiri"><div><div class="name">Langoustine</div></div><div class="price">£10</div><div class="price alt">£11</div></div>
-      <div class="menu-item nigiri"><div><div class="name">Cuttlefish Tartare</div></div><div class="price">£4</div><div class="price alt">£5</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Cuttlefish</div></div><div class="price">£4</div><div class="price alt">£5</div></div>
       <div class="menu-item nigiri"><div><div class="name">Salmon Roe</div></div><div class="price">£6.50</div><div class="price alt">£7.50</div></div>
-      <div class="menu-item nigiri"><div><div class="name">Anago <span style="font-size:0.8rem; color: var(--ash);">(conger eel)</span></div></div><div class="price">£6</div><div class="price alt">£7</div></div>
-      <div class="menu-item nigiri"><div><div class="name">Wood-fire Smoked Tuna</div></div><div class="price">£6.50</div><div class="price alt">£7.50</div></div>
+      <div class="menu-item nigiri"><div><div class="name"><em>Unagi</em> <span style="font-size:0.8rem; color: var(--ash);">(Japanese eel)</span></div></div><div class="price">£6</div><div class="price alt">£7</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Sea Urchin</div></div><div class="price">£13</div><div class="price alt">£14</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Wood-fire Smoked Wagyu</div></div><div class="price">£8</div><div class="price alt">£9</div></div>
+      <div class="menu-item nigiri"><div><div class="name">Wood-fire Smoked Blue Fin Tuna</div></div><div class="price">£6.50</div><div class="price alt">£7.50</div></div>
       <div class="menu-item nigiri"><div><div class="name">Wood-fire Smoked Scallops</div></div><div class="price">£7.50</div><div class="price alt">£8.50</div></div>
       <div class="menu-item nigiri"><div><div class="name">Chef's Selection <span style="font-size:0.8rem; color: var(--ash);">(5 kinds)</span></div></div><div class="price">£27</div><div class="price alt">£32</div></div>
       <div class="menu-item nigiri"><div><div class="name">Chef's Selection <span style="font-size:0.8rem; color: var(--ash);">(8 kinds)</span></div></div><div class="price">£45</div><div class="price alt">£53</div></div>
@@ -1265,30 +1178,135 @@ footer.site-footer {
 
     <div class="menu-section">
       <div class="menu-section-header">
-        <h2>— Signature Sushi</h2>
+        <h2>— Tempura</h2>
+        <div class="jp-title">天 ぷ ら</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Assorted Vegetables Tempura <span style="font-size:0.75rem; color: var(--ash);">(12 pcs)</span></div>
+          <div class="desc">Selection of seasonal vegetables</div>
+        </div>
+        <div class="price">£12.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Prawn Tempura</div>
+          <div class="desc">Two prawns with vegetable tempura</div>
+        </div>
+        <div class="price">£16</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name"><em>Unagi</em> Tempura</div>
+          <div class="desc">Deep-fried Japanese eels tempura with pickles</div>
+        </div>
+        <div class="price">£18</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Japanese <em>Amadai</em> Tempura</div>
+          <div class="desc">Crispy-scale Japanese tilefish with vegetable tempura</div>
+        </div>
+        <div class="price">£28</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Native Lobster Tempura</div>
+          <div class="desc">Lobster and vegetable tempura with lobster miso sauce</div>
+        </div>
+        <div class="price">£38</div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-section-header">
+        <h2>— Grill</h2>
+        <div class="jp-title">炭 火 焼</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Wood-fire Grilled Chicken</div>
+          <div class="desc">Mushroom sauce and egg yolk</div>
+        </div>
+        <div class="price">£20</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Wood-fire Miso-Marinated Black Cod</div>
+          <div class="desc"></div>
+        </div>
+        <div class="price">£24</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Wood-fire Grilled Tuna <em>Kama</em> <span style="font-size:0.75rem; color: var(--ash);">(200g)</span></div>
+          <div class="desc">Blue fin tuna collar with 8-year-aged homemade ponzu</div>
+        </div>
+        <div class="price">£28</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Wood-fire Japanese Wagyu Short Rib <span style="font-size:0.75rem; color: var(--ash);">(80g)</span></div>
+          <div class="desc"></div>
+        </div>
+        <div class="price">£36</div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-section-header">
+        <h2>— Kokin Signature Sushi</h2>
         <div class="jp-title">こ こ ん 特 製</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="name">Portugal Wild Tuna Maki Roll <span style="font-size:0.75rem; color: var(--ash);">(3 pcs)</span></div>
-          <div class="desc">Sushi roll with three cuts of Portugal wild bluefin tuna</div>
+          <div class="name">Tuna Futo Maki Roll <span style="font-size:0.75rem; color: var(--ash);">(4 pcs)</span></div>
+          <div class="desc">Three kinds of blue fin tuna</div>
         </div>
-        <div class="price">£12</div>
+        <div class="price">£16</div>
       </div>
       <div class="menu-item">
         <div>
-          <div class="name"><em>TEMAE Sushi</em> — "sushi made by me"</div>
-          <div class="desc">Wood-fire smoked sushi rice · three cuts of bluefin · ikura salmon roe</div>
+          <div class="name">Tuna &amp; Salmon Roes Futo Maki Roll <span style="font-size:0.75rem; color: var(--ash);">(4 pcs)</span></div>
+          <div class="desc">Three kinds of blue fin tuna with salmon roes</div>
         </div>
-        <div class="price">£35</div>
+        <div class="price">£22</div>
       </div>
-      <p style="font-size: 0.8rem; color: var(--ash); margin-top: 1.5rem; font-style: italic;">Supplements: cuttlefish tartare £10 · langoustine tartare £18 · Oscietra Reserve caviar (10g) £33 · (30g) £95</p>
+      <div class="menu-item">
+        <div>
+          <div class="name">Tuna &amp; Sea Urchin Futo Maki Roll <span style="font-size:0.75rem; color: var(--ash);">(4 pcs)</span></div>
+          <div class="desc">Three kinds of blue fin tuna with Icelandic sea urchin</div>
+        </div>
+        <div class="price">£23</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Tuna, Sea Urchin &amp; Salmon Roes Futo Maki <span style="font-size:0.75rem; color: var(--ash);">(4 pcs)</span></div>
+          <div class="desc">Three kinds of blue fin tuna, Icelandic sea urchin and salmon roes</div>
+        </div>
+        <div class="price">£27</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name"><em>TEMAE</em> Sushi <span style="font-size:0.75rem; color: var(--ash);">— "Sushi Made by Me"</span></div>
+          <div class="desc">Wood-fire smoked sushi rice, three kinds of blue fin tuna with ikura salmon roes</div>
+        </div>
+        <div class="price">£28</div>
+      </div>
+      <p style="font-size: 0.75rem; color: var(--ash); margin-top: 1rem; font-style: italic; letter-spacing: 0.05em;">TEMAE add-ons — Scallops £6 · Unagi £6.50 · Sea Urchin £8 · Wagyu £15</p>
     </div>
 
     <div class="menu-section">
       <div class="menu-section-header">
         <h2>— Dessert</h2>
         <div class="jp-title">甘 味</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="name">Original Airy Mochi <span style="font-size:0.75rem; color: var(--ash);">(Kinako · Matcha · Cocoa)</span></div>
+          <div class="desc">Six pieces. Milk-based, houjicha-flavoured, marshmallow-like</div>
+        </div>
+        <div class="price">£5</div>
       </div>
       <div class="menu-item">
         <div>
@@ -1299,169 +1317,80 @@ footer.site-footer {
       </div>
       <div class="menu-item">
         <div>
-          <div class="name">Wagashi Selection</div>
-          <div class="desc">Four kinds of chef's dessert bite</div>
+          <div class="name"><em>Wagashi</em> Selection</div>
+          <div class="desc">Four chef's dessert bites — airy mochi, orange jelly, matcha terrine, Swiss roll cake</div>
         </div>
         <div class="price">£18</div>
       </div>
     </div>
+
   </div>
 </div>
 
-<!-- LUNCH SET -->
-<div class="menu-panel" id="lunch">
+<!-- BOTTOMLESS BRUNCH -->
+<div class="menu-panel" id="brunch">
   <div class="menu-inner">
     <div style="text-align: center; margin-bottom: 4rem;">
-      <p style="font-family: var(--f-display); font-style: italic; font-size: 1.1rem; color: var(--ink-soft); max-width: 580px; margin: 0 auto; line-height: 1.6;">Available from 12pm to 2pm (last order) · Tuesday to Sunday</p>
+      <h2 style="font-family: var(--f-display); font-size: clamp(2.5rem, 4vw, 3.5rem); font-weight: 300; margin-bottom: 1rem;">Bottomless <em style="font-style: italic; color: var(--ember);">Brunch</em></h2>
+      <p style="font-family: var(--f-display); font-style: italic; font-size: 1.1rem; color: var(--ink-soft); max-width: 580px; margin: 0 auto 0.5rem; line-height: 1.6;">Saturday &amp; Sunday, 12–4pm · 90 minutes</p>
+      <p style="font-family: var(--f-display); font-size: 2rem; color: var(--ember); letter-spacing: 0.05em;">£65 per person</p>
     </div>
-    
+
     <div class="lunch-set">
       <div class="lunch-card">
         <div>
-          <h3>Vegetable Chirashi</h3>
+          <h3>Starter Platter of <em>Three</em></h3>
           <ul>
-            <li>Vegetable chirashi</li>
-            <li>Vegetable tempura</li>
-            <li>Miso soup</li>
-          </ul>
-        </div>
-        <div class="price">£26</div>
-      </div>
-      
-      <div class="lunch-card">
-        <div>
-          <h3>Grilled Salmon Set</h3>
-          <ul>
-            <li>Grilled salmon</li>
             <li>Deep-fried chicken</li>
-            <li>Sashimi, 3 kinds</li>
-            <li>Japanese steamed rice</li>
-            <li>Miso soup</li>
+            <li>Avocado with rice crackers</li>
+            <li>Miso-marinated salmon tempura</li>
           </ul>
         </div>
-        <div class="price">£28</div>
       </div>
-      
       <div class="lunch-card">
         <div>
-          <h3>Nigiri Sushi Set</h3>
+          <h3>Signature <em>TEMAE</em> Sushi</h3>
           <ul>
-            <li>Nigiri sushi (6 pcs)</li>
-            <li>Cucumber roll (3 pcs)</li>
-            <li>Prawn tempura</li>
-            <li>Miso soup</li>
+            <li>"Sushi Made by Me"</li>
+            <li>Wood-fire smoked sushi rice</li>
+            <li>Three kinds of blue fin tuna with ikura salmon roes</li>
           </ul>
         </div>
-        <div class="price">£32</div>
       </div>
-      
       <div class="lunch-card">
         <div>
-          <h3>Prawn Tempura Set</h3>
+          <h3><em>Dessert</em></h3>
           <ul>
-            <li>Prawn tempura</li>
-            <li>Deep-fried chicken</li>
-            <li>Sashimi, 3 kinds</li>
-            <li>Japanese steamed rice</li>
-            <li>Miso soup</li>
+            <li>Wood-fire smoked flavour ice cream</li>
           </ul>
         </div>
-        <div class="price">£32</div>
       </div>
-      
       <div class="lunch-card">
         <div>
-          <h3><em>Chirashi</em> Set</h3>
+          <h3>Bottomless <em>Drinks</em></h3>
           <ul>
-            <li>Chirashi don</li>
-            <li>Prawn tempura</li>
-            <li>Miso soup</li>
+            <li>Soft drinks</li>
+            <li>Japanese beers</li>
+            <li>Yves Duport sparkling wine</li>
+            <li>House white / red / sake</li>
+            <li>Gin tonic / mimosa / Blooming Dream mocktail</li>
           </ul>
         </div>
-        <div class="price">£35</div>
       </div>
-      
       <div class="lunch-card">
         <div>
-          <h3><em>Unagi</em> Donburi</h3>
+          <h3>Premium <em>Cocktails</em> <span style="font-size: 0.75rem; color: var(--ash); font-weight: 400; letter-spacing: 0.15em; display:block; margin-top:0.5rem;">Upgrade for £15</span></h3>
           <ul>
-            <li>Grilled unagi rice bowl</li>
-            <li>Miso soup</li>
-            <li>Pickle</li>
+            <li>Sake aperol spritz</li>
+            <li>Yuzu margarita</li>
+            <li>Sake sour</li>
+            <li>Peach Splash mocktail</li>
           </ul>
         </div>
-        <div class="price">£38</div>
-      </div>
-      
-      <div class="lunch-card">
-        <div>
-          <h3>Grilled <em>Wagyu</em> Set</h3>
-          <ul>
-            <li>Grilled A5 Wagyu</li>
-            <li>Deep-fried chicken</li>
-            <li>Sashimi, 3 kinds</li>
-            <li>Japanese steamed rice</li>
-            <li>Miso soup</li>
-          </ul>
-        </div>
-        <div class="price">£65</div>
-      </div>
-      
-      <div class="lunch-card">
-        <div>
-          <h3><em>Wagyu</em> × <em>Otoro</em> Donburi</h3>
-          <ul>
-            <li>Grilled A5 Wagyu</li>
-            <li>Tuna otoro</li>
-            <li>Miso soup</li>
-            <li>Pickles</li>
-          </ul>
-        </div>
-        <div class="price">£90</div>
       </div>
     </div>
   </div>
 </div>
-
-<section class="menu-closing">
-  <p>Menus change with the season. Vegetarian, vegan, and dietary requirements are accommodated where possible — please let us know when booking.</p>
-  <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Reserve a table</span></a>
-</section>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="mark"><img src="assets/Kokin-Logo-black.png" alt="Kokin 古今" /></div>
-      <p>A fire-born tradition, reborn in the heart of modern London. Chef Daisuke Shimoyama's modern kaiseki restaurant on the seventh floor of The Stratford.</p>
-    </div>
-    <div class="footer-block">
-      <h6>Explore</h6>
-      <a href="story.html">Our Story</a>
-      <a href="menu.html">Menu</a>
-      <a href="events.html">Events</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="visit.html">Visit</a>
-    </div>
-    <div class="footer-block">
-      <h6>Visit</h6>
-      <p>7th Floor, The Stratford<br/>20 International Way<br/>London E20 1FD</p>
-      <a href="tel:02038020402">020 3802 0402</a>
-    </div>
-    <div class="footer-block">
-      <h6>Reserve</h6>
-      <a href="https://www.exploretock.com/kokin-london" target="_blank" rel="noopener">Book via Tock →</a>
-      <a href="mailto:reservations@kokin.co.uk">reservations@kokin.co.uk</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div>© 2026 Kokin London</div>
-    <div>
-      <a href="#">Privacy</a>
-      <a href="#">Cookies</a>
-      <a href="#">Accessibility</a>
-    </div>
-  </div>
-</footer>
 
 <script>
 // KOKIN · Shared site scripts

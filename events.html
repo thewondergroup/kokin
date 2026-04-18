@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Events — Kokin — Whole Tuna Showcase &amp; Bottomless Brunch, London</title>
-<meta name="description" content="Events at Kokin London — the Whole Tuna Showcase (a five-course tuna omakase) and Bottomless Brunch every Saturday and Sunday in Stratford." />
+<title>Events — Kokin — Whole Tuna Showcase &amp; Bottomless Brunch, Japanese Izakaya London</title>
+<meta name="description" content="Events at Kokin London — the Whole Tuna Showcase, a five-course tuna omakase, and Bottomless Brunch every Saturday and Sunday in Stratford." />
 <meta name="keywords" content="Japanese bottomless brunch London, tuna ceremony London, tuna samurai, Kokin events, Japanese brunch Stratford, bluefin tuna experience" />
 <link rel="canonical" href="https://kokin.co.uk/events.html" />
 
@@ -117,7 +117,7 @@ nav.main-nav .mark .kanji {
   font-weight: 400;
 }
 nav.main-nav ul {
-  display: flex; list-style: none; gap: 2.5rem;
+  display: flex; list-style: none; gap: 1.75rem;
 }
 nav.main-nav ul a {
   color: var(--ink);
@@ -619,6 +619,169 @@ footer.site-footer {
   .footer-inner { grid-template-columns: 1fr; }
 }
 
+
+
+/* ============================================
+   Events Hub
+   ============================================ */
+.events-hub-hero {
+  padding: 10rem 2.5rem 5rem;
+  background: var(--bone);
+  text-align: center;
+}
+.events-hub-hero .kanji-label {
+  font-family: var(--f-jp);
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  color: var(--ember);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+.events-hub-hero h1 {
+  font-family: var(--f-display);
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+}
+.events-hub-hero h1 em { font-style: italic; color: var(--ember); }
+.events-hub-hero .lede {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.events-hub {
+  padding: 4rem 2.5rem 8rem;
+  background: var(--bone);
+}
+.events-hub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.hub-card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3/4;
+  text-decoration: none;
+  color: var(--cream);
+  background: var(--ink);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.hub-card:hover { transform: translateY(-6px); }
+.hub-card-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hub-card-media video,
+.hub-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.hub-card:hover .hub-card-media video,
+.hub-card:hover .hub-card-media img {
+  transform: scale(1.05);
+}
+.hub-card-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,20,16,0.25) 0%, rgba(26,20,16,0.1) 30%, rgba(26,20,16,0.85) 100%);
+  z-index: 1;
+}
+.hub-card-content {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 2;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.hub-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+.hub-card-meta .jp-label {
+  font-family: var(--f-jp);
+  color: var(--ember);
+  letter-spacing: 0.3em;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+.hub-card-price {
+  font-family: var(--f-display);
+  font-size: 0.95rem;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  text-transform: none;
+  color: var(--cream);
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+.hub-card h2 {
+  font-family: var(--f-display);
+  font-size: clamp(2.25rem, 3.75vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.45);
+}
+.hub-card h2 em { font-style: italic; color: var(--ember); }
+.hub-card p {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: rgba(250, 245, 236, 0.9);
+  max-width: 420px;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.5);
+}
+.hub-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(250, 245, 236, 0.25);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.hub-card-when { color: rgba(250, 245, 236, 0.85); text-shadow: 0 1px 6px rgba(0,0,0,0.5); }
+.hub-card-arrow {
+  font-size: 1.2rem;
+  color: var(--ember);
+  transition: transform 0.3s;
+}
+.hub-card:hover .hub-card-arrow {
+  transform: translate(3px, -3px);
+}
+
+@media (max-width: 900px) {
+  .events-hub-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .events-hub { padding: 2rem 1.5rem 5rem; }
+  .events-hub-hero { padding: 8rem 1.5rem 3rem; }
+  .hub-card-content { padding: 2rem 1.5rem; }
+  .hub-card {
+    aspect-ratio: 4/5;
+  }
+}
 </style>
 
 <style>
@@ -999,176 +1162,65 @@ footer.site-footer {
     <li><a href="story.html">Story</a></li>
     <li><a href="menu.html">Menu</a></li>
     <li><a href="events.html" class="active">Events</a></li>
+    <li><a href="tuna-showcase.html">Tuna</a></li>
+    <li><a href="bottomless-brunch.html">Brunch</a></li>
     <li><a href="gallery.html">Gallery</a></li>
     <li><a href="visit.html">Visit</a></li>
   </ul>
   <a href="https://www.exploretock.com/kokin-london" class="reserve-btn" target="_blank" rel="noopener">Reserve</a>
 </nav>
 
-<section class="page-hero">
-  <div class="page-hero-bg">
-    <video autoplay muted loop playsinline poster="assets/tuna-samuari-poster.jpg">
-      <source src="assets/tuna-samuari.mp4" type="video/mp4">
-    </video>
+<section class="page-hero events-hub-hero">
+  <div class="page-hero-content">
+    <div class="kanji-label">催 し</div>
+    <h1>Events<br/>at <em>Kokin</em></h1>
+    <p class="lede">Two things worth planning around — a whole-tuna showcase a couple of times a month, and a weekend brunch every Saturday and Sunday.</p>
   </div>
-  <div class="kanji-label">催 し</div>
-  <h1>Events &amp;<br/><em>offers</em></h1>
-  <p class="lede">Two things worth building a night around — Wednesdays at the tuna counter, Saturdays and Sundays at the brunch table.</p>
 </section>
 
-<div class="event-index">
-  <div class="event-index-inner">
-    <a href="#tuna-samurai" class="event-index-item">
-      <div class="idx-num">— 01</div>
-      <div class="idx-name">Whole Tuna <em>Showcase</em></div>
-      <div class="idx-when">18:30 · Check dates</div>
+<section class="events-hub">
+  <div class="events-hub-grid">
+    
+    <a href="tuna-showcase.html" class="hub-card reveal">
+      <div class="hub-card-media">
+        <video autoplay muted loop playsinline poster="assets/tuna-samuari-poster.jpg">
+          <source src="assets/tuna-samuari.mp4" type="video/mp4">
+        </video>
+        <div class="hub-card-gradient"></div>
+      </div>
+      <div class="hub-card-content">
+        <div class="hub-card-meta">
+          <span class="jp-label">鮪 · showcase</span>
+          <span class="hub-card-price">£107 pp</span>
+        </div>
+        <h2>Whole Tuna<br/><em>Showcase</em></h2>
+        <p>A live whole-bluefin breakdown, followed by a five-course tuna omakase built from the fish in front of you.</p>
+        <div class="hub-card-foot">
+          <span class="hub-card-when">18:30 · Check dates</span>
+          <span class="hub-card-arrow">↗</span>
+        </div>
+      </div>
     </a>
-    <a href="#bottomless-brunch" class="event-index-item">
-      <div class="idx-num">— 02</div>
-      <div class="idx-name">Bottomless <em>Brunch</em></div>
-      <div class="idx-when">Saturday &amp; Sunday · 12–4pm</div>
+
+    <a href="bottomless-brunch.html" class="hub-card reveal">
+      <div class="hub-card-media">
+        <img src="assets/cocktail-pink.jpg" alt="Bottomless brunch at Kokin" />
+        <div class="hub-card-gradient"></div>
+      </div>
+      <div class="hub-card-content">
+        <div class="hub-card-meta">
+          <span class="jp-label">昼 宴 · brunch</span>
+          <span class="hub-card-price">£65 pp</span>
+        </div>
+        <h2>Bottomless<br/><em>Brunch</em></h2>
+        <p>Three courses and ninety minutes of free-flowing drinks. A long, easy weekend lunch seven floors above Stratford.</p>
+        <div class="hub-card-foot">
+          <span class="hub-card-when">Sat &amp; Sun · 12–4pm</span>
+          <span class="hub-card-arrow">↗</span>
+        </div>
+      </div>
     </a>
-  </div>
-</div>
 
-<!-- TUNA SAMURAI -->
-<section class="event-feature" id="tuna-samurai">
-  <div class="event-feature-inner">
-    <div class="event-visual dark reveal">
-      <!-- Photo slot: drop your image into assets/ and update src -->
-      <video class="event-photo event-video" autoplay muted loop playsinline poster="assets/tuna-samuari-poster.jpg">
-        <source src="assets/tuna-samuari.mp4" type="video/mp4">
-      </video>
-      <div class="photo-overlay"></div>
-      <div class="corner-mark"></div>
-      <div class="poster-top">
-        <span>Kokin · 古今</span>
-        <span>N°01</span>
-      </div>
-      <div class="big-jp kanji-accent">鮪<br/>侍</div>
-      <div class="poster-title">Whole Tuna<br/><em>Showcase</em></div>
-      <div class="poster-bottom">
-        <span>Check dates</span>
-        <span class="price">£107 pp</span>
-      </div>
-    </div>
-    <div class="event-content reveal">
-      <div class="event-eyebrow">N°01 · Chef's Showcase</div>
-      <h2>Whole Tuna<br/><em>Showcase</em></h2>
-      <div class="jp-sub">鮪 showcase · Maguro</div>
-      <div class="lede">"Watch the whole fish come apart. Then eat through it — every cut, one sitting, five courses."</div>
-      <p>Held a couple of times a month, the Whole Tuna Showcase is a front-row look at a whole blue fin tuna being broken down with a traditional tuna knife. Guests spoon tartare fresh off the bones, then settle in for a five-course tuna omakase built around what's just been cut.</p>
-      <p>Every part of the fish makes it to the table — from the melt-in-your-mouth otoro to the slow-grilled collar, finished with smoked-rice TEMAE sushi. The menu may shift depending on the day's fish.</p>
-
-      <div class="includes-list">
-        <h5>The Five Courses</h5>
-        <ul>
-          <li>Tuna tartare — fresh off the bones</li>
-          <li>Tuna sashimi, three kinds</li>
-          <li>Tuna ramen — ramen noodles with smoked tuna</li>
-          <li>Wood-fire grilled tuna kama (collar), 8-year-aged ponzu</li>
-          <li>Signature TEMAE sushi — wood-fire smoked sushi rice</li>
-        </ul>
-      </div>
-
-      <div class="event-details">
-        <div class="event-detail">
-          <div class="lbl">When</div>
-          <div class="val">Check dates</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">Service</div>
-          <div class="val">18:30</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">Courses</div>
-          <div class="val">Five</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">Price</div>
-          <div class="val price">£107 pp</div>
-        </div>
-      </div>
-
-      <p style="font-size: 0.8rem; color: var(--ash); font-style: italic; margin-top: -1rem;">Ticket price includes 12.5% service charge. Please let us know ahead of time if there are any dietary requirements.</p>
-
-      <div class="event-cta-row">
-        <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Book your ticket</span></a>
-        <a href="mailto:reservations@kokin.co.uk" class="cta-secondary">Private group enquiries →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BOTTOMLESS BRUNCH -->
-<section class="event-feature alt reverse" id="bottomless-brunch">
-  <div class="event-feature-inner">
-    <div class="event-content reveal">
-      <div class="event-eyebrow">N°02 · Weekend Brunch</div>
-      <h2>Bottomless<br/><em>Brunch</em></h2>
-      <div class="jp-sub">昼 宴 · Hiru-en</div>
-      <div class="lede">"Weekends reimagined through a Japanese lens — small plates from the fire, ninety minutes of free-flowing pours."</div>
-      <p>Saturdays and Sundays at Kokin belong to the long lunch. A fixed menu built across the kitchen — a platter of three starters, signature TEMAE sushi, wood-fire smoked ice cream — paired with ninety minutes of bottomless drinks.</p>
-      <p>Paired with ninety minutes of free-flowing drinks: Japanese beers, Yves Duport sparkling wine, house white, red, or sake, plus gin tonic, mimosa, and the Blooming Dream mocktail. Upgrade to premium cocktails — sake aperol spritz, yuzu margarita, sake sour — for £15 per person. A refined alternative to the usual Sunday roast, seven floors above Stratford.</p>
-
-      <div class="includes-list">
-        <h5>What's On the Table</h5>
-        <ul>
-          <li>Starter platter — deep-fried chicken, avocado rice cracker, miso-marinated salmon tempura</li>
-          <li>Signature TEMAE sushi — three kinds of blue fin tuna with ikura</li>
-          <li>Wood-fire smoked ice cream</li>
-        </ul>
-      </div>
-
-      <div class="event-details">
-        <div class="event-detail">
-          <div class="lbl">When</div>
-          <div class="val">Sat &amp; Sun</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">Service</div>
-          <div class="val">12 – 4pm</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">Drinks</div>
-          <div class="val">90 mins</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">From</div>
-          <div class="val price">£65 pp</div>
-        </div>
-      </div>
-
-      <div class="event-cta-row">
-        <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Book your table</span></a>
-        <a href="mailto:reservations@kokin.co.uk" class="cta-secondary">Group bookings (8+) →</a>
-      </div>
-    </div>
-
-    <div class="event-visual reveal">
-      <img class="event-photo" src="assets/cocktail-pink.jpg" alt="Bottomless brunch spread at Kokin" onerror="this.style.display='none'" />
-      <div class="photo-overlay light"></div>
-      <div class="corner-mark"></div>
-      <div class="poster-top">
-        <span>Kokin · 古今</span>
-        <span>N°02</span>
-      </div>
-      <div class="big-jp kanji-accent">昼<br/>宴</div>
-      <div class="poster-title">Bottomless<br/><em>Brunch</em></div>
-      <div class="poster-bottom">
-        <span>Saturday &amp; Sunday</span>
-        <span class="price">From £65</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="closing-band">
-  <div class="reveal">
-    <div class="kanji-label">お 問 合 せ</div>
-    <h2>Planning something<br/>more <em>personal</em>?</h2>
-    <p>Private whole-tuna ceremonies, chef's tasting menus, and buyouts of the dining room are available for parties of eight or more. Our team will design the evening around you.</p>
-    <a href="mailto:reservations@kokin.co.uk?subject=Private%20Event%20Enquiry" class="cta-primary"><span>Enquire about private events</span></a>
   </div>
 </section>
 

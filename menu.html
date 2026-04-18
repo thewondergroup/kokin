@@ -619,6 +619,48 @@ footer.site-footer {
   .footer-inner { grid-template-columns: 1fr; }
 }
 
+
+/* White nav at top on all pages — flips to ink on scroll */
+nav.main-nav ul a {
+  color: var(--cream) !important;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+}
+nav.main-nav.scrolled ul a {
+  color: var(--ink) !important;
+  text-shadow: none;
+}
+nav.main-nav .menu-toggle span {
+  background: var(--cream) !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+nav.main-nav.scrolled .menu-toggle span {
+  background: var(--ink) !important;
+  box-shadow: none;
+}
+nav.main-nav .mark img {
+  filter: brightness(0) invert(1);
+  transition: filter 0.4s;
+}
+nav.main-nav.scrolled .mark img {
+  filter: none;
+}
+
+nav.main-nav .reserve-btn {
+  border-color: var(--cream) !important;
+  color: var(--cream) !important;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+}
+nav.main-nav.scrolled .reserve-btn {
+  border-color: var(--ink) !important;
+  color: var(--ink) !important;
+  text-shadow: none;
+}
+nav.main-nav .reserve-btn:hover {
+  background: var(--ember) !important;
+  border-color: var(--ember) !important;
+  color: var(--bone) !important;
+  text-shadow: none;
+}
 </style>
 
 <style>

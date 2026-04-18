@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Events — Kokin — Whole Tuna Showcase &amp; Bottomless Brunch, London</title>
-<meta name="description" content="Events at Kokin London — the Whole Tuna Showcase (a five-course tuna omakase) and Bottomless Brunch every Saturday and Sunday in Stratford." />
-<meta name="keywords" content="Japanese bottomless brunch London, tuna ceremony London, tuna samurai, Kokin events, Japanese brunch Stratford, bluefin tuna experience" />
-<link rel="canonical" href="https://kokin.co.uk/events.html" />
+<title>Whole Tuna Showcase — Kokin London — A 5-Course Bluefin Omakase Experience</title>
+<meta name="description" content="The Whole Tuna Showcase at Kokin — watch a whole blue fin tuna broken down with a traditional tuna knife, then settle in for a 5-course tuna omakase. £107 per person. Check dates and book online." />
+<meta name="keywords" content="whole tuna experience London, tuna ceremony, tuna omakase, bluefin tuna Kokin, Japanese tuna breakdown, Stratford events" />
+<link rel="canonical" href="https://kokin.co.uk/tuna-showcase.html" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -619,6 +619,277 @@ footer.site-footer {
   .footer-inner { grid-template-columns: 1fr; }
 }
 
+
+
+/* ============================================
+   Tuna Showcase page
+   ============================================ */
+.tuna-hero {
+  min-height: 85vh;
+  padding: 10rem 2.5rem 6rem;
+  position: relative;
+  overflow: hidden;
+  color: var(--cream);
+  display: flex;
+  align-items: flex-end;
+}
+.tuna-hero .page-hero-bg video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.tuna-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,20,16,0.4) 0%, rgba(26,20,16,0.15) 40%, rgba(26,20,16,0.85) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+.tuna-hero .page-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+}
+.tuna-hero .kanji-label {
+  font-family: var(--f-jp);
+  font-size: 0.8rem;
+  letter-spacing: 0.4em;
+  color: var(--ember);
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+}
+.tuna-hero h1 {
+  font-family: var(--f-display);
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.45);
+}
+.tuna-hero h1 em { font-style: italic; color: var(--ember); }
+.tuna-hero .lede {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: rgba(250,245,236,0.92);
+  margin-bottom: 2.5rem;
+  max-width: 620px;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.5);
+}
+.tuna-hero .hero-cta-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+/* Sections */
+.ts-section { padding: 7rem 2.5rem; border-top: 1px solid var(--line); }
+.ts-inner { max-width: 1280px; margin: 0 auto; }
+.ts-section-heading { text-align: center; margin: 0 auto 4rem; max-width: 720px; }
+.ts-section-heading h2,
+.ts-intro h2 {
+  font-family: var(--f-display);
+  font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-top: 1.25rem;
+}
+.ts-section-heading h2 em,
+.ts-intro h2 em { font-style: italic; color: var(--ember); }
+.ts-sub {
+  font-family: var(--f-display);
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* Intro grid */
+.ts-intro-grid {
+  display: grid;
+  grid-template-columns: 6fr 5fr;
+  gap: 5rem;
+  align-items: center;
+}
+.ts-intro-text p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin-top: 1.25rem;
+  max-width: 540px;
+}
+.ts-intro-photo {
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: var(--bone-deep);
+}
+.ts-intro-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Courses */
+.ts-courses { background: var(--bone-deep); }
+.ts-course-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 820px;
+  margin: 0 auto;
+}
+.ts-course {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--ash-dim);
+  align-items: baseline;
+}
+.ts-course:last-child { border-bottom: 0; }
+.ts-course-num {
+  font-family: var(--f-jp);
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--ember);
+  line-height: 1;
+  text-align: center;
+}
+.ts-course h3 {
+  font-family: var(--f-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+.ts-course p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  font-style: italic;
+  font-family: var(--f-display);
+}
+
+/* Photo strip */
+.ts-gallery-strip { padding: 0; background: var(--bone-deep); }
+.ts-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.ts-photo {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+  background: var(--bone);
+}
+.ts-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.ts-photo:hover img { transform: scale(1.04); }
+
+/* Details + FAQ */
+.ts-details { padding: 7rem 2.5rem; }
+.ts-details-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 5rem;
+  align-items: start;
+}
+.ts-details-card {
+  padding: 2.5rem;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  position: sticky;
+  top: 8rem;
+}
+.ts-fact-list { margin: 2rem 0 1.5rem; }
+.ts-fact {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--ash-dim);
+  align-items: baseline;
+}
+.ts-fact:last-child { border-bottom: 0; }
+.ts-fact-lbl {
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ash);
+  font-weight: 500;
+}
+.ts-fact-val {
+  font-family: var(--f-display);
+  font-size: 1.1rem;
+  color: var(--ink);
+}
+.ts-fine {
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: var(--ash);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+.ts-details-card .cta-primary { width: 100%; }
+
+/* FAQ */
+.ts-faq { padding-top: 0.5rem; }
+.ts-faq .section-label { margin-bottom: 2rem; }
+.ts-faq-item {
+  border-bottom: 1px solid var(--ash-dim);
+  padding: 1.5rem 0;
+}
+.ts-faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--f-display);
+  font-size: 1.25rem;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  transition: color 0.3s;
+}
+.ts-faq-item summary::-webkit-details-marker { display: none; }
+.ts-faq-item summary::after {
+  content: '+';
+  color: var(--ember);
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: transform 0.3s;
+}
+.ts-faq-item[open] summary::after { content: '−'; }
+.ts-faq-item summary:hover { color: var(--ember); }
+.ts-faq-item p {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 620px;
+}
+.ts-faq-item p a {
+  color: var(--ember);
+  border-bottom: 1px solid var(--ember);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .ts-section { padding: 4rem 1.5rem; }
+  .ts-intro-grid,
+  .ts-details-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .ts-details-card { position: static; }
+  .ts-photo-grid { grid-template-columns: repeat(2, 1fr); }
+  .tuna-hero { padding: 8rem 1.5rem 4rem; min-height: 75vh; }
+  .ts-course { grid-template-columns: 50px 1fr; gap: 1.5rem; }
+  .ts-course-num { font-size: 1.75rem; }
+}
 </style>
 
 <style>
@@ -1005,170 +1276,142 @@ footer.site-footer {
   <a href="https://www.exploretock.com/kokin-london" class="reserve-btn" target="_blank" rel="noopener">Reserve</a>
 </nav>
 
-<section class="page-hero">
+<section class="page-hero tuna-hero">
   <div class="page-hero-bg">
     <video autoplay muted loop playsinline poster="assets/tuna-samuari-poster.jpg">
       <source src="assets/tuna-samuari.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="kanji-label">催 し</div>
-  <h1>Events &amp;<br/><em>offers</em></h1>
-  <p class="lede">Two things worth building a night around — Wednesdays at the tuna counter, Saturdays and Sundays at the brunch table.</p>
+  <div class="page-hero-content">
+    <div class="kanji-label">鮪 — showcase</div>
+    <h1>Whole Tuna<br/><em>Showcase</em></h1>
+    <p class="lede">A live whole-bluefin breakdown, followed by a 5-course tuna omakase.<br/>£107 per person. Check dates below.</p>
+    <div class="hero-cta-row">
+      <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Book your ticket</span></a>
+    </div>
+  </div>
 </section>
 
-<div class="event-index">
-  <div class="event-index-inner">
-    <a href="#tuna-samurai" class="event-index-item">
-      <div class="idx-num">— 01</div>
-      <div class="idx-name">Whole Tuna <em>Showcase</em></div>
-      <div class="idx-when">18:30 · Check dates</div>
-    </a>
-    <a href="#bottomless-brunch" class="event-index-item">
-      <div class="idx-num">— 02</div>
-      <div class="idx-name">Bottomless <em>Brunch</em></div>
-      <div class="idx-when">Saturday &amp; Sunday · 12–4pm</div>
-    </a>
-  </div>
-</div>
-
-<!-- TUNA SAMURAI -->
-<section class="event-feature" id="tuna-samurai">
-  <div class="event-feature-inner">
-    <div class="event-visual dark reveal">
-      <!-- Photo slot: drop your image into assets/ and update src -->
-      <video class="event-photo event-video" autoplay muted loop playsinline poster="assets/tuna-samuari-poster.jpg">
-        <source src="assets/tuna-samuari.mp4" type="video/mp4">
-      </video>
-      <div class="photo-overlay"></div>
-      <div class="corner-mark"></div>
-      <div class="poster-top">
-        <span>Kokin · 古今</span>
-        <span>N°01</span>
+<!-- THE EXPERIENCE -->
+<section class="ts-section ts-intro">
+  <div class="ts-inner">
+    <div class="ts-intro-grid">
+      <div class="ts-intro-text reveal">
+        <div class="section-label"><span class="num">01</span> The Experience</div>
+        <h2>Watch the whole fish<br/>come apart. Then <em>eat through it</em>.</h2>
+        <p>A whole blue fin tuna is brought to the pass and broken down by hand — the right knife, the right cuts, one unbroken sequence. Guests at the counter spoon fresh tartare off the bones before anything else hits a plate.</p>
+        <p>Then the meal begins. Five courses built entirely from the fish in front of you, finishing with signature TEMAE sushi on wood-fire smoked rice.</p>
       </div>
-      <div class="big-jp kanji-accent">鮪<br/>侍</div>
-      <div class="poster-title">Whole Tuna<br/><em>Showcase</em></div>
-      <div class="poster-bottom">
-        <span>Check dates</span>
-        <span class="price">£107 pp</span>
+      <div class="ts-intro-photo reveal">
+        <img src="assets/sashimi-tuna.jpg" alt="Blue fin tuna sashimi" />
       </div>
     </div>
-    <div class="event-content reveal">
-      <div class="event-eyebrow">N°01 · Chef's Showcase</div>
-      <h2>Whole Tuna<br/><em>Showcase</em></h2>
-      <div class="jp-sub">鮪 showcase · Maguro</div>
-      <div class="lede">"Watch the whole fish come apart. Then eat through it — every cut, one sitting, five courses."</div>
-      <p>Held a couple of times a month, the Whole Tuna Showcase is a front-row look at a whole blue fin tuna being broken down with a traditional tuna knife. Guests spoon tartare fresh off the bones, then settle in for a five-course tuna omakase built around what's just been cut.</p>
-      <p>Every part of the fish makes it to the table — from the melt-in-your-mouth otoro to the slow-grilled collar, finished with smoked-rice TEMAE sushi. The menu may shift depending on the day's fish.</p>
+  </div>
+</section>
 
-      <div class="includes-list">
-        <h5>The Five Courses</h5>
-        <ul>
-          <li>Tuna tartare — fresh off the bones</li>
-          <li>Tuna sashimi, three kinds</li>
-          <li>Tuna ramen — ramen noodles with smoked tuna</li>
-          <li>Wood-fire grilled tuna kama (collar), 8-year-aged ponzu</li>
-          <li>Signature TEMAE sushi — wood-fire smoked sushi rice</li>
-        </ul>
-      </div>
+<!-- THE FIVE COURSES -->
+<section class="ts-section ts-courses">
+  <div class="ts-inner">
+    <div class="ts-section-heading reveal">
+      <div class="section-label"><span class="num">02</span> The Five Courses</div>
+      <h2>Every part of the fish, <em>one sitting</em>.</h2>
+      <p class="ts-sub">The menu may shift depending on the day's fish.</p>
+    </div>
+    <ol class="ts-course-list">
+      <li class="ts-course reveal">
+        <div class="ts-course-num">一</div>
+        <div class="ts-course-body">
+          <h3>Tuna Tartare</h3>
+          <p>Spooned fresh off the bones.</p>
+        </div>
+      </li>
+      <li class="ts-course reveal">
+        <div class="ts-course-num">二</div>
+        <div class="ts-course-body">
+          <h3>Tuna Sashimi, Three Kinds</h3>
+          <p>Akami, chutoro, otoro — lean, medium, fattest belly.</p>
+        </div>
+      </li>
+      <li class="ts-course reveal">
+        <div class="ts-course-num">三</div>
+        <div class="ts-course-body">
+          <h3>Tuna Ramen</h3>
+          <p>Ramen noodles with smoked tuna broth.</p>
+        </div>
+      </li>
+      <li class="ts-course reveal">
+        <div class="ts-course-num">四</div>
+        <div class="ts-course-body">
+          <h3>Wood-Fire Grilled Tuna Kama</h3>
+          <p>The collar, slow-grilled over cherry wood, served with an 8-year-aged house ponzu.</p>
+        </div>
+      </li>
+      <li class="ts-course reveal">
+        <div class="ts-course-num">五</div>
+        <div class="ts-course-body">
+          <h3>Signature TEMAE Sushi</h3>
+          <p>"Sushi Made by Me" — wood-fire smoked sushi rice, three kinds of tuna, ikura salmon roes.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
 
-      <div class="event-details">
-        <div class="event-detail">
-          <div class="lbl">When</div>
-          <div class="val">Check dates</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">Service</div>
-          <div class="val">18:30</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">Courses</div>
-          <div class="val">Five</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">Price</div>
-          <div class="val price">£107 pp</div>
-        </div>
-      </div>
+<!-- PHOTO STRIP -->
+<section class="ts-gallery-strip">
+  <div class="ts-photo-grid">
+    <div class="ts-photo reveal"><img src="assets/tunasushi.jpg" alt="Tuna nigiri" /></div>
+    <div class="ts-photo reveal"><img src="assets/sashimi-tuna.jpg" alt="Tuna sashimi" /></div>
+    <div class="ts-photo reveal"><img src="assets/kokin-showacse-poster.jpg" alt="Wood-fire grill" /></div>
+    <div class="ts-photo reveal"><img src="assets/make-sushi.jpg" alt="TEMAE sushi" /></div>
+  </div>
+</section>
 
-      <p style="font-size: 0.8rem; color: var(--ash); font-style: italic; margin-top: -1rem;">Ticket price includes 12.5% service charge. Please let us know ahead of time if there are any dietary requirements.</p>
-
-      <div class="event-cta-row">
+<!-- DETAILS + FAQ -->
+<section class="ts-section ts-details">
+  <div class="ts-inner">
+    <div class="ts-details-grid">
+      <div class="ts-details-card reveal">
+        <div class="section-label"><span class="num">03</span> The Details</div>
+        <div class="ts-fact-list">
+          <div class="ts-fact"><span class="ts-fact-lbl">When</span><span class="ts-fact-val">Check dates</span></div>
+          <div class="ts-fact"><span class="ts-fact-lbl">Service</span><span class="ts-fact-val">18:30</span></div>
+          <div class="ts-fact"><span class="ts-fact-lbl">Courses</span><span class="ts-fact-val">Five</span></div>
+          <div class="ts-fact"><span class="ts-fact-lbl">Price</span><span class="ts-fact-val">£107 per person</span></div>
+        </div>
+        <p class="ts-fine">Ticket price includes 12.5% service charge. Please let us know ahead of time if there are any dietary requirements.</p>
         <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Book your ticket</span></a>
-        <a href="mailto:reservations@kokin.co.uk" class="cta-secondary">Private group enquiries →</a>
+      </div>
+
+      <div class="ts-faq reveal">
+        <div class="section-label"><span class="num">04</span> FAQ</div>
+        <details class="ts-faq-item" open>
+          <summary>Can you accommodate dietary requirements?</summary>
+          <p>Yes — please let us know in advance when booking. Some courses are built around specific cuts of tuna and may be difficult to substitute, but we'll always do our best to adapt where we can.</p>
+        </details>
+        <details class="ts-faq-item">
+          <summary>What's your cancellation policy?</summary>
+          <p>The Whole Tuna Showcase is a ticketed event. Tickets are non-refundable but transferable — if you can't make it, you're welcome to pass your ticket to a friend. Contact us as soon as possible at <a href="mailto:reservations@kokin.co.uk">reservations@kokin.co.uk</a> if plans change.</p>
+        </details>
+        <details class="ts-faq-item">
+          <summary>Can I book the showcase for a private group?</summary>
+          <p>Yes. Private group bookings are available for parties of 8 or more, with a few optional add-ons. Email <a href="mailto:reservations@kokin.co.uk">reservations@kokin.co.uk</a> with your preferred dates and we'll come back to you.</p>
+        </details>
       </div>
     </div>
   </div>
 </section>
 
-<!-- BOTTOMLESS BRUNCH -->
-<section class="event-feature alt reverse" id="bottomless-brunch">
-  <div class="event-feature-inner">
-    <div class="event-content reveal">
-      <div class="event-eyebrow">N°02 · Weekend Brunch</div>
-      <h2>Bottomless<br/><em>Brunch</em></h2>
-      <div class="jp-sub">昼 宴 · Hiru-en</div>
-      <div class="lede">"Weekends reimagined through a Japanese lens — small plates from the fire, ninety minutes of free-flowing pours."</div>
-      <p>Saturdays and Sundays at Kokin belong to the long lunch. A fixed menu built across the kitchen — a platter of three starters, signature TEMAE sushi, wood-fire smoked ice cream — paired with ninety minutes of bottomless drinks.</p>
-      <p>Paired with ninety minutes of free-flowing drinks: Japanese beers, Yves Duport sparkling wine, house white, red, or sake, plus gin tonic, mimosa, and the Blooming Dream mocktail. Upgrade to premium cocktails — sake aperol spritz, yuzu margarita, sake sour — for £15 per person. A refined alternative to the usual Sunday roast, seven floors above Stratford.</p>
-
-      <div class="includes-list">
-        <h5>What's On the Table</h5>
-        <ul>
-          <li>Starter platter — deep-fried chicken, avocado rice cracker, miso-marinated salmon tempura</li>
-          <li>Signature TEMAE sushi — three kinds of blue fin tuna with ikura</li>
-          <li>Wood-fire smoked ice cream</li>
-        </ul>
-      </div>
-
-      <div class="event-details">
-        <div class="event-detail">
-          <div class="lbl">When</div>
-          <div class="val">Sat &amp; Sun</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">Service</div>
-          <div class="val">12 – 4pm</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">Drinks</div>
-          <div class="val">90 mins</div>
-        </div>
-        <div class="event-detail">
-          <div class="lbl">From</div>
-          <div class="val price">£65 pp</div>
-        </div>
-      </div>
-
-      <div class="event-cta-row">
-        <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Book your table</span></a>
-        <a href="mailto:reservations@kokin.co.uk" class="cta-secondary">Group bookings (8+) →</a>
-      </div>
-    </div>
-
-    <div class="event-visual reveal">
-      <img class="event-photo" src="assets/cocktail-pink.jpg" alt="Bottomless brunch spread at Kokin" onerror="this.style.display='none'" />
-      <div class="photo-overlay light"></div>
-      <div class="corner-mark"></div>
-      <div class="poster-top">
-        <span>Kokin · 古今</span>
-        <span>N°02</span>
-      </div>
-      <div class="big-jp kanji-accent">昼<br/>宴</div>
-      <div class="poster-title">Bottomless<br/><em>Brunch</em></div>
-      <div class="poster-bottom">
-        <span>Saturday &amp; Sunday</span>
-        <span class="price">From £65</span>
-      </div>
-    </div>
-  </div>
-</section>
-
+<!-- FOOTER CTA -->
 <section class="closing-band">
-  <div class="reveal">
-    <div class="kanji-label">お 問 合 せ</div>
-    <h2>Planning something<br/>more <em>personal</em>?</h2>
-    <p>Private whole-tuna ceremonies, chef's tasting menus, and buyouts of the dining room are available for parties of eight or more. Our team will design the evening around you.</p>
-    <a href="mailto:reservations@kokin.co.uk?subject=Private%20Event%20Enquiry" class="cta-primary"><span>Enquire about private events</span></a>
+  <div class="closing-inner reveal">
+    <div class="kanji-label">予 約</div>
+    <h2>Secure your <em>seat</em>.</h2>
+    <p>All bookings are handled online — availability, dates, and tickets are there.</p>
+    <div class="closing-cta">
+      <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Check dates</span></a>
+      <a href="mailto:reservations@kokin.co.uk" class="cta-secondary">Private group enquiries →</a>
+    </div>
   </div>
 </section>
 

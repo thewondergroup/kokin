@@ -675,6 +675,31 @@ nav.main-nav .reserve-btn:hover {
   color: var(--bone) !important;
   text-shadow: none;
 }
+
+/* Hero text sits over images/videos — keep it white with ember accents */
+.page-hero h1 {
+  color: var(--cream) !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.45);
+}
+.page-hero .lede {
+  color: rgba(250, 245, 236, 0.92) !important;
+  text-shadow: 0 1px 12px rgba(0,0,0,0.45);
+}
+.page-hero .kanji-label {
+  text-shadow: 0 1px 8px rgba(0,0,0,0.5);
+}
+/* Darken the hero media with a soft bottom gradient so text stays legible */
+.page-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,20,16,0.25) 0%, rgba(26,20,16,0.05) 35%, rgba(26,20,16,0.7) 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.page-hero { position: relative; }
+.page-hero-bg { z-index: 0; }
+.page-hero > *:not(.page-hero-bg) { position: relative; z-index: 2; }
 </style>
 
 <style>

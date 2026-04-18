@@ -1126,7 +1126,7 @@ body.nav-scrolled::before {
 
 <!-- À LA CARTE -->
 <div class="menu-panel active" id="alacarte">
-  <div class="menu-inner">
+  <div class="menu-inner" id="alacarte-inner" data-menu-source="sheet">
     
     <div class="menu-section">
       <div class="menu-section-header">
@@ -1558,6 +1558,204 @@ body.nav-scrolled::before {
       window.scrollTo({ top: document.querySelector('.menu-tabs').offsetTop - 80, behavior: 'smooth' });
     });
   });
+</script>
+
+<script>
+  /* ============================================================
+     KOKIN · Live Menu from Google Sheets
+     ------------------------------------------------------------
+     The menu page tries to load the latest menu from a published
+     Google Sheet CSV. If the fetch fails (network, sheet missing,
+     etc.), the hardcoded menu markup remains in place as fallback.
+
+     To change: update MENU_CSV_URL below to the published CSV URL
+     of your Google Sheet (File → Share → Publish to web → CSV).
+
+     Expected columns (case-sensitive):
+       Section, Name, Description, Price, PriceKokin,
+       Subnote, Emphasis, Order, Active
+     ============================================================ */
+
+  const MENU_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy0U0nxlKNRnDDf3X1kxJAM11wXWX2U1YJfx-wIe2epbxXGBd_JeOOUNFk7kbaby9LxUfbk1YLVjnh/pub?output=csv';
+
+  // Section metadata — which sections render, in what order, with what header
+  const SECTION_META = [
+    { key: 'Starters',                title: '— Starters',                 jp: '前 菜',              type: 'standard' },
+    { key: 'Sashimi',                 title: '— Sashimi',                  jp: '刺 身',              type: 'standard', subtitle: '(3 pcs)' },
+    { key: 'Nigiri',                  title: '— Nigiri',                   jp: '握 り 寿 司',       type: 'nigiri',   subtitle: '(1 pc)' },
+    { key: 'Tempura',                 title: '— Tempura',                  jp: '天 ぷ ら',          type: 'standard' },
+    { key: 'Grill',                   title: '— Grill',                    jp: '炭 火 焼',          type: 'standard' },
+    { key: 'Kokin Signature Sushi',   title: '— Kokin Signature Sushi',    jp: 'こ こ ん 特 製',   type: 'standard' },
+    { key: 'Dessert',                 title: '— Dessert',                  jp: '甘 味',              type: 'standard' }
+  ];
+
+  /* ---------- CSV parsing (handles quoted fields with commas) ---------- */
+  function parseCSV(text) {
+    const rows = [];
+    let row = [], field = '', inQuotes = false;
+    for (let i = 0; i < text.length; i++) {
+      const c = text[i], next = text[i + 1];
+      if (inQuotes) {
+        if (c === '"' && next === '"') { field += '"'; i++; }
+        else if (c === '"') { inQuotes = false; }
+        else { field += c; }
+      } else {
+        if (c === '"') { inQuotes = true; }
+        else if (c === ',') { row.push(field); field = ''; }
+        else if (c === '\n') { row.push(field); rows.push(row); row = []; field = ''; }
+        else if (c === '\r') { /* skip */ }
+        else { field += c; }
+      }
+    }
+    if (field !== '' || row.length) { row.push(field); rows.push(row); }
+    return rows;
+  }
+
+  /* ---------- Parse CSV into row-objects keyed by header ---------- */
+  function csvToObjects(text) {
+    const rows = parseCSV(text).filter(r => r.some(c => c !== ''));
+    if (rows.length < 2) return [];
+    const headers = rows[0].map(h => h.trim());
+    return rows.slice(1).map(cols => {
+      const obj = {};
+      headers.forEach((h, i) => obj[h] = (cols[i] || '').trim());
+      return obj;
+    });
+  }
+
+  /* ---------- Apply emphasis markup (wrap the emphasised word in <em>) ---------- */
+  function applyEmphasis(name, emphasis) {
+    if (!emphasis) return escapeHtml(name);
+    const safeName = escapeHtml(name);
+    const safeEm = escapeHtml(emphasis);
+    // Case-sensitive word-boundary replace, first match only
+    const re = new RegExp('\\b' + safeEm.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') + '\\b');
+    return safeName.replace(re, '<em>' + safeEm + '</em>');
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  /* ---------- Build a standard menu-item row ---------- */
+  function renderStandardItem(item) {
+    const name = applyEmphasis(item.Name, item.Emphasis);
+    const sub = item.Subnote
+      ? ` <span style="font-size:0.75rem; color: var(--ash);">${escapeHtml(item.Subnote.startsWith('"') ? item.Subnote : `(${item.Subnote})`)}</span>`
+      : '';
+    // Special case: Subnote wrapped in double quotes means it should be italic (e.g. "Sushi Made by Me")
+    const subClean = item.Subnote && item.Subnote.startsWith('"') && item.Subnote.endsWith('"')
+      ? ` <span style="font-size:0.75rem; color: var(--ash);">— ${escapeHtml(item.Subnote.slice(1, -1))}</span>`
+      : sub;
+    const desc = item.Description
+      ? `<div class="desc">${escapeHtml(item.Description)}</div>`
+      : '';
+    return `
+      <div class="menu-item">
+        <div>
+          <div class="name">${name}${subClean}</div>
+          ${desc}
+        </div>
+        <div class="price">${escapeHtml(item.Price)}</div>
+      </div>`;
+  }
+
+  /* ---------- Build a nigiri menu-item row (dual pricing) ---------- */
+  function renderNigiriItem(item) {
+    const name = applyEmphasis(item.Name, item.Emphasis);
+    const sub = item.Subnote
+      ? ` <span style="font-size:0.8rem; color: var(--ash);">(${escapeHtml(item.Subnote)})</span>`
+      : '';
+    return `
+      <div class="menu-item nigiri">
+        <div><div class="name">${name}${sub}</div></div>
+        <div class="price">${escapeHtml(item.Price)}</div>
+        <div class="price alt">${escapeHtml(item.PriceKokin || '')}</div>
+      </div>`;
+  }
+
+  /* ---------- Build a full section with header + items ---------- */
+  function renderSection(meta, items) {
+    const header = `
+      <div class="menu-section-header">
+        <h2>${escapeHtml(meta.title)}${meta.subtitle ? ` <span style="font-size:0.75rem; color: var(--ash); margin-left: 0.5rem;">${escapeHtml(meta.subtitle)}</span>` : ''}</h2>
+        <div class="jp-title">${escapeHtml(meta.jp)}</div>
+      </div>`;
+
+    let body = '';
+    if (meta.type === 'nigiri') {
+      body = `
+        <div class="nigiri-header" style="display: grid; grid-template-columns: 1fr auto auto; gap: 2rem 3rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); margin-bottom: 1rem; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ash);">
+          <div></div>
+          <div style="min-width: 60px; text-align: right;">Classic</div>
+          <div style="min-width: 60px; text-align: right;">Kokin*</div>
+        </div>
+        ${items.map(renderNigiriItem).join('')}
+        <p style="font-size: 0.75rem; color: var(--ash); margin-top: 2rem; font-style: italic; letter-spacing: 0.05em;">* Kokin Style nigiri is prepared with wood-fire smoked sushi rice</p>`;
+    } else if (meta.key === 'Kokin Signature Sushi') {
+      body = items.map(renderStandardItem).join('') + `
+        <p style="font-size: 0.75rem; color: var(--ash); margin-top: 1rem; font-style: italic; letter-spacing: 0.05em;">TEMAE add-ons — Scallops £6 · Unagi £6.50 · Sea Urchin £8 · Wagyu £15</p>`;
+    } else {
+      body = items.map(renderStandardItem).join('');
+    }
+
+    return `<div class="menu-section">${header}${body}</div>`;
+  }
+
+  /* ---------- Main: fetch CSV, group by section, render ---------- */
+  async function loadLiveMenu() {
+    if (!MENU_CSV_URL || MENU_CSV_URL === 'REPLACE_WITH_GOOGLE_SHEET_CSV_URL') {
+      // No URL configured — leave hardcoded fallback in place
+      return;
+    }
+    try {
+      const response = await fetch(MENU_CSV_URL, { cache: 'no-store' });
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const text = await response.text();
+      const rows = csvToObjects(text);
+      if (!rows.length) throw new Error('Empty sheet');
+
+      // Group active rows by section, respecting Order column
+      const grouped = {};
+      rows.forEach(r => {
+        if (r.Active && r.Active.toUpperCase() === 'FALSE') return;
+        const sec = r.Section;
+        if (!sec) return;
+        if (!grouped[sec]) grouped[sec] = [];
+        grouped[sec].push(r);
+      });
+      Object.keys(grouped).forEach(k => {
+        grouped[k].sort((a, b) => (parseInt(a.Order) || 0) - (parseInt(b.Order) || 0));
+      });
+
+      // Build the full HTML from section metadata
+      let html = '';
+      SECTION_META.forEach(meta => {
+        const items = grouped[meta.key];
+        if (!items || !items.length) return;
+        html += renderSection(meta, items);
+      });
+
+      if (!html) throw new Error('No sections rendered');
+
+      // Swap into the DOM
+      const target = document.getElementById('alacarte-inner');
+      if (target) {
+        target.innerHTML = html;
+        target.dataset.menuSource = 'live';
+      }
+    } catch (err) {
+      // Silent fail — hardcoded menu remains visible
+      console.warn('[Kokin] Live menu load failed, using fallback:', err);
+    }
+  }
+
+  loadLiveMenu();
 </script>
 </body>
 </html>

@@ -631,7 +631,9 @@ footer.site-footer {
   overflow: hidden;
   color: var(--cream);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .tuna-hero .page-hero-bg video {
   position: absolute;
@@ -652,6 +654,7 @@ footer.site-footer {
   position: relative;
   z-index: 2;
   max-width: 780px;
+  margin: 0 auto;
 }
 .tuna-hero .kanji-label {
   font-family: var(--f-jp);
@@ -680,9 +683,11 @@ footer.site-footer {
   color: rgba(250,245,236,0.92);
   margin-bottom: 2.5rem;
   max-width: 620px;
+  margin-left: auto;
+  margin-right: auto;
   text-shadow: 0 1px 12px rgba(0,0,0,0.5);
 }
-.tuna-hero .hero-cta-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.tuna-hero .hero-cta-row { display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
 
 /* Sections */
 .ts-section { padding: 7rem 2.5rem; border-top: 1px solid var(--line); }

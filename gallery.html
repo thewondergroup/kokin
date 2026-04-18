@@ -706,6 +706,24 @@ nav.main-nav .reserve-btn:hover {
 .page-hero { position: relative; }
 .page-hero-bg { z-index: 0; }
 .page-hero > *:not(.page-hero-bg) { position: relative; z-index: 2; }
+
+/* Cream cap covering iOS safe-area — fades in once scrolled, so scrolled page content can't peek through */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bone);
+  z-index: 99;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+body.nav-scrolled::before {
+  opacity: 1;
+}
 </style>
 
 <style>
@@ -1110,8 +1128,13 @@ nav.main-nav .reserve-btn:hover {
   const nav = document.querySelector('.main-nav');
   if (nav) {
     const onScroll = () => {
-      if (window.scrollY > 60) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+        document.body.classList.add('nav-scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+        document.body.classList.remove('nav-scrolled');
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();

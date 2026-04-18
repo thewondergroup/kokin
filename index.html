@@ -587,6 +587,24 @@ footer.site-footer{
   .footer-inner{ grid-template-columns: 1fr; }
 }
 
+
+/* Cream cap covering iOS safe-area — fades in once scrolled, so scrolled page content can't peek through */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: env(safe-area-inset-top, 0px);
+  background: var(--bone);
+  z-index: 99;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+body.nav-scrolled::before {
+  opacity: 1;
+}
 </style>
 
 <style>
@@ -1680,8 +1698,13 @@ footer.site-footer{
   const nav = document.querySelector('.main-nav');
   if (nav) {
     const onScroll = () =>{
-      if (window.scrollY > 60) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+        document.body.classList.add('nav-scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+        document.body.classList.remove('nav-scrolled');
+      }
     };
     window.addEventListener('scroll', onScroll,{ passive: true });
     onScroll();

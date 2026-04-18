@@ -527,7 +527,10 @@ footer.site-footer{
    Responsive
    ============================================ */
 @media (max-width: 900px) {
-  nav.main-nav{ padding: calc(1.25rem + env(safe-area-inset-top, 0px)) 1.5rem 1.25rem; }
+  nav.main-nav{ 
+    top: calc(-1 * env(safe-area-inset-top, 0px));
+    padding: calc(1.25rem + env(safe-area-inset-top, 0px)) 1.5rem 1.25rem;
+  }
   nav.main-nav.scrolled{ padding: calc(1rem + env(safe-area-inset-top, 0px)) 1.5rem 1rem; }
   
   nav.main-nav ul{

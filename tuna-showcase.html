@@ -928,9 +928,10 @@ nav.main-nav.scrolled .mark img,
 body.menu-open nav.main-nav .mark img {
   filter: none;
 }
-/* Scrolled nav: make fully opaque on mobile AND extend behind iOS safe area (notch/status bar) */
+/* Mobile: nav pulled up to cover iOS safe-area, made fully opaque when scrolled */
 @media (max-width: 900px) {
   nav.main-nav {
+    top: calc(-1 * env(safe-area-inset-top, 0px)) !important;
     padding-top: calc(1.25rem + env(safe-area-inset-top, 0px)) !important;
   }
   nav.main-nav.scrolled {

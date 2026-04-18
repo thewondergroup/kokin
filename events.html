@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Events — Kokin — Whole Tuna Showcase &amp; Bottomless Brunch, Japanese Izakaya London</title>
 <meta name="description" content="Events at Kokin London — the Whole Tuna Showcase, a five-course tuna omakase, and Bottomless Brunch every Saturday and Sunday in Stratford." />
 <meta name="keywords" content="Japanese bottomless brunch London, tuna ceremony London, tuna samurai, Kokin events, Japanese brunch Stratford, bluefin tuna experience" />
@@ -580,6 +580,7 @@ footer.site-footer {
     transform: translateX(100%);
     transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     z-index: 99;
+    padding-top: env(safe-area-inset-top, 0px);
   }
   nav.main-nav ul.open { transform: translateX(0); }
   nav.main-nav ul a {
@@ -814,11 +815,15 @@ nav.main-nav.scrolled .mark img,
 body.menu-open nav.main-nav .mark img {
   filter: none;
 }
-/* Scrolled nav: make fully opaque on mobile — backdrop-filter is unreliable */
+/* Scrolled nav: make fully opaque on mobile AND extend behind iOS safe area (notch/status bar) */
 @media (max-width: 900px) {
+  nav.main-nav {
+    padding-top: calc(1.25rem + env(safe-area-inset-top, 0px)) !important;
+  }
   nav.main-nav.scrolled {
     background: var(--bone) !important;
     backdrop-filter: none !important;
+    padding-top: calc(1rem + env(safe-area-inset-top, 0px)) !important;
   }
 }
 

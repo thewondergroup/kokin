@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <title>Kokin — 古今 — Japanese Izakaya, Stratford London</title>
 <meta name="description" content="Kokin (古今) — a casual Japanese izakaya from chef Daisuke Shimoyama, on the seventh floor of The Stratford. Woodfire-led sushi, sashimi, tempura, and wood-fire grill." />
 <meta name="keywords" content="Japanese izakaya London, Kokin Stratford, modern Japanese cuisine, woodfire Japanese, Daisuke Shimoyama, bluefin tuna London" />
@@ -527,8 +527,8 @@ footer.site-footer{
    Responsive
    ============================================ */
 @media (max-width: 900px) {
-  nav.main-nav{ padding: 1.25rem 1.5rem; }
-  nav.main-nav.scrolled{ padding: 1rem 1.5rem; }
+  nav.main-nav{ padding: calc(1.25rem + env(safe-area-inset-top, 0px)) 1.5rem 1.25rem; }
+  nav.main-nav.scrolled{ padding: calc(1rem + env(safe-area-inset-top, 0px)) 1.5rem 1rem; }
   
   nav.main-nav ul{
     position: fixed;
@@ -541,6 +541,7 @@ footer.site-footer{
     transform: translateX(100%);
     transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
     z-index: 99;
+    padding-top: env(safe-area-inset-top, 0px);
   }
   nav.main-nav ul.open{ transform: translateX(0); }
   /* When mobile menu overlay is open, text is dark on cream background */

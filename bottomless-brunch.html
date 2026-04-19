@@ -1541,7 +1541,7 @@ body.nav-scrolled::before {
       <h2>Three courses, <em>built to share</em>.</h2>
       <p class="ts-sub">A fixed menu across Saturday and Sunday service.</p>
     </div>
-    <ol class="ts-course-list brunch-course-list">
+    <ol class="ts-course-list brunch-course-list" data-live="brunch-menu">
       <li class="ts-course reveal">
         <div class="ts-course-num">一</div>
         <div class="ts-course-body">
@@ -1577,7 +1577,7 @@ body.nav-scrolled::before {
     <div class="drinks-grid">
       <div class="drinks-col reveal">
         <h4 class="drinks-label">Included</h4>
-        <ul class="drinks-list">
+        <ul class="drinks-list" data-live="brunch-drinks-included">
           <li>Soft drinks</li>
           <li>Japanese beers</li>
           <li>Yves Duport sparkling wine</li>
@@ -1588,8 +1588,8 @@ body.nav-scrolled::before {
         </ul>
       </div>
       <div class="drinks-col reveal drinks-premium">
-        <h4 class="drinks-label">Upgrade · <span class="upgrade-price">+£15</span></h4>
-        <ul class="drinks-list">
+        <h4 class="drinks-label">Upgrade · <span class="upgrade-price" data-live-event="Brunch.PremiumUpgrade">+£15</span></h4>
+        <ul class="drinks-list" data-live="brunch-drinks-premium">
           <li>Sake aperol spritz</li>
           <li>Yuzu margarita</li>
           <li>Sake sour</li>
@@ -1618,11 +1618,11 @@ body.nav-scrolled::before {
       <div class="ts-details-card reveal">
         <div class="section-label"><span class="num">04</span> The Details</div>
         <div class="ts-fact-list">
-          <div class="ts-fact"><span class="ts-fact-lbl">When</span><span class="ts-fact-val">Sat &amp; Sun</span></div>
-          <div class="ts-fact"><span class="ts-fact-lbl">Service</span><span class="ts-fact-val">12 – 4pm</span></div>
-          <div class="ts-fact"><span class="ts-fact-lbl">Duration</span><span class="ts-fact-val">90 minutes</span></div>
-          <div class="ts-fact"><span class="ts-fact-lbl">Price</span><span class="ts-fact-val">£65 per person</span></div>
-          <div class="ts-fact"><span class="ts-fact-lbl">Upgrade</span><span class="ts-fact-val">+£15 premium</span></div>
+          <div class="ts-fact"><span class="ts-fact-lbl">When</span><span class="ts-fact-val" data-live-event="Brunch.Days">Sat &amp; Sun</span></div>
+          <div class="ts-fact"><span class="ts-fact-lbl">Service</span><span class="ts-fact-val" data-live-event="Brunch.Hours">12 – 4pm</span></div>
+          <div class="ts-fact"><span class="ts-fact-lbl">Duration</span><span class="ts-fact-val" data-live-event="Brunch.Duration">90 minutes</span></div>
+          <div class="ts-fact"><span class="ts-fact-lbl">Price</span><span class="ts-fact-val" data-live-event="Brunch.Price">£65 per person</span></div>
+          <div class="ts-fact"><span class="ts-fact-lbl">Upgrade</span><span class="ts-fact-val" data-live-event="Brunch.PremiumUpgrade">+£15 premium</span></div>
         </div>
         <p class="ts-fine">Ninety-minute seating. Please let us know ahead of time if there are any dietary requirements.</p>
         <a href="https://www.exploretock.com/kokin-london" class="cta-primary" target="_blank" rel="noopener"><span>Book a table</span></a>
@@ -1630,6 +1630,7 @@ body.nav-scrolled::before {
 
       <div class="ts-faq reveal">
         <div class="section-label"><span class="num">05</span> FAQ</div>
+        <div data-live="faqs" data-faq-page="Brunch">
         <details class="ts-faq-item" open>
           <summary>Can you accommodate dietary requirements?</summary>
           <p>Yes — please let us know in advance when booking. Some dishes can be adapted; others are difficult to substitute (the TEMAE sushi, for example, is built around specific tuna cuts). We'll always do our best to work around what you need.</p>
@@ -1642,6 +1643,7 @@ body.nav-scrolled::before {
           <summary>Can I book brunch for a private group?</summary>
           <p>Yes. We take private group bookings of 8 or more for brunch service — get in touch at <a href="mailto:reservations@kokin.co.uk">reservations@kokin.co.uk</a> with your preferred date and party size.</p>
         </details>
+        </div>
       </div>
     </div>
   </div>
@@ -1744,5 +1746,6 @@ body.nav-scrolled::before {
 })();
 
 </script>
+<script src="kokin-live.js"></script>
 </body>
 </html>

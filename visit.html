@@ -1059,30 +1059,30 @@ body.nav-scrolled::before {
       <div class="jp-sub">所 在 地</div>
       <div class="big-address">
         Kokin Restaurant<br/>
-        7th Floor, The Stratford<br/>
-        20 International Way<br/>
-        London E20 1FD
+        <span data-live-contact="AddressLine1">7th Floor</span>, <span data-live-contact="AddressLine2">The Stratford</span><br/>
+        <span data-live-contact="AddressLine3">20 International Way</span><br/>
+        <span data-live-contact="AddressCity">London</span> <span data-live-contact="AddressPostcode">E20 1FD</span>
       </div>
       <div class="cta-row">
         <a href="https://maps.app.goo.gl/3irW97itfDHkeKet7" class="cta-primary" target="_blank" rel="noopener"><span>Open in Google Maps</span></a>
-        <a href="https://www.exploretock.com/kokin-london" class="cta-secondary" target="_blank" rel="noopener">Reserve via Tock →</a>
+        <a data-live-contact="BookingURL" href="https://www.exploretock.com/kokin-london" class="cta-secondary" target="_blank" rel="noopener">Reserve via Tock →</a>
       </div>
     </div>
     
     <div class="info-cards reveal">
       <div class="info-card">
         <h4>Phone</h4>
-        <div class="primary"><a href="tel:02038020402">020 3802 0402</a></div>
+        <div class="primary"><a data-live-contact="Phone" href="tel:02038020402">020 3802 0402</a></div>
         <div class="secondary">For reservations &amp; enquiries</div>
       </div>
       <div class="info-card">
         <h4>Email</h4>
-        <div class="primary"><a href="mailto:reservations@kokin.co.uk">reservations@kokin.co.uk</a></div>
+        <div class="primary"><a data-live-contact="Email" href="mailto:reservations@kokin.co.uk">reservations@kokin.co.uk</a></div>
         <div class="secondary">General &amp; private events</div>
       </div>
       <div class="info-card">
         <h4>Reserve Online</h4>
-        <div class="primary"><a href="https://www.exploretock.com/kokin-london" target="_blank" rel="noopener">Book via Tock</a></div>
+        <div class="primary"><a data-live-contact="BookingURL" href="https://www.exploretock.com/kokin-london" target="_blank" rel="noopener">Book online</a></div>
         <div class="secondary">Instant confirmation, 24/7</div>
       </div>
       <div class="info-card">
@@ -1109,6 +1109,7 @@ body.nav-scrolled::before {
         <div>Lunch</div>
         <div>Dinner</div>
       </div>
+      <div data-live="hours" style="display: contents;">
       <div class="hours-row closed">
         <div class="day">Monday</div>
         <div class="time">Closed</div>
@@ -1144,6 +1145,7 @@ body.nav-scrolled::before {
         <div class="time">12:00 – 15:00</div>
         <div class="time">18:00 – 22:00</div>
       </div>
+      </div><!-- /data-live="hours" -->
     </div>
   </div>
 </section>
@@ -1284,5 +1286,6 @@ body.nav-scrolled::before {
 })();
 
 </script>
+<script src="kokin-live.js"></script>
 </body>
 </html>

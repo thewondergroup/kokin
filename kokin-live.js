@@ -161,7 +161,7 @@
     rows.sort((a, b) => (parseInt(a.Order) || 0) - (parseInt(b.Order) || 0));
     let html = '';
     rows.forEach(r => {
-      html += '<li class="ts-course reveal">' +
+      html += '<li class="ts-course reveal visible">' +
               '<div class="ts-course-num">' + escapeHtml(r.Kanji) + '</div>' +
               '<div class="ts-course-body">' +
               '<h3>' + escapeHtml(r.Name) + '</h3>' +
@@ -181,7 +181,7 @@
     rows.sort((a, b) => (parseInt(a.Order) || 0) - (parseInt(b.Order) || 0));
     let html = '';
     rows.forEach(r => {
-      html += '<li class="ts-course reveal">' +
+      html += '<li class="ts-course reveal visible">' +
               '<div class="ts-course-num">' + escapeHtml(r.Kanji) + '</div>' +
               '<div class="ts-course-body">' +
               '<h3>' + escapeHtml(r.Name) + '</h3>' +

@@ -21,13 +21,13 @@
   // ---- CONFIG: replace each URL with the published CSV URL for that tab ----
   // To publish a tab: File → Share → Publish to web → select tab → CSV → Publish
   const SHEET_URLS = {
-    hours:        'REPLACE_WITH_HOURS_CSV_URL',
-    contact:      'REPLACE_WITH_CONTACT_CSV_URL',
-    events:       'REPLACE_WITH_EVENTS_CSV_URL',
-    tunaCourses:  'REPLACE_WITH_TUNACOURSES_CSV_URL',
-    brunchMenu:   'REPLACE_WITH_BRUNCHMENU_CSV_URL',
-    brunchDrinks: 'REPLACE_WITH_BRUNCHDRINKS_CSV_URL',
-    faqs:         'REPLACE_WITH_FAQS_CSV_URL'
+    hours:        'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy0U0nxlKNRnDDf3X1kxJAM11wXWX2U1YJfx-wIe2epbxXGBd_JeOOUNFk7kbaby9LxUfbk1YLVjnh/pub?gid=1559040231&single=true&output=csv',
+    contact:      'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy0U0nxlKNRnDDf3X1kxJAM11wXWX2U1YJfx-wIe2epbxXGBd_JeOOUNFk7kbaby9LxUfbk1YLVjnh/pub?gid=2138542153&single=true&output=csv',
+    events:       'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy0U0nxlKNRnDDf3X1kxJAM11wXWX2U1YJfx-wIe2epbxXGBd_JeOOUNFk7kbaby9LxUfbk1YLVjnh/pub?gid=1868984358&single=true&output=csv',
+    tunaCourses:  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy0U0nxlKNRnDDf3X1kxJAM11wXWX2U1YJfx-wIe2epbxXGBd_JeOOUNFk7kbaby9LxUfbk1YLVjnh/pub?gid=1071491185&single=true&output=csv',
+    brunchMenu:   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy0U0nxlKNRnDDf3X1kxJAM11wXWX2U1YJfx-wIe2epbxXGBd_JeOOUNFk7kbaby9LxUfbk1YLVjnh/pub?gid=747801009&single=true&output=csv',
+    brunchDrinks: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy0U0nxlKNRnDDf3X1kxJAM11wXWX2U1YJfx-wIe2epbxXGBd_JeOOUNFk7kbaby9LxUfbk1YLVjnh/pub?gid=1371178894&single=true&output=csv',
+    faqs:         'https://docs.google.com/spreadsheets/d/e/2PACX-1vTy0U0nxlKNRnDDf3X1kxJAM11wXWX2U1YJfx-wIe2epbxXGBd_JeOOUNFk7kbaby9LxUfbk1YLVjnh/pub?gid=2090065718&single=true&output=csv'
   };
 
   // ---- CSV parsing (RFC-4180-ish, handles quoted fields) ----

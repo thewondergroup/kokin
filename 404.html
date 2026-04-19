@@ -63,7 +63,7 @@ h1 {
   font-weight: 300;
   font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.1;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
   color: var(--ink);
 }
 h1 em {
@@ -85,6 +85,61 @@ p {
   gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  max-width: 480px;
+  margin: 0 auto 2.5rem;
+}
+
+.cta-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background: var(--cream);
+  border: 1px solid rgba(28, 23, 19, 0.08);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.cta-card:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+.cta-card:hover .cta-kanji,
+.cta-card:hover .cta-label {
+  color: var(--cream);
+}
+
+.cta-kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--ember);
+  letter-spacing: 0.25em;
+  margin-bottom: 0.75rem;
+  transition: color 0.25s ease;
+}
+
+.cta-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: 1.5rem;
+  color: var(--ink);
+  transition: color 0.25s ease;
+}
+
+@media (max-width: 480px) {
+  .cta-grid { grid-template-columns: 1fr; max-width: 320px; }
+  .cta-card { padding: 1.5rem; }
+  .cta-kanji { font-size: 1.25rem; margin-bottom: 0.5rem; }
+  .cta-label { font-size: 1.25rem; }
 }
 
 a.btn {
@@ -117,19 +172,20 @@ a.btn-secondary:hover {
 }
 
 .quick-links {
-  margin-top: 3rem;
-  font-size: 0.85rem;
-  color: var(--ash);
-  letter-spacing: 0.05em;
+  margin-top: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 .quick-links a {
-  color: var(--ink-soft);
+  color: var(--ash);
   text-decoration: none;
-  margin: 0 0.5rem;
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s ease;
+  transition: all 0.2s ease;
+  padding-bottom: 2px;
 }
 .quick-links a:hover {
+  color: var(--ink);
   border-bottom-color: var(--ember);
 }
 </style>
@@ -137,18 +193,27 @@ a.btn-secondary:hover {
 <body>
 <div class="wrap">
   <div class="logo"><a href="/"><img src="/assets/Kokin-Logo-black.png" alt="Kokin 古今" /></a></div>
-  <div class="kanji">迷 子 · lost</div>
-  <h1>Nothing <em>here</em>.</h1>
-  <p>The page you're looking for has moved or doesn't exist. Head back to the homepage, or jump straight to what you were after.</p>
-  <div class="links">
-    <a href="/" class="btn btn-primary">Back to home</a>
-    <a href="https://www.exploretock.com/kokin-london" class="btn btn-secondary" target="_blank" rel="noopener">Reserve a table</a>
+  <h1>What are you <em>looking for</em>?</h1>
+  <div class="cta-grid">
+    <a href="/menu" class="cta-card">
+      <div class="cta-kanji">献 立</div>
+      <div class="cta-label">Menu</div>
+    </a>
+    <a href="https://www.exploretock.com/kokin-london" class="cta-card" target="_blank" rel="noopener">
+      <div class="cta-kanji">予 約</div>
+      <div class="cta-label">Book a table</div>
+    </a>
+    <a href="/visit" class="cta-card">
+      <div class="cta-kanji">所 在 地</div>
+      <div class="cta-label">Visit</div>
+    </a>
+    <a href="/events" class="cta-card">
+      <div class="cta-kanji">催 し</div>
+      <div class="cta-label">What's on</div>
+    </a>
   </div>
   <div class="quick-links">
-    <a href="/menu">Menu</a> ·
-    <a href="/visit">Visit</a> ·
-    <a href="/events">Events</a> ·
-    <a href="/story">Story</a>
+    <a href="/">Back to home</a>
   </div>
 </div>
 </body>

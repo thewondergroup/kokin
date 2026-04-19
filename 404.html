@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Page not found — Kokin</title>
+<meta name="description" content="The page you're looking for isn't here. Find what you need from the Kokin homepage." />
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/png" href="/assets/Kokin-Logo-black.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bone: #f4ece0;
+  --cream: #faf5ec;
+  --ink: #1c1713;
+  --ink-soft: #3a332c;
+  --ash: #7a6f62;
+  --ember: #b54a1f;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bone);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  line-height: 1.6;
+}
+
+.wrap {
+  max-width: 560px;
+}
+
+.logo {
+  margin-bottom: 3rem;
+}
+.logo img {
+  height: 48px;
+  width: auto;
+}
+
+.kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: var(--ash);
+  letter-spacing: 0.4em;
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--ink);
+}
+h1 em {
+  font-style: italic;
+  color: var(--ember);
+}
+
+p {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  margin-bottom: 2.5rem;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+a.btn {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+a.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+}
+a.btn-primary:hover {
+  background: var(--ember);
+}
+
+a.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+a.btn-secondary:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.quick-links {
+  margin-top: 3rem;
+  font-size: 0.85rem;
+  color: var(--ash);
+  letter-spacing: 0.05em;
+}
+.quick-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.quick-links a:hover {
+  border-bottom-color: var(--ember);
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo"><a href="/"><img src="/assets/Kokin-Logo-black.png" alt="Kokin 古今" /></a></div>
+  <div class="kanji">迷 子 · lost</div>
+  <h1>Nothing <em>here</em>.</h1>
+  <p>The page you're looking for has moved or doesn't exist. Head back to the homepage, or jump straight to what you were after.</p>
+  <div class="links">
+    <a href="/" class="btn btn-primary">Back to home</a>
+    <a href="https://www.exploretock.com/kokin-london" class="btn btn-secondary" target="_blank" rel="noopener">Reserve a table</a>
+  </div>
+  <div class="quick-links">
+    <a href="/menu">Menu</a> ·
+    <a href="/visit">Visit</a> ·
+    <a href="/events">Events</a> ·
+    <a href="/story">Story</a>
+  </div>
+</div>
+</body>
+</html>
